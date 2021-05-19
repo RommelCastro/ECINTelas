@@ -33,6 +33,20 @@ header{
     left: 332.8px;
 }
 
+.dropdownHeader{
+    position: absolute;
+    right: 62.4px;
+}
+
+.btn-dropdown-header{
+    border: 1px solid #FC6A38;
+    width: 142.4px;
+    height: 35.2px;
+    background-color: rgba(255, 255, 255, 0.00);
+    color: white;
+    font-size: x-small;
+}
+
 .nav-item-style{
     color: white;
     border-left-style: solid;
@@ -59,13 +73,13 @@ header{
     min-height: 550px;
     bottom: 0;
     left: 0;
-    top: 145.4px;
+    top: 170.4px;
 }
 
 .card-login{
-    width: 435.2px;
-    height: 439.2px;
-    padding: 20px 50px 30px 50px;
+    width: 337.6px;
+    height: 297.63px;
+    padding: 20px 30px 30px 30px;
     background: rgba(160, 160, 160, 0.08);
     border: 1px solid #D2D2D2;
     box-sizing: border-box;
@@ -76,6 +90,7 @@ header{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
     font-size: medium;
     font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .card-login-text{
@@ -161,9 +176,9 @@ footer{
 }
 
 .divisor{
-    border: 1px solid #939393;
-    width: 130px;
-    margin: 0px 0px 9px 0px;
+    border: 2px thin #939393;
+    width: 350px;
+    margin: 10px 0px 10px 0px;
 }
 
 .divisor-ou{

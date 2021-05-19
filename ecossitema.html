@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+  <script src="https://kit.fontawesome.com/16786d0779.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/ecossistema_2.css">
+
+  <title>Ecossistema Cearense de Inovação</title>
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-dark" style="height: 100%; min-width: 1100px;">
+
+      <!--Logo -->
+      <a href="index.html" class="btnLogo"><img class="logo" src="img\logos\logo-svg.svg"></a>
+
+      <!--Navegação-->
+      <ul class="navbar-nav btnNav">
+        <li class="nav-item">
+          <a type="button" href="ecossistema.html"
+            class="d-flex align-items-center justify-content-start nav-item-style">
+            <i class="fas fa-newspaper"></i>
+            <p class="texto-nav">ECOSSISTEMA</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a type="button" href="como-utilizar.html"
+            class="d-flex align-items-center justify-content-start nav-item-style">
+            <i class="fas fa-chalkboard-teacher"> </i>
+            <p class="texto-nav">COMO UTILIZAR</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a type="button" href="eventos.html" class="d-flex align-items-center justify-content-start nav-item-style">
+            <i class="fas fa-theater-masks"> </i>
+            <p class="texto-nav">EVENTOS</p>
+          </a>
+        </li>
+      </ul>
+
+      <div class="dropdownHeader">
+        <button class="btn-dropdown-header dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          OLÁ, FULANO!
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" type="button">Logar</button>
+          <button class="dropdown-item" type="button">Sair</button>
+        </div>
+      </div>
+
+    </nav>
+  </header>
+
+  <main class="main">
+    <div>
+      <div class="container" style="background: white">
+
+        <div id="divisao1">
+          <img id="img-prop" src="img/sec1-imagem3-min.png" alt="">
+          <!--</div id="img-inicio2" class="d-flex align-items-center justify-content-center">-->
+          <img id="img-logo" src="img\logos\logo-svg.svg">
+          <!--<div>-->
+        </div>
+
+        <div id="divisao2" class="d-flex align-items-center">
+          <div id="divisao2-right">
+            <div id="divisao2-right-top">
+              <p class="topicos-ecossistema">MOTIVAÇÃO</p>
+              <p class="textos-ecossistema">
+                No Ceará existem várias <b>iniciativas de inovação tecnológica</b> surgindo em diversas regiões do
+                estado. Dentre os principais ecossistemas de inovação existentes, pode-se destacar o ecossistema de
+                Fortaleza, o Rapadura Valley, e o ecossistema do Cariri, o Kariri Valley, porém também existem outras
+                iniciativas surgindo em outras regiões do estado, como o ecossistema de Sobral, de Quixadá, de Crateús,
+                entre
+                outros. Na região nordeste, o ecossistema cearense concentra 16% das startups ativas, sendo o terceiro
+                maior da região. Constata-se, assim, a oportunidade em prover de uma solução intrinsecamente
+                <b>colaborativa, open source e de abrangência estadual</b> para geovisualização dos agentes que compõem
+                o ecossistema cearense, tendo em vista o potencial em aproximar os agentes envolvidos e,
+                consequentemente, catalisar parcerias inovadoras no estado.
+              </p>
+            </div>
+
+            <div id="divisao2-right-bot">
+              <p class="topicos-ecossistema">PROPOSTA</p>
+              <p class="textos-ecossistema">
+                O <b>Mapa do Ecossistema de Inovação Cearense</b> é uma plataforma colaborativa, tanto do ponto de vista
+                do desenvolvimento, quanto do seu uso, que objetiva reunir de forma integrada informações sobre
+                <b>participantes e eventos</b>, proporcionando a todos que tem interesse na comunidade cearense uma
+                visão geral do ecossistema de inovação por meio de um <b>mapa interativo e colaborativo</b>.
+              </p>
+            </div>
+          </div>
+          <div id="divisao2-left">
+            <img id="img3-prop" src="img/sec2-min.png" alt="">
+          </div>
+        </div>
+
+        <div id="divisao3" class="d-flex align-items-center">
+          <div id="divisao3-right">
+            <img id="img4-prop" src="img/sec3-min.png" alt="">
+          </div>
+
+          <div id="divisao3-left">
+            <div id="divisao3-left-top">
+              <p class="topicos-ecossistema">DESENVOLVIMENTO</p>
+              <p class="textos-ecossistema">
+                Este projeto foi inicialmente desenvolvido pelo <a href="http://crateus.ufc.br/allysson" target="_blank"
+                  rel="noopener noreferrer">Prof. Allysson Allex Araújo</a> (Universidade Federal do
+                Ceará - Campus de Crateús) e <a href="" target="_blank" rel="noopener noreferrer">Rommel de Castro</a>,
+                com colaboração de <a href="" target="_blank" rel="noopener noreferrer">Pamella Soares</a> como UX/UI
+                designer. Porém, nossa compreensão é que tal ideia seja evoluída e mantida como um projeto
+                <b>colaborativo e open source</b>, inicialmente sob a <a href="" target="_blank"
+                  rel="noopener noreferrer">MIT License</a>, ou seja, de modo que a <b>comunidade tenha liberdade para
+                  contribuir, sugerir e implementar
+                  melhorias</b> conforme necessário.
+              </p>
+            </div>
+            <div id="divisao3-left-bot">
+
+              <div id="divisao3-left-bot-top">
+                <p class="textos-ecossistema"> Saiba mais sobre o projeto <b>Mapa do Ecossistema de Inovação Cearense:</b></p>
+              </div>
+
+              <div id="divisao3-left-bot-bot" class="d-flex justify-content-center">
+                <img id="img5-prop" src="img/sec3-projeto-min.png" alt="">
+                <img id="img6-prop" src="img/sec3-video-min.png" alt="">
+                <img id="img7-prop" src="img/sec3-github-min.png" alt="">
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div id="divisao4">
+          <div class="d-flex align-items-center justify-content-center">
+            <p class="topicos-ecossistema">APOIO</p>
+          </div>
+
+          <div class="d-flex justify-content-center">
+            <img id="img8-prop" src="img/sec4-ufc-cinza-min.png" alt="">
+            <img id="img9-prop" src="img/sec4-uece-cinza-min.png" alt="">
+            <img id="img10-prop" src="img/sec4-gesid-cinza-min.png" alt="">
+            <img id="img11-prop" src="img/sec4-faca-parte-cinza-min.png" alt="">
+          </div>
+        </div>
+
+        <div id="divisao5" class="d-flex align-items-center">
+          <div id="divisao5-right">
+            <p class="topicos-ecossistema">REFERÊNCIAS</p>
+            <p class="textos-ecossistema">
+              Como material de apoio para a realização da categorização dos agentes que fazem parte deste ecossistema,
+              foi utilizado o documento "Mapeamento do Ambiente de Incentivo ao Empreendedorismo no Ceará" elaborado
+              pelo Instituto de Inovação, organizado por Moisés Santos. Para as demarcações das comunidades existentes
+              no mapa, foi utilizado o material do Sebrae/CE.
+              Dentre as diversas iniciativas de mapeamento do ecossistema local que são encontradas no Brasil, pode-se
+              destacar três referências os quais serviram de inspiração para o desenvolvimento deste projeto:
+            </p>
+            <ul class="lista-textos-ecossistema">
+              <li>Mapa da inovação de Minas Gerais, desenvolvido pelo Sistema Mineiro de Inovação (SIMI);</li>
+              <li>Mapa do ecossistema de inovação de Santa Catarina, mapeado pela VIA; e</li>
+              <li>Mapa do ecossistema de inovação de Alagoas, desenvolvido pela Secretaria de Estado da Ciência, da
+                Tecnologia e da Inovação (SECTI) de Alagoas.</li>
+            </ul>
+          </div>
+
+          <div id="divisao5-left">
+            <img id="img12-prop" src="img/sec5-min.png" alt="">
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+    <footer class="footerstyle footer d-flex align-items-center justify-content-center">
+      <div class="div-footer1">
+        <ul>
+          <li>
+            <p style="margin: 0;">Para mais informações, fale conosco através do mapa.inovacao@ufc.br</p>
+          </li>
+          <li><i class="fas fa-envelope fa-lg"></i></li>
+        </ul>
+      </div>
+      <div class="div-footer2">
+        <p style="margin-bottom: 10px;">POLÍTICAS DE PRIVACIDADE</p>
+        <p>TERMOS DE USO</p>
+      </div>
+    </footer>
+  </main>
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyD7mV-NjSQ8dNBQhX6OnHEli-cTL78JTfw",
+      authDomain: "tccv5-3c3e2.firebaseapp.com",
+      databaseURL: "https://tccv5-3c3e2.firebaseio.com",
+      projectId: "tccv5-3c3e2",
+      storageBucket: "tccv5-3c3e2.appspot.com",
+      messagingSenderId: "1057642468733",
+      appId: "1:1057642468733:web:3da625da68085f8a39e814",
+      measurementId: "G-XRDHGX61T2"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <script src="javascript/login.js"></script>
+
+  <script>
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        window.location.href = "index.html";
+      } else {
+      }
+    });
+  </script>
+
+</body>
+
+</html>
