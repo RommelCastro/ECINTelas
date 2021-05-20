@@ -34,7 +34,7 @@ class usuarioDAO{
 	}
 
 	buscar(userId){
-		alert(userId)
+		alert('/Usuario/'+ userId)
 		let usuarioArray = []
 		const rootRef = database.ref('/Usuario/'+ userId);
 		return rootRef.once('value').then(function(snapshot){
