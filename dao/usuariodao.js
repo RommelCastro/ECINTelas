@@ -2,8 +2,6 @@ class usuarioDAO{
 
 	cadastrar(nome, email, password, passwordrepetido){
 		
-		alert("entrou usuariodao")
-
 		if(password === passwordrepetido){
 			firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
 	  	// Handle Errors here.
@@ -34,7 +32,6 @@ class usuarioDAO{
 	}
 
 	buscar(userId){
-		alert('/Usuario/'+ userId)
 		let usuarioArray = []
 		const rootRef = database.ref('/Usuario/'+ userId);
 		return rootRef.once('value').then(function(snapshot){
