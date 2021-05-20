@@ -5,9 +5,10 @@ const storage = firebase.storage();
 let diaEvento
 let horaEvento
 let opcaoBusca = "Nome"
+
 //Objetos DAO
 eventodao = new eventoDAO
-let usuariodao = new usuarioDAO
+usuariodao = new usuarioDAO
 
 //MAIN
 /*firebase.auth().onAuthStateChanged(function (user) {
@@ -34,6 +35,8 @@ let usuariodao = new usuarioDAO
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
 
+    alert("Entrou no if")
+
     usuariodao.buscar(user.uid).then(function(usuario){
 
     alert("user.uid")
@@ -42,7 +45,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById('btn-user').innerHTML =
       `<button class="btn-dropdown-header dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        OLÁ, ${usuario.getNome.toUpperCase()}!
+        OLÁ, ${"usuario.getNome".toUpperCase()}!
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 
