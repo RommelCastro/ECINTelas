@@ -2,6 +2,7 @@
 let selectedFile
 const database = firebase.database();
 const storage = firebase.storage();
+
 let diaEvento
 let horaEvento
 let opcaoBusca = "Nome"
@@ -35,7 +36,7 @@ usuariodao = new usuarioDAO
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    
+
     usuariodao.buscar(user.uid).then(function(usuario){
     usuarioAtual = usuario
     alert(usuarioAtual)
