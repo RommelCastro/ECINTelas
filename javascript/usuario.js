@@ -16,6 +16,7 @@ if(localStorage.getItem('usuarioLogadoKey')){
 }
 
 function identificarUsuario(userId, userlogId) {
+  alert("user: " + userId)
   usuariodao.buscar(userId).then(function(usuario){
     usuarioAtual = usuario
 
