@@ -32,7 +32,9 @@ eventodao = new eventoDAO
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    
+
+    alert(user.uid)
+
     usuariodao.buscar(user.uid).then(function(usuario){
 
     document.getElementById('btn-user').setAttribute("data-status", "logado")
