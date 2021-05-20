@@ -88,7 +88,7 @@ function escolhaBusca(escolha) {
 }
 
 function filtroBusca() {
-  $(".card").remove();
+  $(".card-remove").remove();
 
   let valBarra = document.getElementById('barraBusca').value
 
@@ -104,25 +104,25 @@ function filtroBusca() {
 }
 
 function criarCartoesEventos(evento) {
-  let template = document.querySelector('#cardEventos');
-  let listaEventos = document.querySelector('#listaEventos');
-  let img = template.content.querySelectorAll("img");
-  let titulo = template.content.querySelector("h3");
-  let tipo = template.content.querySelector("h6");
-  let p = template.content.querySelectorAll("p");
-  let a = template.content.querySelectorAll("a");
-
+  let template = document.querySelector('#teplate-eventos');
+  let listaEventos = document.querySelector('#lista-eventos');
+  let img = template.content.querySelectorAll("#img-evento");
+  let titulo = template.content.querySelector("h5");
+  let descricao = template.content.querySelector("#descricao-evento");
+  let datahorario = template.content.querySelector("#data-horario-evento");
+  let endereco = template.content.querySelector("#endereco-evento");
+  let btn = template.content.querySelectorAll("a");
+  
   let imgLink = document.createElement("imgLink");
   imgLink.src = evento.getURL()
 
   img[0].setAttribute("src", evento.getURL())
   titulo.textContent = evento.getNome()
-  tipo.textContent = evento.getSubtipo()
-  p[0].textContent = evento.getDescricao()
-  p[1].innerHTML = "<small class='texto-evento font-weight-bold'>" + evento.getDia() + " - " + evento.getHora() + "</small>"
-  p[2].innerHTML = "<small class='texto-evento font-weight-bold'>" + evento.getLogradouro() + ", " + evento.getNumero() + ", " + evento.getComplemento() + ", " + evento.getBairro() + ", " + evento.getCidade() + "-" + evento.getUF() + ", " + evento.getCEP() + "</small>"
-  a[0].setAttribute("href", "https://" + evento.getSite());
-  a[1].setAttribute("data-key", evento.getMarkerKey());
+  descricao.textContent = evento.getDescricao()
+  datahorario.textContent = `${evento.getDia()} - ${evento.getHora()}`
+  endereco.textContent = `${evento.getLogradouro()}, ${evento.getNumero()}, ${evento.getComplemento()}, ${evento.getBairro()},  ${evento.getCidade()}, ${evento.getUF()}, ${evento.getCEP()}`
+  btn[0].setAttribute("data-key", evento.getMarkerKey());
+  btn[1].setAttribute("href", "https://" + evento.getSite());
 
   listaEventos.appendChild(document.importNode(template.content, true));
 }

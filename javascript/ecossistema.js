@@ -4,21 +4,39 @@ const storage = firebase.storage();
 let eventodao = new eventoDAO;
 
 /////////MAIN//////////////////
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) { 
-    document.getElementById('log').innerHTML = `<i class="fas fa-sign-out-alt"></i>
-    <p style="margin-bottom: 8px;"><small>Sair</small></p>`
-    document.getElementById('log').setAttribute("data-status","logado");
-    document.getElementById('perfil').setAttribute("data-key",user.uid);
-    document.getElementById('perfil').setAttribute("onclick","telaUsuario(this)");
-    localStorage.setItem('usuarioLogadoKey', user.uid)  
-  }else{
-    document.getElementById('log').innerHTML = `<i class="fas fa-sign-in-alt"></i>
-    <p style="margin-bottom: 8px;"><small>Entrar</small></p>`
-    document.getElementById('log').setAttribute("data-status","deslogado");
-    document.getElementById('btn_marker').setAttribute("data-status","deslogado");
-    document.getElementById('perfil').setAttribute("href","login.html");
-    //window.location.href="login.html";
+
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+
+    usuariodao.buscar(user.uid).then(function(usuario){
+    nome = usuario.getNome().split(" ")
+
+    document.getElementById('btn-user').setAttribute("data-status", "logado")
+    document.getElementById('btn-user').innerHTML =
+      `<button class="btn-dropdown-header dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        OLÁ, ${nome[0].toUpperCase()}!
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+        <button class="dropdown-item d-flex align-items-center justify-content-start" type="button">
+          <i class="fas fa-user-circle icon-prop-usuario"></i>
+          <p class="texto-usuario">MEU PERFIL</p>
+        </button>
+
+        <button class="dropdown-item d-flex align-items-center justify-content-start" type="button">
+          <i class="fas fa-sign-in-alt icon-prop-usuario"></i>
+          <p class="texto-usuario">SAIR</p>
+        </button>
+      </div>`
+    })
+  } else {
+    document.getElementById('btn-user').setAttribute("data-status", "deslogado")
+    document.getElementById('btn-user').innerHTML =
+    ` <a type="button" href="login.html" class="d-flex align-items-center justify-content-center btn-login">
+        <i class="fas fa-sign-in-alt icon-prop"></i>
+        <p class="texto-btn-login">LOGIN</p>
+      </a>`
   }
 });
 

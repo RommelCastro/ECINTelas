@@ -25,6 +25,10 @@
 
   <link rel="stylesheet" type="text/css" href="css/ecossistema_2.css">
 
+  <script src="model/evento.js"></script>
+
+  <script src="dao/eventodao.js"></script>
+
   <title>Ecossistema Cearense de Inovação</title>
 </head>
 
@@ -62,15 +66,11 @@
         </li>
       </ul>
 
-      <div class="dropdownHeader">
-        <button class="btn-dropdown-header dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          OLÁ, FULANO!
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button">Logar</button>
-          <button class="dropdown-item" type="button">Sair</button>
-        </div>
+      <div id="btn-user" class="dropdownHeader">
+        <!--<button type="button" href="login.html" class="d-flex align-items-center justify-content-center btn-login">
+          <i class="fas fa-sign-in-alt icon-prop"></i>
+          <p class="texto-btn-login">LOGIN</p>
+        </button>-->
       </div>
 
     </nav>
@@ -147,9 +147,17 @@
               </div>
 
               <div id="divisao3-left-bot-bot" class="d-flex justify-content-center">
-                <img id="img5-prop" src="img/sec3-projeto-min.png" alt="">
-                <img id="img6-prop" src="img/sec3-video-min.png" alt="">
-                <img id="img7-prop" src="img/sec3-github-min.png" alt="">
+                <img id="img5-prop" src="img/sec3-projeto-min.png" 
+                onmouseout="this.src='img/sec3-projeto-min.png';"
+                onmouseover="this.src='img/sec3-projeto-hover-min.png';">
+
+                <img id="img6-prop" src="img/sec3-video-min.png" 
+                onmouseout="this.src='img/sec3-video-min.png';"
+                onmouseover="this.src='img/sec3-video-hover-min.png';">
+
+                <img id="img7-prop" src="img/sec3-github-min.png" 
+                onmouseout="this.src='img/sec3-github-min.png';"
+                onmouseover="this.src='img/sec3-github-hover-min.png';">
               </div>
             </div>
 
@@ -162,10 +170,22 @@
           </div>
 
           <div class="d-flex justify-content-center">
-            <img id="img8-prop" src="img/sec4-ufc-cinza-min.png" alt="">
-            <img id="img9-prop" src="img/sec4-uece-cinza-min.png" alt="">
-            <img id="img10-prop" src="img/sec4-gesid-cinza-min.png" alt="">
-            <img id="img11-prop" src="img/sec4-faca-parte-cinza-min.png" alt="">
+            <img id="img8-prop" src="img/sec4-ufc-cinza-min.png" 
+            onmouseout="this.src='img/sec4-ufc-cinza-min.png';"
+            onmouseover="this.src='img/sec4-ufc-min.png';">
+
+            <img id="img9-prop" src="img/sec4-uece-cinza-min.png" 
+            onmouseout="this.src='img/sec4-uece-cinza-min.png';"
+            onmouseover="this.src='img/sec4-uece-min.png';">
+
+            <img id="img10-prop" src="img/sec4-gesid-cinza-min.png" 
+            onmouseout="this.src='img/sec4-gesid-cinza-min.png';"
+            onmouseover="this.src='img/sec4-gesid-min.png';">
+
+            <img id="img11-prop" src="img/sec4-faca-parte-cinza-min.png" 
+            onmouseout="this.src='img/sec4-faca-parte-cinza-min.png';"
+            onmouseover="this.src='img/sec4-faca-parte-min.png';">
+
           </div>
         </div>
 
@@ -252,16 +272,7 @@
     firebase.initializeApp(firebaseConfig);
   </script>
 
-  <script src="javascript/login.js"></script>
-
-  <script>
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        window.location.href = "index.html";
-      } else {
-      }
-    });
-  </script>
+  <script src="javascript/ecossistema.js"></script>
 
 </body>
 
