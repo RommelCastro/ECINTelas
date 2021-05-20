@@ -7,7 +7,7 @@ let diaEvento
 let horaEvento
 let opcaoBusca = "Nome"
 let usuarioAtual
-let nome
+let nome = []
 
 //Objetos DAO
 eventodao = new eventoDAO
@@ -43,7 +43,6 @@ firebase.auth().onAuthStateChanged(function (user) {
     nome = usuarioAtual.split(" ")
     alert(nome[1])
 
-    
     document.getElementById('btn-user').setAttribute("data-status", "logado")
     document.getElementById('btn-user').innerHTML =
       `<button class="btn-dropdown-header dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
