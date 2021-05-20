@@ -32,11 +32,14 @@ eventodao = new eventoDAO
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
+    
+    usuariodao.buscar(user.uid).then(function(usuario){
+
     document.getElementById('btn-user').setAttribute("data-status", "logado")
     document.getElementById('btn-user').innerHTML =
       `<button class="btn-dropdown-header dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        OLÁ, ${user.getNome.toUpperCase()}!
+        OLÁ, ${usuario.getNome.toUpperCase()}!
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 
@@ -50,13 +53,14 @@ firebase.auth().onAuthStateChanged(function (user) {
           <p class="texto-usuario">SAIR</p>
         </button>
       </div>`
+    })
   } else {
     document.getElementById('btn-user').setAttribute("data-status", "deslogado")
     document.getElementById('btn-user').innerHTML =
-    ` <button type="button" href="login.html" class="d-flex align-items-center justify-content-center btn-login">
+    ` <a type="button" href="login.html" class="d-flex align-items-center justify-content-center btn-login">
         <i class="fas fa-sign-in-alt icon-prop"></i>
         <p class="texto-btn-login">LOGIN</p>
-      </button>`
+      </a>`
   }
 });
 
