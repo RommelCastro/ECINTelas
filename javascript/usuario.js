@@ -4,6 +4,7 @@ const storage = firebase.storage();
 let usuarioLogadoKey;
 let usuarioKey;
 let usuarioAtual
+
 //ObjetosDAO
 let usuariodao = new usuarioDAO
 

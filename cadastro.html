@@ -74,7 +74,7 @@
               <p id="card-login-title" class="d-flex justify-content-center">CADASTRO</p>
 
               <div class="form-group col-12">
-                <label class="card-login-text" for="exampleInputEmail1">E-MAIL</label>
+                <label class="card-login-text" for="exampleInputEmail1">NOME</label>
                 <input type="text" class="card-login-form" id="inlineFormInput" placeholder="Digite seu nome">
               </div>
 
@@ -82,7 +82,6 @@
                 <label class="card-login-text" for="exampleInputEmail1">E-MAIL</label>
                 <input type="email" class="card-login-form" id="email_field" aria-describedby="emailHelp"
                   placeholder="Digite seu e-mail">
-                <!--<small id="emailHelp" class="form-text text-muted">Nunca compartilhe seu email com ninguém.</small>-->
               </div>
 
               <div class="form-group col-12">
@@ -92,15 +91,12 @@
 
               <div class="form-group col-12">
                 <label class="card-login-text" for="exampleInputPassword1">REPETIR SENHA</label>
-                <input type="password" class="card-login-form" id="password_field" placeholder="Digite novamente sua senha">
+                <input type="password" class="card-login-form" id="password_field"
+                  placeholder="Digite novamente sua senha">
               </div>
 
-              <!--<div class="form-group form-check ml-3">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Me mantenha logado</label>
-                      </div>-->
               <div class="d-flex justify-content-center">
-                <button type="button" class="btn-entrar" data-local="enviar" onclick="login()">ENTRAR</button>
+                <button type="button" class="btn-entrar" data-local="enviar" onclick="Cadastro()">CADASTRAR</button>
               </div>
 
             </div>
@@ -125,8 +121,6 @@
         </div>
       </div>
     </div>
-
-    <!--<div class="margemInferior"></div>-->
 
     <footer class="footerstyle footer d-flex align-items-center justify-content-center">
       <div class="div-footer1">
@@ -182,14 +176,11 @@
 
   <script src="javascript/login.js"></script>
 
-  <script>
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        window.location.href = "index.html";
-      } else {
-      }
-    });
-  </script>
+  <script src="javascript/cadastro.js"></script>
+
+  <script src="model/usuario.js"></script>
+
+  <script src="dao/usuariodao.js"></script>
 
 </body>
 

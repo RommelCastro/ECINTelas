@@ -1,6 +1,6 @@
 class usuarioDAO{
 
-	cadastrar(nome, sexo, email, password, passwordrepetido){
+	cadastrar(nome, email, password, passwordrepetido){
 
 		if(password === passwordrepetido){
 			firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
@@ -14,16 +14,15 @@ class usuarioDAO{
 		}else{alert("As senhas estão diferentes")}
 	}
 
-	salvar(nome,sexo,email){
+	salvar(nome,email){
 		//let storageRef = storage.ref('/arquivos/'+uploader1SelectedFile.name); // Define o caminho onde será guardada a imagem no storage
     	//let uploadTask = storageRef.put(uploader1SelectedFile); // guarda a imagem no storage
       
-    	const rootRef = database.ref('/Usuario'); // define onse sera armazenada a imagem no database
+    	const rootRef = database.ref('/Usuario'); // define onde sera armazenada a imagem no database
      	//uploadTask.on('state_changed', function(snapshot){ //entra empre que o status mudar
         //uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {//Captura o URL da imagem upada no storage
           rootRef.child(firebase.auth().currentUser.uid).set({//guarda as nformações no database/
           	Nome: nome,
-          	Sexo: sexo,
           	Email: email,
           })
           //window.location.href="index.html";
@@ -36,7 +35,7 @@ class usuarioDAO{
 		let usuarioArray = []
 		const rootRef = database.ref('/Usuario/'+ userId);
 		return rootRef.once('value').then(function(snapshot){
-			let usuario = new Usuario(snapshot.val().Nome, snapshot.val().Email, snapshot.val().Sexo)
+			let usuario = new Usuario(snapshot.val().Nome, snapshot.val().Email)
 			usuarioArray.push(usuario)
 			return usuario
 		})

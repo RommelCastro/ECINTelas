@@ -22,11 +22,7 @@
 
   <link rel="stylesheet" type="text/css" href="css/estilo.css">
 
-  <script src="model/usuario.js"></script>
-  
-  <script src="dao/usuariodao.js"></script>
-
-  <title>Rapadura Valley - Ecosistema de Inovação de Fortaleza</title>
+  <title>Ecossistema Cearense de Inovação</title>
 </head>
 
 <body style="display: flex; flex-direction: column;min-height: 100%;height: 100%; width: 100%; background-color:#FAFAFA;">
@@ -91,78 +87,60 @@
   <div class="card">
     <div class="card-body">
       <form>
-        <h5 class="d-flex justify-content-center font-weight-bold">Cadastro de usuário</h5>
-
-        <div class="form-group col-12">
-          <label for="exampleInputEmail1">Nome</label>
-          <input type="name" class="form-control" id="cadastroNome" aria-describedby="emailHelp">
+        <div>
+          <h5 class="d-flex justify-content-center font-weight-bold">Login</h5>
+          <div class="form-group col-12">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" id="email_field" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">Nunca compartilhe seu email com ninguém.</small>
+          </div>
+          <div class="form-group col-12">
+            <label for="exampleInputPassword1">Senha</label>
+            <input type="password" class="form-control" id="password_field">
+          </div>
+                  <!--<div class="form-group form-check ml-3">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Me mantenha logado</label>
+                  </div>-->
+                  <button type="button" class="btn btn-submit ml-3" data-local="enviar" onclick="login()">Enviar</button>
+                </div>
+                <div class="dropdown-divider"></div>
+                <small class="form-row d-flex justify-content-center">
+                  <p class="" href="">Não possui cadastro?</p><a class="ml-1" href="cadastro.html">Cadastre-se</a>
+                </small>
+              </form>
+            </div>
+          </div>
         </div>
 
-        <div class="form-group col-12">
-          <label for="inputState">Sexo</label>
-          <select id="cadastroSexo" class="form-control">
-            <option selected disabled>Escolha..</option>
-            <option>Masculino</option>
-            <option>Feminino</option>
-          </select>
-        </div>
+        <footer class="footerstyle">
+          <div class="d-flex justify-content-center"> 
+            <a class="mr-3" style="font-size: 20px;color: #ddd;" href="https://www.facebook.com/sharer/sharer.php?u=https://ecin.netlify.app/index.html" target="_blank" title="Compartilhar no Facebook"><i class="fa fa-facebook"></i>
+            </a>
 
-        <div class="form-group col-12">
-          <label for="exampleInputEmail1">Email</label>
-          <input type="email" class="form-control" id="cadastroEmail" aria-describedby="emailHelp">
-        </div>
+            <a class="mr-3" style="font-size: 20px;color: #ddd;" href="http://www.linkedin.com/shareArticle?mini=true&url=https://ecin.netlify.app/index.html&title=Botões de compartilhamento"  target="_blank" title="Compartilhar no LinkedIn"> <i class="fa fa-linkedin"></i>
+            </a>
 
-        <div class="form-group col-12">
-          <label for="exampleInputPassword1">Senha</label>
-          <input type="password" class="form-control" id="cadastroPassword">
-        </div>
+            <a style="font-size: 20px;color: #ddd;" href="http://twitter.com/share?text=Botões de compartilhamento&url=https://ecin.netlify.app/index.html"  target="_blank" data-role="shareLink" title="Compartilhar no Twitter"><i class="fa fa-twitter"></i>
+            </a>
+          </div>
+        </footer>
 
-        <div class="form-group col-12">
-          <label for="exampleInputPassword1">Repita a Senha</label>
-          <input type="password" class="form-control" id="cadastroRepeatPassword">
-        </div>
-      </form>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-      <button id="btnCadastrar" type="button" class="btn btn-submit" onclick="Cadastro()">Cadastrar</button>
-
-      <div class="dropdown-divider"></div>
-
-      <small class="form-row d-flex justify-content-center">
-       <p class="" href="">já possui cadastro?</p><a class="ml-1" href="login.html">Acesse as funções do nosso mapa interativo</a>
-     </small>
-   </div>
- </div>
-</div>
-
-  <footer class="footerstyle">
-    <div class="d-flex justify-content-center"> 
-      <a class="mr-3" style="font-size: 20px;color: #ddd;" href="https://www.facebook.com/sharer/sharer.php?u=https://ecin.netlify.app/index.html" target="_blank" title="Compartilhar no Facebook"><i class="fa fa-facebook"></i>
-      </a>
-
-      <a class="mr-3" style="font-size: 20px;color: #ddd;" href="http://www.linkedin.com/shareArticle?mini=true&url=https://ecin.netlify.app/index.html&title=Botões de compartilhamento"  target="_blank" title="Compartilhar no LinkedIn"> <i class="fa fa-linkedin"></i>
-      </a>
-
-      <a style="font-size: 20px;color: #ddd;" href="http://twitter.com/share?text=Botões de compartilhamento&url=https://ecin.netlify.app/index.html"  target="_blank" data-role="shareLink" title="Compartilhar no Twitter"><i class="fa fa-twitter"></i>
-      </a>
-    </div>
-  </footer>
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
 
-<script>
+        <script>
       // Your web app's Firebase configuration
       var firebaseConfig = {
         apiKey: "AIzaSyD7mV-NjSQ8dNBQhX6OnHEli-cTL78JTfw",
@@ -178,8 +156,16 @@
       firebase.initializeApp(firebaseConfig);
     </script>
 
-    <script src="javascript/cadastro.js"></script>
     <script src="javascript/login.js"></script>
+    
+    <script>
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) { 
+          window.location.href="index.html";
+        } else {
+        }
+      });
+    </script>
 
   </body>
   </html>
