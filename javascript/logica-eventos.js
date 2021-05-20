@@ -36,7 +36,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     usuariodao.buscar(user.uid).then(function(usuario){
 
-    alert(user.uid)
+    alert("user.uid")
 
     document.getElementById('btn-user').setAttribute("data-status", "logado")
     document.getElementById('btn-user').innerHTML =
