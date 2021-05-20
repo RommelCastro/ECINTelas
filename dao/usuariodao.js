@@ -34,12 +34,12 @@ class usuarioDAO{
 	}
 
 	buscar(userId){
-			alert("asdad")
 		let usuarioArray = []
 		const rootRef = database.ref('/Usuario/'+ userId);
 		return rootRef.once('value').then(function(snapshot){
 			let usuario = new Usuario(snapshot.val().Nome, snapshot.val().Email)
 			usuarioArray.push(usuario)
+			alert("Entrou no usuario DAO" + usuario)
 			return usuario
 		})
 	}

@@ -5,6 +5,7 @@ const storage = firebase.storage();
 let diaEvento
 let horaEvento
 let opcaoBusca = "Nome"
+let usuarioAtual
 
 //Objetos DAO
 eventodao = new eventoDAO
@@ -38,8 +39,8 @@ firebase.auth().onAuthStateChanged(function (user) {
     alert(user.uid)
 
     usuariodao.buscar(user.uid).then(function(usuario){
-
-    alert("user.uid")
+    usuarioAtual = usuario
+    alert(usuarioAtual)
 
     document.getElementById('btn-user').setAttribute("data-status", "logado")
     document.getElementById('btn-user').innerHTML =
