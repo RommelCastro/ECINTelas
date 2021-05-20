@@ -35,9 +35,7 @@ usuariodao = new usuarioDAO
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-
-    alert(user.uid)
-
+    
     usuariodao.buscar(user.uid).then(function(usuario){
     usuarioAtual = usuario
     alert(usuarioAtual)
