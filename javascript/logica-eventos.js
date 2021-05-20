@@ -35,7 +35,7 @@ usuariodao = new usuarioDAO
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
 
-    alert("Entrou no if")
+    alert(user.uid)
 
     usuariodao.buscar(user.uid).then(function(usuario){
 
