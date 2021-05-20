@@ -7,6 +7,7 @@ let horaEvento
 let opcaoBusca = "Nome"
 //Objetos DAO
 eventodao = new eventoDAO
+let usuariodao = new usuarioDAO
 
 //MAIN
 /*firebase.auth().onAuthStateChanged(function (user) {
@@ -33,9 +34,9 @@ eventodao = new eventoDAO
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
 
-    alert(user.uid)
-
     usuariodao.buscar(user.uid).then(function(usuario){
+
+    alert(user.uid)
 
     document.getElementById('btn-user').setAttribute("data-status", "logado")
     document.getElementById('btn-user').innerHTML =
