@@ -1,6 +1,8 @@
 class usuarioDAO{
 
 	cadastrar(nome, email, password, passwordrepetido){
+		
+		alert("entrou usuariodao")
 
 		if(password === passwordrepetido){
 			firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {

@@ -32,5 +32,7 @@ function Cadastro() {
 	let password = document.getElementById('cadastroPassword').value
 	let passwordrepetido = document.getElementById('cadastroRepeatPassword').value
 
+	alert(usuariodao)
+
 	usuariodao.cadastrar(nome, email, password, passwordrepetido)
 }

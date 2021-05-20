@@ -25,6 +25,10 @@
 
   <link rel="stylesheet" type="text/css" href="css/evento.css">
 
+  <script src="model/evento.js"></script>
+
+  <script src="dao/eventodao.js"></script>
+
   <title>Ecossistema Cearense de Inovação</title>
 </head>
 
@@ -84,17 +88,34 @@
         </div>
       </form>
 
-      <div class="dropdownHeader">
+      <!--<div class="dropdownHeader">
         <button class="btn-dropdown-header dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          OLÁ, FULANO!
+          OLÁ, ${'user.getNome'.toUpperCase()}!
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button">Logar</button>
-          <button class="dropdown-item" type="button">Sair</button>
-        </div>
 
+
+          <button class="dropdown-item d-flex align-items-center justify-content-start" type="button">
+            <i class="fas fa-user-circle icon-prop-usuario"></i>
+            <p class="texto-usuario">MEU PERFIL</p>
+          </button>
+
+
+          <button class="dropdown-item d-flex align-items-center justify-content-start" type="button">
+            <i class="fas fa-sign-in-alt icon-prop-usuario"></i>
+            <p class="texto-usuario">SAIR</p>
+          </button>
+        </div>
+      </div>-->
+
+     <div id="btn-user" class="dropdownHeader">
+        <!--<button type="button" href="login.html" class="d-flex align-items-center justify-content-center btn-login">
+          <i class="fas fa-sign-in-alt icon-prop"></i>
+          <p class="texto-btn-login">LOGIN</p>
+        </button>-->
       </div>
+
     </nav>
   </header>
 
@@ -108,45 +129,45 @@
 
     <ul id="lista-eventos">
       <!---<template id="teplate-eventos">-->
-        <!--Inicio do cartão de eventos-->
-        <div class="d-flex align-items-center justify-content-center">
-          <div>
-            <div class="card-evento">
+      <!--Inicio do cartão de eventos-->
+      <div class="d-flex align-items-center justify-content-center">
+        <div>
+          <div class="card-evento">
 
-              <div class="card-evento-A">
-                <img id="img-evento" src="">
-              </div>
+            <div class="card-evento-A">
+              <img id="img-evento" src="">
+            </div>
 
-              <div class="card-evento-B">
-                <h5 id="titulo-evento">TITULO DO EVENTO</h5>
+            <div class="card-evento-B">
+              <h5 id="titulo-evento">TITULO DO EVENTO</h5>
 
-                <p id="descricao-evento">
-                  DESCRIÇÃO DO EVENTO
-                </p>
+              <p id="descricao-evento">
+                DESCRIÇÃO DO EVENTO
+              </p>
 
-                <div>
-                  <div id="conteudo-evento-A">
-                    <div class="d-flex align-items-center justify-content-start dados-evento">
-                      <i class="fas fa-map-marker-alt"></i>
-                      <p>DATA - HORÁRIO</p>
-                    </div>
-
-                    <div style="margin-top: 5px;" class="d-flex align-items-center justify-content-start dados-evento">
-                      <i class="fas fa-calendar-alt"></i>
-                      <p>Rua, NUMERO, COMPLEMENTO , BAIRRO, CIDADE, CEP</p>
-                    </div>
+              <div>
+                <div id="conteudo-evento-A">
+                  <div class="d-flex align-items-center justify-content-start dados-evento">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>DATA - HORÁRIO</p>
                   </div>
 
-                  <div id="conteudo-evento-B" class="d-flex align-items-end">
-                    <button type="button" class="btn-evento1" data-local="enviar" onclick="">Ver no mapa</button>
-                    <button type="button" class="btn-evento2" data-local="enviar" onclick="">Site do evento</button>
+                  <div style="margin-top: 5px;" class="d-flex align-items-center justify-content-start dados-evento">
+                    <i class="fas fa-calendar-alt"></i>
+                    <p>Rua, NUMERO, COMPLEMENTO , BAIRRO, CIDADE, CEP</p>
                   </div>
-
                 </div>
+
+                <div id="conteudo-evento-B" class="d-flex align-items-end">
+                  <button type="button" class="btn-evento1" data-local="enviar" onclick="">Ver no mapa</button>
+                  <button type="button" class="btn-evento2" data-local="enviar" onclick="">Site do evento</button>
+                </div>
+
               </div>
             </div>
           </div>
         </div>
+      </div>
       <!---</template>-->
     </ul>
 
@@ -202,16 +223,9 @@
     firebase.initializeApp(firebaseConfig);
   </script>
 
-  <script src="javascript/login.js"></script>
+  <script src="javascript/logica-eventos.js"></script>
 
-  <script>
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        window.location.href = "index.html";
-      } else {
-      }
-    });
-  </script>
+  <script src="javascript/login.js"></script>
 
 </body>
 

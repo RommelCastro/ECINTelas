@@ -4,62 +4,96 @@ const database = firebase.database();
 const storage = firebase.storage();
 let diaEvento
 let horaEvento
-let opcaoBusca="Nome"
+let opcaoBusca = "Nome"
 //Objetos DAO
 eventodao = new eventoDAO
 
 //MAIN
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) { 
+/*firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
     document.getElementById('log').innerHTML = `<i class="fas fa-sign-out-alt"></i>
     <p style="margin-bottom: 8px;"><small>Sair</small></p>`
-    document.getElementById('log').setAttribute("data-status","logado");
-    document.getElementById('perfil').setAttribute("data-key",user.uid);
-    document.getElementById('perfil').setAttribute("onclick","telaUsuario(this)");
+    document.getElementById('log').setAttribute("data-status", "logado");
+
+    document.getElementById('perfil').setAttribute("data-key", user.uid);
+    document.getElementById('perfil').setAttribute("onclick", "telaUsuario(this)");
+
     localStorage.setItem('usuarioLogadoKey', user.uid)
-  }else{
+
+  } else {
     document.getElementById('log').innerHTML = `<i class="fas fa-sign-in-alt"></i>
     <p style="margin-bottom: 8px;"><small>Entrar</small></p>`
-    document.getElementById('log').setAttribute("data-status","deslogado");
-    document.getElementById('btn_marker').setAttribute("data-status","deslogado");
-    document.getElementById('perfil').setAttribute("href","login.html");
+    document.getElementById('log').setAttribute("data-status", "deslogado");
+    document.getElementById('btn_marker').setAttribute("data-status", "deslogado");
+    document.getElementById('perfil').setAttribute("href", "login.html");
     //window.location.href="login.html";
   }
+});*/
+
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    document.getElementById('btn-user').setAttribute("data-status", "logado")
+    document.getElementById('btn-user').innerHTML =
+      `<button class="btn-dropdown-header dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        OLÁ, ${user.getNome.toUpperCase()}!
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+        <button class="dropdown-item d-flex align-items-center justify-content-start" type="button">
+          <i class="fas fa-user-circle icon-prop-usuario"></i>
+          <p class="texto-usuario">MEU PERFIL</p>
+        </button>
+
+        <button class="dropdown-item d-flex align-items-center justify-content-start" type="button">
+          <i class="fas fa-sign-in-alt icon-prop-usuario"></i>
+          <p class="texto-usuario">SAIR</p>
+        </button>
+      </div>`
+  } else {
+    document.getElementById('btn-user').setAttribute("data-status", "deslogado")
+    document.getElementById('btn-user').innerHTML =
+    ` <button type="button" href="login.html" class="d-flex align-items-center justify-content-center btn-login">
+        <i class="fas fa-sign-in-alt icon-prop"></i>
+        <p class="texto-btn-login">LOGIN</p>
+      </button>`
+  }
 });
+
 //***********CÓDIGO LOGIN FIM****************//
 
-document.getElementById('barraBusca').value=''
+document.getElementById('barraBusca').value = ''
 filtroBusca();
 //criarCartoesEventos();
 
 //FUNÇÕES DA PAGINA
 
-function passarEventoKey(datakey){
+function passarEventoKey(datakey) {
   localStorage.setItem('eventoMarker', datakey.getAttribute("data-key"));
 }
 
-function escolhaBusca(escolha){
+function escolhaBusca(escolha) {
   opcaoBusca = escolha.getAttribute("data-tipo");
-  document.getElementById('barraBusca').setAttribute("placeholder",`Tipo de Busca: por ${escolha.getAttribute("data-texto")}`)
+  document.getElementById('barraBusca').setAttribute("placeholder", `Tipo de Busca: por ${escolha.getAttribute("data-texto")}`)
 }
 
-function filtroBusca(){
+function filtroBusca() {
   $(".card").remove();
 
   let valBarra = document.getElementById('barraBusca').value
 
-  if(valBarra != ''){
-    eventodao.buscarPorNome(opcaoBusca, valBarra).then(function(evento){
+  if (valBarra != '') {
+    eventodao.buscarPorNome(opcaoBusca, valBarra).then(function (evento) {
       evento.forEach(criarCartoesEventos)
     })
-  }else{
-    eventodao.varredura().then(function(evento){
+  } else {
+    eventodao.varredura().then(function (evento) {
       evento.forEach(criarCartoesEventos)
-    })    
+    })
   }
 }
 
-function criarCartoesEventos(evento){
+function criarCartoesEventos(evento) {
   let template = document.querySelector('#cardEventos');
   let listaEventos = document.querySelector('#listaEventos');
   let img = template.content.querySelectorAll("img");
@@ -75,21 +109,21 @@ function criarCartoesEventos(evento){
   titulo.textContent = evento.getNome()
   tipo.textContent = evento.getSubtipo()
   p[0].textContent = evento.getDescricao()
-  p[1].innerHTML = "<small class='texto-evento font-weight-bold'>"+evento.getDia()+" - "+evento.getHora()+"</small>"
-  p[2].innerHTML = "<small class='texto-evento font-weight-bold'>"+evento.getLogradouro()+", "+evento.getNumero()+", "+evento.getComplemento()+", "+evento.getBairro()+", "+evento.getCidade()+"-"+evento.getUF()+", "+evento.getCEP()+"</small>"
-  a[0].setAttribute("href","https://"+ evento.getSite());
+  p[1].innerHTML = "<small class='texto-evento font-weight-bold'>" + evento.getDia() + " - " + evento.getHora() + "</small>"
+  p[2].innerHTML = "<small class='texto-evento font-weight-bold'>" + evento.getLogradouro() + ", " + evento.getNumero() + ", " + evento.getComplemento() + ", " + evento.getBairro() + ", " + evento.getCidade() + "-" + evento.getUF() + ", " + evento.getCEP() + "</small>"
+  a[0].setAttribute("href", "https://" + evento.getSite());
   a[1].setAttribute("data-key", evento.getMarkerKey());
 
-  listaEventos.appendChild(document.importNode(template.content,true));  
+  listaEventos.appendChild(document.importNode(template.content, true));
 }
 
-function telaUsuario(componente){
+function telaUsuario(componente) {
   let status = $("#log").attr("data-status");
-  if(status==="logado"){
+  if (status === "logado") {
 
-    window.location = "usuario.html?"+ componente.getAttribute("data-key")
+    window.location = "usuario.html?" + componente.getAttribute("data-key")
   }
-  else{
-    window.location.href="login.html"
+  else {
+    window.location.href = "login.html"
   }
 }
