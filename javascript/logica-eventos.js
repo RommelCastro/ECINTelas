@@ -40,13 +40,13 @@ firebase.auth().onAuthStateChanged(function (user) {
     usuariodao.buscar(user.uid).then(function(usuario){
     usuarioAtual = usuario
 
-    alert(usuario)
+    alert(usuario.getNome())
     
     document.getElementById('btn-user').setAttribute("data-status", "logado")
     document.getElementById('btn-user').innerHTML =
       `<button class="btn-dropdown-header dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        OLÁ, ${usuarioAtual.getNome.toUpperCase()}!
+        OLÁ, ${usuarioAtual.getNome().toUpperCase()}!
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 
