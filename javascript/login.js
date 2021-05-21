@@ -33,8 +33,8 @@ function usuarioLogado(){
 }
 
 function gerenciarEntradaSaida(){
-  document.getElementById('log').getAttribute("data-status");
-  if (document.getElementById('log').getAttribute("data-status")==="logado"){
+  document.getElementById('btn-user').getAttribute("data-status");
+  if (document.getElementById('btn-user').getAttribute("data-status")==="logado"){
     logout()
     alert("Você está deslogado")
   }else{
