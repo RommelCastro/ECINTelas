@@ -4,7 +4,7 @@ let usuariodao = new usuarioDAO
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    alert("entrou aqui")
+    
     usuariodao.buscar(user.uid).then(function(usuario){
     nome = usuario.getNome().split(" ")
     

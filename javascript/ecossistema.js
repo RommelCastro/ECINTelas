@@ -1,7 +1,6 @@
 const database = firebase.database();
 const storage = firebase.storage();
 //Objeto DAO
-let eventodao = new eventoDAO;
 
 /////////MAIN//////////////////
 
