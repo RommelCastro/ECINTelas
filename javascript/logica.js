@@ -24,7 +24,6 @@ const storage = firebase.storage();
 let entidadedao = new entidadeDAO;
 let eventodao = new eventoDAO;
 let comunidadedao = new comunidadeDAO;
-let usuariodao = new usuarioDAO;
 
 let markerIcon = L.Icon.extend({
   options: {  
@@ -158,10 +157,9 @@ function chamaBarraOculta(componente){ //Abre a barra de cartões
     permissao = false
 
     $(".card").remove(); 
-
-    $('#location-map').removeClass('col-10')
-    $('#location-map').addClass('col-7')
-    $('#janela_oculta').attr('style', 'padding: 0; height:100%; display: all;')
+    //$('#location-map').removeClass('col-10')
+    //$('#location-map').addClass('col-7')
+    $('#janela_oculta').attr('style', 'display: all;')
 
     document.getElementById('contBusca').value = '' //Zera o valor da barra de busca
     document.getElementById('botaoBusca').setAttribute("data-tipo", componente.getAttribute("data-tipo")); // Atribui a tipo da opção selecionada ao botão de busca
@@ -204,17 +202,16 @@ function cartaoEntidade(entidade, nomeUser){
   let template = document.querySelector('#cartaoEmpresa');
   let cartao = document.querySelector('#cartao');
   let img = template.content.querySelector("img");
-  let h5 = template.content.querySelector("h5");
-  let p = template.content.querySelectorAll("p");
-  let taga = template.content.querySelectorAll("a");
+  let titulo = template.content.querySelector("#txt-titulo-card");
+  let descricao = template.content.querySelector("#txt-descricao-card");
+  let criador = template.content.querySelector("#txt-marcadopor-nome");
 
   let imgCartao = document.createElement("imgCartao");
   imgCartao.src = entidade.getURL()  
 
   img.setAttribute("src", imgCartao.src);
-  h5.textContent = entidade.getNome();
-
-  p[0].innerHTML = 
+  
+  /*p[0].innerHTML = 
   `<small>
   ${entidade.getLogradouro()}, 
   ${entidade.getNumero()}, 
@@ -223,16 +220,29 @@ function cartaoEntidade(entidade, nomeUser){
   ${entidade.getCidade()}, 
   ${entidade.getUF()}, 
   ${entidade.getCEP()}
-  </small>`
+  </small>`*/
 
-  taga[0].setAttribute("href", "https://" + entidade.getSite());
+  titulo.textContent = entidade.getNome()
+
+  descricao.textContent = 
+  `${entidade.getLogradouro()}, 
+  ${entidade.getNumero()}, 
+  ${entidade.getComplemento()}, 
+  ${entidade.getBairro()}, 
+  ${entidade.getCidade()}, 
+  ${entidade.getUF()}, 
+  ${entidade.getCEP()}`
+  
+  criador.textContent = nomeUser
+
+  /*taga[0].setAttribute("href", "https://" + entidade.getSite());
   taga[1].setAttribute("data-key", entidade.getMarkerKey());
   taga[1].setAttribute("onclick", "zoomMarcador(this)");
   taga[1].innerHTML = "Localização"
 
   p[1].innerHTML = `<small class="font-weight-bold" href="">Marcado por: </small>
   <small><a class="ml-1" href="javascript:void(0)" data-key="${entidade.getUserId()}" onclick="telaUsuario(this)">${nomeUser}</a></small>`
-
+  */
   cartao.appendChild(document.importNode(template.content,true));
   permissao = true
 }
@@ -609,9 +619,7 @@ $(document).ready(() => {
   $("#validacaoCEPEvento").mask("00000-000");
 
   $('#btn_sair').click(() => {
-    $('#location-map').removeClass('col-7');
-    $('#location-map').addClass('col-10');
-    $('#janela_oculta').attr('style', 'padding: 0; height:100%; display: none;');
+    $('#janela_oculta').attr('style', 'display: none;');
     aux = false;
   })
 
