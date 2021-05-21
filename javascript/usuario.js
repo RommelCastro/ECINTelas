@@ -6,7 +6,6 @@ let usuarioKey;
 let usuarioAtual
 
 //ObjetosDAO
-let usuariodao = new usuarioDAO
 
 if(localStorage.getItem('usuarioLogadoKey')){
   const queryString = window.location.search;  
