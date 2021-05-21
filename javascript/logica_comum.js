@@ -1,9 +1,8 @@
 /* CODIGO DE CRIAÇÃO DO BOTAO LOGIN/USUÁRIO */
-usuariodao = new usuarioDAO
 
-alert("entrou aqui")
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
+    alert("entrou aqui")
     usuariodao.buscar(user.uid).then(function(usuario){
     nome = usuario.getNome().split(" ")
     
