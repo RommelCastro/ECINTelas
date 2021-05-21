@@ -21,7 +21,7 @@ firebase.auth().onAuthStateChanged(function (user) {
           <p class="texto-usuario">MEU PERFIL</p>
         </a>
 
-        <a class="dropdown-item d-flex align-items-center justify-content-start" type="button">
+        <a class="dropdown-item d-flex align-items-center justify-content-start" type="button" onclick="gerenciarEntradaSaida()">
           <i class="fas fa-sign-in-alt icon-prop-usuario"></i>
           <p class="texto-usuario">SAIR</p>
         </a>
