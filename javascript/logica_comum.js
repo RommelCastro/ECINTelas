@@ -16,7 +16,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 
         <a class="dropdown-item-list d-flex align-items-center justify-content-start" 
-        type="button" data-key="${user.uid}" >
+        type="button" data-key="${user.uid}" onclick="telaUsuario(this)">
           <i class="fas fa-user-circle icon-prop-usuario"></i>
           <p class="texto-usuario">MEU PERFIL</p>
         </a>
