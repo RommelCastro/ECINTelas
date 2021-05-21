@@ -1,11 +1,12 @@
 /* CODIGO DE CRIAÇÃO DO BOTAO LOGIN/USUÁRIO */
 usuariodao = new usuarioDAO
 
+alert("entrou aqui")
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     usuariodao.buscar(user.uid).then(function(usuario){
     nome = usuario.getNome().split(" ")
-
+    
     document.getElementById('btn-user').setAttribute("data-status", "logado")
     document.getElementById('btn-user').innerHTML =
       `<button class="btn-dropdown-header dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
@@ -25,6 +26,8 @@ firebase.auth().onAuthStateChanged(function (user) {
           <p class="texto-usuario">SAIR</p>
         </a>
       </div>`
+
+      localStorage.setItem('usuarioLogadoKey', user.uid)
     })
   } else {
     document.getElementById('btn-user').setAttribute("data-status", "deslogado")
@@ -34,7 +37,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         <p class="texto-btn-login">LOGIN</p>
       </a>`
   }
-  localStorage.setItem('usuarioLogadoKey', user.uid)
+  
 });
 
 /*CÓDIGO DA PAGINA DO USUÁRIO*/
