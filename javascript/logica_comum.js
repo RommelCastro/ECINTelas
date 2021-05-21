@@ -11,17 +11,17 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById('btn-user').innerHTML =
       `<button class="btn-dropdown-header dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        OLÁ, ${nome[0].toUpperCase()}!
+        OLÁ, ${"nome[0]".toUpperCase()}!
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 
-        <a class="dropdown-item d-flex align-items-center justify-content-start" 
-        type="button" data-key="${user.uid}" onclick="telaUsuario(this)">
+        <a class="dropdown-item-list d-flex align-items-center justify-content-start" 
+        type="button" data-key="${"user.uid"}" >
           <i class="fas fa-user-circle icon-prop-usuario"></i>
           <p class="texto-usuario">MEU PERFIL</p>
         </a>
 
-        <a class="dropdown-item d-flex align-items-center justify-content-start" type="button" onclick="gerenciarEntradaSaida()">
+        <a class="dropdown-item-list d-flex align-items-center justify-content-start" type="button" onclick="gerenciarEntradaSaida()">
           <i class="fas fa-sign-in-alt icon-prop-usuario"></i>
           <p class="texto-usuario">SAIR</p>
         </a>
