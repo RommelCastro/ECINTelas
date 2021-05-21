@@ -20,7 +20,7 @@ function identificarUsuario(userId, userlogId) {
     usuarioAtual = usuario
 
     if(userId === userlogId){
-      document.getElementById('tituloUsuario').innerHTML = `
+     /* document.getElementById('tituloUsuario').innerHTML = `
       <h5 class="d-flex justify-content-center font-weight-bold">Meu Perfil</h5>`
       document.getElementById('dadosUsuario').innerHTML = `
       <small id="dadosUsuario" class="form-row d-flex justify-content-center">
@@ -29,7 +29,7 @@ function identificarUsuario(userId, userlogId) {
       <a class="ml-1 mr-1" href="javascript:void(0)" onclick="chamarModalReport()">Reportar Bugs/Melhorias</a>
       <p> - </p>
       <a class="ml-1" href="mailto:ecim@gmail.com?body=%0D%0A%0D%0AAtenciosamente,%0D%0A${usuarioAtual.getNome()}">Fale Conosco</a>
-      </small>`
+      </small>`*/
     }
     document.getElementById('card-login-title').innerText = usuarioAtual.getNome()
     document.getElementById('card-login-text').innerText = usuarioAtual.getEmail()
