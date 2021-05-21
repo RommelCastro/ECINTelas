@@ -16,7 +16,7 @@ if(localStorage.getItem('usuarioLogadoKey')){
 }
 
 function identificarUsuario(userId, userlogId) {
-  alert("user: " + userId)
+
   usuariodao.buscar(userId).then(function(usuario){
     usuarioAtual = usuario
 
@@ -32,8 +32,8 @@ function identificarUsuario(userId, userlogId) {
       <a class="ml-1" href="mailto:ecim@gmail.com?body=%0D%0A%0D%0AAtenciosamente,%0D%0A${usuarioAtual.getNome()}">Fale Conosco</a>
       </small>`
     }
-    document.getElementById('nomeUsuario').innerHTML = `<h5 id="nomeUsuario" class="font-weight-bold">${usuarioAtual.getNome()}</h5>`
-    document.getElementById('emailUsuario').innerHTML = `<h6>${usuarioAtual.getEmail()}</h6>`
+    document.getElementById('card-login-title').innerText = usuarioAtual.getNome()
+    document.getElementById('card-login-text').innerText = usuarioAtual.getEmail()
   })
 }
 

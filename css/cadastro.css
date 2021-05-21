@@ -1,16 +1,16 @@
-html{
-	padding: 0;
-	margin: 0;
+html {
+    padding: 0;
+    margin: 0;
     height: 100%;
     width: 100%;
 }
 
-body{
-    background-color:#FAFAFA;
+body {
+    background-color: #FAFAFA;
     min-height: 100%;
 }
 
-header{
+header {
     background: linear-gradient(90deg, #1F4D37 0.68%, #00833A 99.69%);
     width: 100%;
     height: 70.4px;
@@ -18,22 +18,22 @@ header{
     top: 0px;
 }
 
-.btnLogo{
+.btnLogo {
     position: absolute;
     left: 39.2px;
 }
 
-.logo{    
+.logo {
     width: 116px;
     height: 41.46px;
 }
 
-.btnNav{
+.btnNav {
     position: absolute;
     left: 332.8px;
 }
 
-.nav-item-style{
+.nav-item-style {
     color: white;
     border-left-style: solid;
     border-width: 1px;
@@ -41,19 +41,51 @@ header{
     padding-left: 15px;
 }
 
-.nav-item-style:hover{
-    color:#CF5B15;
+.nav-item-style:hover {
+    color: #CF5B15;
     text-decoration: none;
 }
 
-.texto-nav{
+.texto-nav {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 15px;
     margin: 0px 15px 0px 0px;
     padding-left: 15px;
 }
 
-.main{
+#titulo-modal {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 17.6px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.modal-dialog {
+    max-width: 699.2px;
+    top: 104px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.modal-content {
+    height: 420.8px;
+}
+
+.modal-header {
+    height: 48.8px;
+    border: 1px solid #DEE2E6;
+}
+
+.modal-video {
+    width: inherit;
+    height: 307.2px;
+    margin: 0;
+    border: 1px solid #1B5438;
+}
+
+.main {
     position: absolute;
     width: 100%;
     min-height: 550px;
@@ -62,7 +94,7 @@ header{
     top: 100.4px;
 }
 
-.card-login{
+.card-login {
     width: 435.2px;
     height: 515.6px;
     padding: 20px 50px 30px 50px;
@@ -72,23 +104,24 @@ header{
     border-radius: 6px;
 }
 
-.form-group{
+.form-group {
     margin-bottom: 5px;
 }
 
-#card-login-title{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+#card-login-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    ;
     font-size: medium;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-.card-login-text{
+.card-login-text {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: small;
 }
 
-#txtAjuda{
+#txtAjuda {
     position: absolute;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: small;
@@ -97,7 +130,7 @@ header{
     right: 0px;
 }
 
-.card-login-form{
+.card-login-form {
     width: 100%;
     height: 30px;
     background: #FFFFFF;
@@ -110,7 +143,7 @@ header{
     line-height: 19px;
 }
 
-footer{
+footer {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -119,16 +152,16 @@ footer{
     background: linear-gradient(90deg, rgba(31, 77, 55, 0.5) 0.68%, rgba(0, 131, 58, 0.5) 99.69%);
 }
 
-.div-footer1{
+.div-footer1 {
     margin-right: 40px;
 }
 
-.div-footer1 ul{
+.div-footer1 ul {
     margin: 0;
     padding: 0;
 }
 
-.div-footer1 ul li{
+.div-footer1 ul li {
     display: inline-block;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 17px;
@@ -137,22 +170,22 @@ footer{
     margin: 0px 10px 0px 0px;
 }
 
-.div-footer2{
+.div-footer2 {
     width: 196px;
-    padding-left: 40px;  
+    padding-left: 40px;
     font-size: x-small;
     color: white;
     border-left-style: solid;
     border-width: thin;
 }
 
-.div-footer2 p{
+.div-footer2 p {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
     margin: 0px 0px 0px 10px;
 }
 
-.btn-entrar{
+.btn-entrar {
     width: 117px;
     height: 35.2px;
     border-width: 0px;
@@ -165,26 +198,26 @@ footer{
     margin: 5px 0px 15px 0px;
 }
 
-.divisor{
+.divisor {
     border: 1px solid #939393;
     width: 130px;
     margin: 0px 0px 9px 0px;
 }
 
-.divisor-ou{
+.divisor-ou {
     color: #939393;
     margin: 0px 5px 10px 5px;
 }
 
-.fa-facebook-f{
+.fa-facebook-f {
     color: #00833A;
 }
 
-.fa-google-plus-g{
+.fa-google-plus-g {
     color: #00833A;
 }
 
-.rectangle{
+.rectangle {
     width: 59px;
     height: 59px;
     margin: 0px 15px 0px 15px;
@@ -193,13 +226,11 @@ footer{
     border-radius: 100px;
 }
 
-.margemInferior{
+.margemInferior {
     border: 1px solid #00833A;
     height: 80px;
 }
 
-.container{
+.container {
     min-height: 100%;
-
 }
-

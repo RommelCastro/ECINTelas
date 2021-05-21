@@ -29,6 +29,8 @@
 
   <script src="dao/eventodao.js"></script>
 
+  
+
   <title>Ecossistema Cearense de Inovação</title>
 </head>
 
@@ -51,8 +53,8 @@
         </li>
 
         <li class="nav-item">
-          <a type="button" href="como-utilizar.html"
-            class="d-flex align-items-center justify-content-start nav-item-style">
+          <a type="button" href="javascript:void(0)"
+            class="d-flex align-items-center justify-content-start nav-item-style" data-toggle="modal" data-target="#modalSobre">
             <i class="fas fa-chalkboard-teacher"> </i>
             <p class="texto-nav">COMO UTILIZAR</p>
           </a>
@@ -67,14 +69,34 @@
       </ul>
 
       <div id="btn-user" class="dropdownHeader">
-        <!--<button type="button" href="login.html" class="d-flex align-items-center justify-content-center btn-login">
-          <i class="fas fa-sign-in-alt icon-prop"></i>
-          <p class="texto-btn-login">LOGIN</p>
-        </button>-->
+
       </div>
 
     </nav>
   </header>
+
+  <!-- Modal Como Utilizar -->
+  <div class="modal fade" id="modalSobre" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        
+        <div class="modal-header d-flex align-items-center justify-content-center">
+          <p id="titulo-modal">Colaborar é muito simples! Veja no vídeo abaixo como funciona:</p>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="d-flex align-items-center justify-content-center modal-video">
+              <!--Inserir o video aqui...-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <main class="main">
     <div>
@@ -143,21 +165,19 @@
             <div id="divisao3-left-bot">
 
               <div id="divisao3-left-bot-top">
-                <p class="textos-ecossistema"> Saiba mais sobre o projeto <b>Mapa do Ecossistema de Inovação Cearense:</b></p>
+                <p class="textos-ecossistema"> Saiba mais sobre o projeto <b>Mapa do Ecossistema de Inovação
+                    Cearense:</b></p>
               </div>
 
               <div id="divisao3-left-bot-bot" class="d-flex justify-content-center">
-                <img id="img5-prop" src="img/sec3-projeto-min.png" 
-                onmouseout="this.src='img/sec3-projeto-min.png';"
-                onmouseover="this.src='img/sec3-projeto-hover-min.png';">
+                <img id="img5-prop" src="img/sec3-projeto-min.png" onmouseout="this.src='img/sec3-projeto-min.png';"
+                  onmouseover="this.src='img/sec3-projeto-hover-min.png';">
 
-                <img id="img6-prop" src="img/sec3-video-min.png" 
-                onmouseout="this.src='img/sec3-video-min.png';"
-                onmouseover="this.src='img/sec3-video-hover-min.png';">
+                <img id="img6-prop" src="img/sec3-video-min.png" onmouseout="this.src='img/sec3-video-min.png';"
+                  onmouseover="this.src='img/sec3-video-hover-min.png';">
 
-                <img id="img7-prop" src="img/sec3-github-min.png" 
-                onmouseout="this.src='img/sec3-github-min.png';"
-                onmouseover="this.src='img/sec3-github-hover-min.png';">
+                <img id="img7-prop" src="img/sec3-github-min.png" onmouseout="this.src='img/sec3-github-min.png';"
+                  onmouseover="this.src='img/sec3-github-hover-min.png';">
               </div>
             </div>
 
@@ -170,21 +190,18 @@
           </div>
 
           <div class="d-flex justify-content-center">
-            <img id="img8-prop" src="img/sec4-ufc-cinza-min.png" 
-            onmouseout="this.src='img/sec4-ufc-cinza-min.png';"
-            onmouseover="this.src='img/sec4-ufc-min.png';">
+            <img id="img8-prop" src="img/sec4-ufc-cinza-min.png" onmouseout="this.src='img/sec4-ufc-cinza-min.png';"
+              onmouseover="this.src='img/sec4-ufc-min.png';">
 
-            <img id="img9-prop" src="img/sec4-uece-cinza-min.png" 
-            onmouseout="this.src='img/sec4-uece-cinza-min.png';"
-            onmouseover="this.src='img/sec4-uece-min.png';">
+            <img id="img9-prop" src="img/sec4-uece-cinza-min.png" onmouseout="this.src='img/sec4-uece-cinza-min.png';"
+              onmouseover="this.src='img/sec4-uece-min.png';">
 
-            <img id="img10-prop" src="img/sec4-gesid-cinza-min.png" 
-            onmouseout="this.src='img/sec4-gesid-cinza-min.png';"
-            onmouseover="this.src='img/sec4-gesid-min.png';">
+            <img id="img10-prop" src="img/sec4-gesid-cinza-min.png"
+              onmouseout="this.src='img/sec4-gesid-cinza-min.png';" onmouseover="this.src='img/sec4-gesid-min.png';">
 
-            <img id="img11-prop" src="img/sec4-faca-parte-cinza-min.png" 
-            onmouseout="this.src='img/sec4-faca-parte-cinza-min.png';"
-            onmouseover="this.src='img/sec4-faca-parte-min.png';">
+            <img id="img11-prop" src="img/sec4-faca-parte-cinza-min.png"
+              onmouseout="this.src='img/sec4-faca-parte-cinza-min.png';"
+              onmouseover="this.src='img/sec4-faca-parte-min.png';">
 
           </div>
         </div>
@@ -273,6 +290,8 @@
   </script>
 
   <script src="javascript/ecossistema.js"></script>
+
+  <script src="javascript/logica_comum.js"></script>
 
 </body>
 

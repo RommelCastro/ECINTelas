@@ -49,10 +49,10 @@ firebase.auth().onAuthStateChanged(function (user) {
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 
-        <button class="dropdown-item d-flex align-items-center justify-content-start" type="button">
+        <a class="dropdown-item d-flex align-items-center justify-content-start" type="button">
           <i class="fas fa-user-circle icon-prop-usuario"></i>
           <p class="texto-usuario">MEU PERFIL</p>
-        </button>
+        </a>
 
         <button class="dropdown-item d-flex align-items-center justify-content-start" type="button">
           <i class="fas fa-sign-in-alt icon-prop-usuario"></i>

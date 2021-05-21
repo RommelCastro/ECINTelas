@@ -65,6 +65,17 @@ header {
     margin-right: 8px;
 }
 
+.texto-usuario {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    margin: 0px 0px 0px 0px;
+}
+
+.icon-prop-usuario {
+    font-size: 16px;
+    margin-right: 8px;
+}
+
 a:hover{
     color: #1F4D37;
     text-decoration: none;
@@ -88,6 +99,38 @@ a:hover{
     font-size: 15px;
     margin: 0px 15px 0px 0px;
     padding-left: 15px;
+}
+
+#titulo-modal {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 17.6px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.modal-dialog {
+    max-width: 699.2px;
+    top: 104px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.modal-content {
+    height: 420.8px;
+}
+
+.modal-header {
+    height: 48.8px;
+    border: 1px solid #DEE2E6;
+}
+
+.modal-video {
+    width: inherit;
+    height: 307.2px;
+    margin: 0;
+    border: 1px solid #1B5438;
 }
 
 .main {
