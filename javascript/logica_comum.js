@@ -1,4 +1,5 @@
 /* CODIGO DE CRIAÇÃO DO BOTAO LOGIN/USUÁRIO */
+let eventodao = new eventoDAO;
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
