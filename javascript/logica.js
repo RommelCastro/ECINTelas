@@ -494,16 +494,7 @@ function telaCadastroComunidade() {
   window.open('como-utilizar.html', '_blank')
 }
 
-function telaUsuario(componente) {
-  let status = $("#btn_marker").attr("data-status");
-  if (status === "logado") {
 
-    window.location = "usuario.html?" + componente.getAttribute("data-key")
-  }
-  else {
-    window.location.href = "login.html"
-  }
-}
 
 function deletarMarcador() {
   map.removeLayer(marker)
