@@ -86,21 +86,27 @@
         </li>
 
         <li class="nav-item">
-          <a type="button" href="eventos.html" class="d-flex align-items-center justify-content-start nav-item-style">
+          <a type="button" href="javascript:void(0)"
+            class="d-flex align-items-center justify-content-start nav-item-style" data-toggle="modal"
+            data-target="#ModalFiltro">
             <i class="fas fa-filter"></i>
             <p class="texto-nav">FILTRAR</p>
           </a>
         </li>
 
         <li class="nav-item">
-          <a type="button" href="eventos.html" class="d-flex align-items-center justify-content-start nav-item-style">
+          <a type="button" href="javascript:void(0)"
+            class="d-flex align-items-center justify-content-start nav-item-style" class="btn btn-navegador"
+            onclick="selecionarLocal()">
             <i class="fas fa-map-marker-alt"></i>
             <p class="texto-nav">CADASTRAR</p>
           </a>
         </li>
 
         <li class="nav-item">
-          <a type="button" href="eventos.html" class="d-flex align-items-center justify-content-start nav-item-style">
+          <a type="button" href="javascript:void(0)"
+            class="d-flex align-items-center justify-content-start nav-item-style" data-toggle="modal"
+            onclick="limparComunidade()">
             <i class="fas fa-users"></i>
             <p class="texto-nav">COMUNIDADES</p>
           </a>
@@ -125,12 +131,30 @@
 
     </nav>
   </header>
-
-
-
-
-
   <!--Fim do cabeçalho-->
+
+  <!-- Modal Como Utilizar -->
+  <div class="modal fade" id="modalSobre" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header d-flex align-items-center justify-content-center">
+          <p id="titulo-modal">Colaborar é muito simples! Veja no vídeo abaixo como funciona:</p>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="d-flex align-items-center justify-content-center modal-video">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Modal Cadastro -->
   <div class="modal fade bd-example-modal-lg" id="ModalCadastro" tabindex="-1" role="dialog"
@@ -790,23 +814,23 @@
 
             <div data-spy="scroll" class="scrollspySite d-flex justify-content-center">
 
-              <ul id="cartao" style="padding: 0;" >
+              <ul id="cartao" style="padding: 0;">
                 <template id="cartaoEmpresa">
                   <!-- Template do Cartão das Empresas-->
-                  <div id="divImagemCartao">
+                  <div id="divImagemCartao" class="template-cartao">
                     <div id="div-card-superior" class="d-flex justify-content-center">
-                      
+
                       <div id="div-superior-imagem">
                         <img id="img-card-prop" src="img/image.jpg" alt="">
                       </div>
 
                       <div id="div-superior-conteudo">
                         <div id="div-conteudo-titulo">
-                          <p id="txt-titulo-card">Rapadura Valley</p>
+                          <p id="txt-titulo-card">NOME</p>
                         </div>
 
                         <div id="div-conteudo-descricao">
-                          <p id="txt-descricao-card">Ecossitema de inovação de Fortaleza</p>
+                          <p id="txt-descricao-card">DESCRIÇÃO</p>
                         </div>
                       </div>
 
@@ -815,13 +839,14 @@
                     <div id="div-card-inferior">
 
                       <div id="div-inferior-btns" class="d-flex align-items-end texto-btn-evento1">
-                        <a id="btn-card1" class="d-flex align-items-center justify-content-center"> 
-                          <p class="texto-btn-card1">Ativar no mapa</p>
+                        <a id="btn-card1" class="d-flex align-items-center justify-content-center texto-btn-card1"
+                          href="javascript:void(0)">
+                          Conheça mais
                         </a>
 
-                        <a id="btn-card2" class="d-flex align-items-center justify-content-center" href="index.html"
-                          target="_blank">
-                          <p class="texto-btn-card2">Visitar site</p>
+                        <a id="btn-card2" class="d-flex align-items-center justify-content-center texto-btn-card2"
+                          href="index.html" target="_blank">
+                          Localização
                         </a>
                       </div>
 
@@ -831,18 +856,6 @@
                       </div>
 
                     </div>
-                    <!--<img class="card-img-top" src="https://s2.logaster.com/static/v3/img/products/logo.png"
-                      style="width: 120px; height: 100px; margin-left: 30%;margin-top: 2%;"></img>
-
-
-                    <div class="card-body">
-                      <h5 class="card-title" style="font-weight: bold;"></h5>
-                      <p class="card-text"></p>
-                      <a class="btn btn-secondary btn-sm" href="#" target="_blank">Conheça Mais</a>
-                      <a class="btn btn-secondary btn-sm" onclick="zoomMarcador(this)" href="#">Localização</a>
-                      <p style="margin:0; padding: 2px;"><small>Marcado por:</small></p>
-                    </div>-->
-
                   </div>
                 </template>
               </ul>

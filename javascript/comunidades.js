@@ -33,10 +33,10 @@ comunidadedao = new comunidadeDAO
 
     if (map.hasLayer(layerArray[componente.getAttribute("data-key")])) {
       map.removeLayer(layerArray[componente.getAttribute("data-key")]);
-      aux[0].innerHTML= 'Ativar'
+      aux[0].innerHTML= 'Ativar no mapa'
     } else {
       map.addLayer(layerArray[componente.getAttribute("data-key")])
-      aux[0].innerHTML= 'Desativar'
+      aux[0].innerHTML= 'Desativar do mapa'
     }
   }
 
