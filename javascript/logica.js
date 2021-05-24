@@ -518,7 +518,7 @@ function selecionarLocal() {
   lng = null
 
   escolhaLayer.clearLayers();
-  let status = $("#btn_marker").attr("data-status");
+  let status = $("#btn-user").attr("data-status");
   if (status === "logado") {
     $('#marcar_info').attr('style', 'display: all;');
 

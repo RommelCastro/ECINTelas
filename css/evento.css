@@ -38,6 +38,30 @@ header {
     right: 62.4px;
 }
 
+.dropdown-item-list {
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+
+.dropdown-item-list:hover {
+    background: #f8f9fa;
+}
+
+.dropdown-item:active {
+    color: #00833A;
+}
+
+
+
+
 .buscaHeader {
     position: absolute;
     right: 220px;
