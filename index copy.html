@@ -5,19 +5,16 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
-  <!-- Bootstrap JS 
+  <!-- Bootstrap JS -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity=" sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>-->
+    crossorigin="anonymous"></script>
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
@@ -32,7 +29,8 @@
   <!-- Necessários para o timedatpicker  -->
   <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment-with-locales.js"></script>
-  <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>-->
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
   <script src="https://rawgit.com/tempusdominus/bootstrap-4/master/build/js/tempusdominus-bootstrap-4.min.js"></script>
   <link href="https://rawgit.com/tempusdominus/bootstrap-4/master/build/css/tempusdominus-bootstrap-4.min.css"
     rel="stylesheet" />
@@ -118,7 +116,7 @@
 
         <button class="btn-dropdown-header dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-
+          
         </button>
 
       </div>
@@ -130,10 +128,10 @@
   <!-- Modal Como Utilizar -->
   <div class="modal fade" id="modalSobre" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-utilizar modal-dialog-scrollable" role="document">
-      <div class="modal-content modal-content-utilizar">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
 
-        <div class="modal-header modal-header-utilizar d-flex align-items-center justify-content-center">
+        <div class="modal-header d-flex align-items-center justify-content-center">
           <p id="titulo-modal">Colaborar é muito simples! Veja no vídeo abaixo como funciona:</p>
 
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -483,9 +481,9 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn-cadastro1" data-dismiss="modal"
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"
             onclick="deletarMarcador()">Fechar</button>
-          <button id="btn-enviar" type="button" class="btn-cadastro2" onclick="gravarFormulario()">Enviar</button>
+          <button id="btn-enviar" type="button" class="btn btn-submit" onclick="gravarFormulario()">Enviar</button>
         </div>
       </div>
     </div>
@@ -497,7 +495,6 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">Filtros de Categorias</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -630,7 +627,6 @@
                 <input class="form-check-input" type="checkbox" id="CheckboxpreAceleradoras" value="preAceleradoras">
                 <label class="form-check-label" for="CheckboxpreAceleradoras">Pré Aceleradoras</label>
               </div>
-
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="CheckboxpropIntelectuais" value="propIntelectuais">
                 <label class="form-check-label" for="CheckboxpropIntelectuais">Propriedade Intelectual</label>
@@ -642,7 +638,6 @@
                 <input class="form-check-input" type="checkbox" id="CheckboxProvedores" value="Provedores">
                 <label class="form-check-label" for="CheckboxProvedores">Provedores de Serviços</label>
               </div>
-
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="CheckboxMentoria" value="Mentoria">
                 <label class="form-check-label" for="CheckboxMentoria">Mentoria</label>
@@ -660,8 +655,8 @@
         </div>
         <!--Fim do Conteudo-->
         <div class="modal-footer">
-          <button id="btn-filtro1" class="texto-btn-filtro" type="button" data-dismiss="modal">Fechar</button>
-          <button id="btn-filtro2" class="texto-btn-filtro" type="button" data-dismiss="modal" onclick="filtroMarcador()">Filtrar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-submit" data-dismiss="modal" onclick="filtroMarcador()">Filtrar</button>
         </div>
       </div>
     </div>
@@ -745,8 +740,8 @@
         </div>
         <!--Fim do Conteudo-->
         <div class="modal-footer">
-          <button type="button" class="btn-cadastro1" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn-cadastro2" onclick="gravarCadastroComunidade()">Enviar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-submit" onclick="gravarCadastroComunidade()">Enviar</button>
         </div>
       </div>
     </div>
@@ -756,145 +751,7 @@
 
   <!--TELA PRINCIPAL--->
 
-  <div id="container_contudo">
-
-    <div id="linhas" class="d-flex align-items-start" style="height: 100%">
-
-      <!--BARRA LATERAL-->
-      <div id="div-menu" class="d-flex align-items-start">
-        <div id="div-menu-categoria">
-          <div id="coluna-menu">
-
-            <div id="coluna-menu-titulo" class="d-flex align-items-center justify-content-center">
-              <h5 id="texto-menu-titulo">CATEGORIAS</h5>
-            </div>
-
-            <div data-spy="scroll" class="scrollspySite">
-              <ul id="listaOpcoes" class="list-group">
-                <template id="listaTipo">
-                  <!-- Template da Lista de tipos de empreendimentos-->
-                  <a id="botao-opcao" href="javascript:void(0)"
-                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-                    onclick="chamaBarraOculta(this);">
-                  </a>
-                </template>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-
-        <!--COLUNA OCULTA-->
-        <div id="div-menu-card">
-          <div id="janela_oculta" style="display: none;">
-
-            <!--Barra superior da coluna oculta-->
-            <div id="coluna-menu-busca" class="d-flex align-items-center justify-content-center">
-
-              <form class="form-inline">
-                <div class="input-group">
-                  <input id="contBusca" class="form-control" type="search" placeholder="Buscar" aria-label="Search"
-                    aria-describedby="basic-addon2">
-
-                  <div class="input-group-append">
-                    <a id="botaoBusca" href="javascript:void(0)" class="btn btn-orange" type="submit"
-                      onclick="filtroSelect(this)">
-                      <i class="fas fa-search"></i>
-                    </a>
-                  </div>
-
-                  <button id="btn_sair" type="button" class="d-flex align-items-center justify-content-center">
-                    <i class="fas fa-times icon-close-prop"></i>
-                  </button>
-                </div>
-              </form>
-            </div>
-
-            <div data-spy="scroll" class="scrollspySite d-flex justify-content-center">
-
-              <ul id="cartao" style="padding: 0;">
-                <template id="cartaoEmpresa">
-                  <!-- Template do Cartão das Empresas-->
-                  <div id="divImagemCartao" class="template-cartao">
-                    <div id="div-card-superior" class="d-flex justify-content-center">
-
-                      <div id="div-superior-imagem">
-                        <img id="img-card-prop" src="img/image.jpg" alt="">
-                      </div>
-
-                      <div id="div-superior-conteudo">
-                        <div id="div-conteudo-titulo">
-                          <p id="txt-titulo-card">NOME</p>
-                        </div>
-
-                        <div id="div-conteudo-descricao">
-                          <p id="txt-descricao-card">DESCRIÇÃO</p>
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <div id="div-card-inferior">
-
-                      <div id="div-inferior-btns" class="d-flex align-items-end texto-btn-evento1">
-                        <a id="btn-card1" class="d-flex align-items-center justify-content-center texto-btn-card1"
-                          href="javascript:void(0)">
-                          Conheça mais
-                        </a>
-
-                        <a id="btn-card2" class="d-flex align-items-center justify-content-center texto-btn-card2"
-                          href="index.html" target="_blank">
-                          Localização
-                        </a>
-                      </div>
-
-                      <div id="div-inferior-txt" class="d-flex">
-                        <p id="txt-marcadopor">Marcado por:</p>
-                        <a id="txt-marcadopor-nome">Sicrano</a>
-                      </div>
-
-                    </div>
-                  </div>
-                </template>
-              </ul>
-
-            </div>
-
-
-          </div>
-        </div>
-      </div>
-
-
-      <!--MAPA-->
-      <div id="div-mapa">
-        <div id="location-map">
-          <!--Botão de indicação do endereço-->
-          <div id="marcar_info" style="display:none;">
-            <div id="divMsg">
-              <div class="d-flex justify-content-center">
-                <h6 class="textoAlerta">Clique no mapa para definir o endereço do sua instituição/evento</h6>
-              </div>
-            </div>
-            <div id="divButton">
-              <div class="d-flex justify-content-center">
-                <button id="map_button2" class="btn btn-submit btn-sm" style="font-weight: bold;">Cancelar</button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
-      integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
-      crossorigin=""></script>
-
-  </div>
-
-
+ 
   <script>
     var map = L.map('location-map').setView([-3.770457, -38.529942], 12);
 

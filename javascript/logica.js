@@ -36,28 +36,6 @@ let markerIcon = L.Icon.extend({
   }
 });
 
-//***********CÓDIGO LOGIN****************//
-firebase.auth().onAuthStateChanged(function (user) {
-  if (user) {
-    document.getElementById('log').innerHTML = `<i class="fas fa-sign-out-alt"></i>
-    <p style="margin-bottom: 8px;"><small>Sair</small></p>`
-    document.getElementById('log').setAttribute("data-status", "logado");
-    document.getElementById('btn_marker').setAttribute("data-status", "logado");
-    document.getElementById('perfil').setAttribute("data-key", user.uid);
-    document.getElementById('perfil').setAttribute("onclick", "telaUsuario(this)");
-    localStorage.setItem('usuarioLogadoKey', user.uid)
-
-  } else {
-    document.getElementById('log').innerHTML = `<i class="fas fa-sign-in-alt"></i>
-    <p style="margin-bottom: 8px;"><small>Entrar</small></p>`
-    document.getElementById('log').setAttribute("data-status", "deslogado");
-    document.getElementById('btn_marker').setAttribute("data-status", "deslogado");
-    document.getElementById('perfil').setAttribute("href", "login.html");
-    //window.location.href="login.html";
-  }
-});
-//***********CÓDIGO LOGIN FIM****************//
-
 //Main
 
 L.icon = function (options) {
@@ -674,6 +652,7 @@ $(document).ready(() => {
     })
 
   });
+  
   //Inicializar Checkbox
   $('#CheckboxTodos').prop('checked', true)
   $('#CheckboxAcelerador').prop('checked', true);

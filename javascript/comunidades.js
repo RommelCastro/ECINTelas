@@ -13,7 +13,7 @@ comunidadedao = new comunidadeDAO
 //Fim Inicio-------------------------------------------
 
   function limparComunidade(){
-    let status = $("#btn_marker").attr("data-status");
+    let status = $("#btn-user").attr("data-status");
     if(status==="logado"){
       document.getElementById('validacaoNomeComu').value = '';
       document.getElementById('validacaoSiteComu').value = '';
