@@ -25,6 +25,7 @@ let entidadedao = new entidadeDAO;
 let eventodao = new eventoDAO;
 let comunidadedao = new comunidadeDAO;
 
+
 let markerIcon = L.Icon.extend({
   options: {
     shadowUrl: "img/img-marker/marker-shadow.png",
@@ -35,6 +36,26 @@ let markerIcon = L.Icon.extend({
     popupAnchor: [0, -40] // point from which the popup should open relative to the iconAnchor
   }
 });
+
+
+let ceara = new Ceara();
+marcarLimites()
+
+function marcarLimites() {
+  var Style = {
+    "color": ceara.getCor(),
+    "weight": 3,
+    "opacity": 0.65,
+    "fillOpacity": 0.0
+  }
+  
+  let area = ceara.getCoordenadas();
+  
+  let layer = L.geoJSON(area, {style: Style})
+
+  map.addLayer(layer)
+}
+ 
 
 //Main
 
