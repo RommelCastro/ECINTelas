@@ -121,7 +121,9 @@ function criarListaOpcoes(tipoClasse) { // Cria lista da bara lateral
 }
 
 function filtroSelect(componente) {
-  $(".card").remove();
+  $(".template-cartao").remove();
+
+  alert(componente.getAttribute("data-tipo"))
 
   if (componente.getAttribute("data-tipo") === "Comunidades") {
     filtroBuscaComunidade(componente.getAttribute("data-tipo"));
@@ -200,8 +202,8 @@ function cartaoEntidade(entidade, nomeUser) {
   ${entidade.getUF()}, 
   ${entidade.getCEP()}`
 
-  btn1.innerHTML = "Conheça mais"
-  btn2.innerHTML = "Localização"
+  btn1.innerHTML = "Localização"
+  btn2.innerHTML = "Visitar Site"
 
   btn2.setAttribute("href", "https://" + entidade.getSite());
   btn1.setAttribute("data-key", entidade.getMarkerKey());
