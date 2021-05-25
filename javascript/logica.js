@@ -144,8 +144,6 @@ function criarListaOpcoes(tipoClasse) { // Cria lista da bara lateral
 function filtroSelect(componente) {
   $(".template-cartao").remove();
 
-  alert(componente.getAttribute("data-tipo"))
-
   if (componente.getAttribute("data-tipo") === "Comunidades") {
     filtroBuscaComunidade(componente.getAttribute("data-tipo"));
   } else {
