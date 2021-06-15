@@ -82,7 +82,6 @@ header {
     width: inherit;
     height: 307.2px;
     margin: 0;
-    border: 1px solid #1B5438;
 }
 
 .main {
@@ -145,6 +144,12 @@ footer {
     width: 100%;
     height: 73.6px;
     background: linear-gradient(90deg, rgba(31, 77, 55, 0.5) 0.68%, rgba(0, 131, 58, 0.5) 99.69%);
+}
+
+#email{
+    color: white;
+    text-decoration: none;
+    margin: 0;
 }
 
 .div-footer1 {

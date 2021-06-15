@@ -109,12 +109,11 @@
   <!-- Modal Como Utilizar -->
   <div class="modal fade" id="modalSobre" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
-      <div class="modal-content">
+    <div class="modal-dialog modal-dialog-utilizar modal-dialog-scrollable" role="document">
+      <div class="modal-content modal-content-utilizar">
 
-        <div class="modal-header d-flex align-items-center justify-content-center">
+        <div class="modal-header modal-header-utilizar d-flex align-items-center justify-content-center">
           <p id="titulo-modal">Colaborar é muito simples! Veja no vídeo abaixo como funciona:</p>
-
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -123,6 +122,10 @@
         <div class="modal-body">
           <div class="d-flex align-items-center justify-content-center modal-video">
 
+            <video width="100%" height="100%" controls>
+              <source src="videos/[9].mp4" type="video/mp4" >
+            </video>
+            
           </div>
         </div>
       </div>
@@ -192,7 +195,8 @@
     <div class="div-footer1">
       <ul>
         <li>
-          <p style="margin: 0;">Para mais informações, fale conosco através do mapa.inovacao@ufc.br</p>
+          <a id="email" href="mailto:ecim@gmail.com?body=%0D%0A%0D%0AAtenciosamente,%0D%0A${NOME}">
+            Para mais informações, fale conosco através do mapa.inovacao@ufc.br</a>
         </li>
         <li><i class="fas fa-envelope fa-lg"></i></li>
       </ul>

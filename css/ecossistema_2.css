@@ -102,6 +102,12 @@ a:hover {
     text-decoration: none;
 }
 
+#email{
+    color: white;
+    text-decoration: none;
+    margin: 0;
+}
+
 .nav-item-style {
     color: white;
     border-left-style: solid;
@@ -151,7 +157,6 @@ a:hover {
     width: inherit;
     height: 307.2px;
     margin: 0;
-    border: 1px solid #1B5438;
 }
 
 .main {
