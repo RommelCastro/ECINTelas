@@ -277,7 +277,7 @@ a:hover {
 }
 
 #div-conteudo-titulo {
-    height: 40.8px;
+    /*height: 54.8px;*/
     width: inherit;
 }
 
@@ -286,13 +286,13 @@ a:hover {
     font-style: normal;
     font-weight: bold;
     font-size: 14.8px;
-    padding: 10.4px 0px 0px 0px;
+    padding: 10.4px 0px 2px 0px;
     margin: 0;
 }
 
 #div-conteudo-descricao {
     width: inherit;
-    height: 90.4px;
+    /*height: 90.4px;*/
 }
 
 #txt-descricao-card {
