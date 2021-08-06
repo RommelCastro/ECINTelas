@@ -170,15 +170,13 @@ a:hover {
 }
 
 .modal-dialog-mobile {
-    max-width: 699.2px;
-    top: 40px;
+    padding-top: 30px;
     margin-top: 0;
     margin-bottom: 0;
 }
 
 .modal-content-mobile {
-    width: fit-content;
-    height: 600px;
+    height: inherit;
 }
 
 .modal-mobile {
