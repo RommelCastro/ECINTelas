@@ -14,14 +14,13 @@ body {
 header {
     background: linear-gradient(90deg, #1F4D37 0.68%, #00833A 99.69%);
     width: 100%;
-    height: 70.4px;
+    
     left: 0px;
     top: 0px;
 }
 
 #barra_nav{
     height: 100%; 
-    min-width: 1450px;
 }
 
 .btnLogo {
@@ -29,18 +28,18 @@ header {
     left: 39.2px;
 }
 
+div ul li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .logo {
     width: 116px;
     height: 41.46px;
 }
 
-.btnNav {
-    position: relative;
-    left: 332.8px;
-}
-
 .dropdownHeader {
-    position: relative;
+    position: absolute;
     right: 62.4px;
 }
 
@@ -129,6 +128,14 @@ a:hover {
     padding-left: 15px;
 }
 
+/*#lista-nav {
+    display: none;
+}
+
+#btn-user {
+    display: none;
+}*/
+
 /*PROPRIEDADES DOS MODAIS */
 
 #titulo-modal {
@@ -204,36 +211,37 @@ a:hover {
 }
 
 #container_contudo {
-    height: calc(100% - 70.4px);
+    height: calc(100% - 60px);
 }
 
 #linhas {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
 }
 
 #div-menu {
-    height: 100%;
-    width: inherit;
+    height: 52px;
+    width: 100%;
 }
 
 #div-menu-categoria {
     height: inherit;
-    width: 236.48px;
+    width: 100%;
 }
 
 #coluna-menu-titulo {
     height: 52px;
-    width: 236.48px;
+    width: 100%;
     background: #3D996D;
-    
+    padding-left: 45px;
+
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
-#botao-titulo-mobile{
-    display: none;
+#botao-titulo-mobile {
+    padding-right: 45px;
 }
 
 #coluna-menu-busca {
@@ -298,6 +306,10 @@ a:hover {
 #div-conteudo-titulo {
     /*height: 54.8px;*/
     width: inherit;
+}
+
+#coluna-categorias{
+    height: 0%;
 }
 
 #txt-titulo-card {
