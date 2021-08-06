@@ -91,6 +91,7 @@ ecossistema.push(new Mentoria())
 ecossistema.push(new Startups())
 
 OpcaoComunidade()
+//OpcaoComunidadeMobile()
 
 entidadedao.varredura().then(function (entidade) {
   entidadeArray = entidade
@@ -103,10 +104,11 @@ entidadedao.varredura().then(function (entidade) {
 function OpcaoComunidade() {
   comunidadedao.varredura().then(function (comunidades) {
     criarOpcaoComunidade(comunidades)
+    criarOpcaoComunidadeMobile(comunidades)
   })
 }
 
-function criarOpcaoComunidade(comunidades) {
+function criarOpcaoComunidade(comunidades) { // Cria botão de comunidade
   let template = document.querySelector('#listaTipo');
   let listaOpcoes = document.querySelector('#listaOpcoes');
   let a = template.content.querySelector("a");
@@ -139,7 +141,12 @@ function criarListaOpcoes(tipoClasse) { // Cria lista da bara lateral
 
   if (tipoClasse.getNome() != "Eventos") { listaOpcoes.appendChild(document.importNode(template.content, true)) }
   executarEventoKey()
+
+  criarListaOpcoesMobile(tipoClasse)
 }
+
+
+
 
 function filtroSelect(componente) {
   $(".template-cartao").remove();
@@ -308,6 +315,67 @@ function executarEventoKey() {//Reconhece o evento que foi clicado na página de
     localStorage.removeItem('eventoMarker');
   }
 }
+
+//Modal Mobile-----------------------------------------------------------------------------------------
+function ModalMobileOpcoes() {
+  OpcaoComunidadeMobile()
+
+  entidadedao.varredura().then(function (entidade) {
+    //entidadeArray = entidade
+    //exibirMarcadores(ecossistema, entidadeArray)
+    ecossistema.forEach(criarListaOpcoesMobile)
+  })
+}
+
+function OpcaoComunidadeMobile() {
+  comunidadedao.varredura().then(function (comunidades) {
+    criarOpcaoComunidadeMobile(comunidades)
+  })
+}
+
+function criarOpcaoComunidadeMobile(comunidades) { // Cria botão de comunidade
+  let template = document.querySelector('#listaTipoMobile');
+  let listaOpcoes = document.querySelector('#listaOpcoesMobile');
+  let a = template.content.querySelector("a");
+  let imgLink = document.createElement("imgLink");
+  //imgLink.src = componente.getImagemBarra()
+
+  
+
+  a.innerHTML =
+  `<div style="width:inherit" class="d-flex justify-content-between align-items-center">
+  <img style="height:36px; width:36px" src= "img/img-bl/27-comunidade.png">
+  Comunidades
+  <span class="badge badge-secondary badge-pill">${comunidades.length}</span>
+  </div>
+  <i style="padding-left:50px" class="fas fa-angle-right"></i>`
+
+  a.setAttribute("data-tipo", "Comunidades");
+  listaOpcoes.appendChild(document.importNode(template.content, true))
+}
+
+function criarListaOpcoesMobile(tipoClasse) { // Cria lista da bara lateral
+  let template = document.querySelector('#listaTipoMobile');
+  let listaOpcoes = document.querySelector('#listaOpcoesMobile');
+  let a = template.content.querySelector("a");
+  let imgLink = document.createElement("imgLink");
+
+  imgLink.src = tipoClasse.getImagemBarra()
+
+  a.innerHTML =
+  `<div style="width:inherit" class="d-flex justify-content-between align-items-center">
+  <img style="height:36px; width:36px" src= ${imgLink.src}>
+  ${tipoClasse.getNome()}
+  <span class="badge badge-secondary badge-pill">${tipoClasse.getBadge()}</span>
+  </div> 
+  <i style="padding-left:50px" class="fas fa-angle-right"></i>`  
+
+  a.setAttribute("data-tipo", tipoClasse.getNome());
+
+  if (tipoClasse.getNome() != "Eventos") { listaOpcoes.appendChild(document.importNode(template.content, true)) }
+  executarEventoKey()
+}
+//Fim Modal Mobile-----------------------------------------------------------------------------------------------
 
 //Funções do Sistema
 function filtroMarcador() {
