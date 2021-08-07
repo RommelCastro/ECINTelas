@@ -367,6 +367,7 @@ function criarListaOpcoesMobile(tipoClasse) { // Cria lista da bara lateral
 //Criando modal de cartões mobile
 function chamarModalCard(componente) { //Abre o modal de cartões
 
+  contAux = 0;
   while (contAux <= ecossistema.length) {
 
     if ("Comunidades" == componente.getAttribute("data-tipo")) {
