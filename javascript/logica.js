@@ -4,7 +4,7 @@ let uploader2SelectedFile = ""
 let lat
 let lng
 let cont = 0
-let contAux
+let contAux = 0
 let auxUser
 let marker
 let url
@@ -49,14 +49,14 @@ function marcarLimites() {
     "opacity": 0.65,
     "fillOpacity": 0.0
   }
-  
+
   let area = ceara.getCoordenadas();
-  
-  let layer = L.geoJSON(area, {style: Style})
+
+  let layer = L.geoJSON(area, { style: Style })
 
   map.addLayer(layer)
 }
- 
+
 
 //Main
 
@@ -145,8 +145,6 @@ function criarListaOpcoes(tipoClasse) { // Cria lista da bara lateral
 
   criarListaOpcoesMobile(tipoClasse)
 }
-
-
 
 
 function filtroSelect(componente) {
@@ -333,7 +331,7 @@ function criarOpcaoComunidadeMobile(comunidades) { // Cria botão de comunidade
   //imgLink.src = componente.getImagemBarra()
 
   a.innerHTML =
-  `<div style="width:inherit" class="d-flex justify-content-between align-items-center">
+    `<div style="width:inherit" class="d-flex justify-content-between align-items-center">
   <img style="height:36px; width:36px" src= "img/img-bl/27-comunidade.png">
   Comunidades
   <span class="badge badge-secondary badge-pill">${comunidades.length}</span>
@@ -353,12 +351,12 @@ function criarListaOpcoesMobile(tipoClasse) { // Cria lista da bara lateral
   imgLink.src = tipoClasse.getImagemBarra()
 
   a.innerHTML =
-  `<div style="width:inherit" class="d-flex justify-content-between align-items-center">
+    `<div style="width:inherit" class="d-flex justify-content-between align-items-center">
   <img style="height:36px; width:36px" src= ${imgLink.src}>
   ${tipoClasse.getNome()}
   <span class="badge badge-secondary badge-pill">${tipoClasse.getBadge()}</span>
   </div> 
-  <i style="padding-left:50px" class="fas fa-angle-right"></i>`  
+  <i style="padding-left:50px" class="fas fa-angle-right"></i>`
 
   a.setAttribute("data-tipo", tipoClasse.getNome());
 
@@ -369,25 +367,41 @@ function criarListaOpcoesMobile(tipoClasse) { // Cria lista da bara lateral
 //Criando modal de cartões mobile
 function chamarModalCard(componente) { //Abre o modal de cartões
 
-    $(".template-cartao").remove();
+  while (contAux <= ecossistema.length) {
 
-    if (componente.getAttribute("data-tipo") != "Comunidades") {
-      filtroBuscaMobile(componente.getAttribute("data-tipo"));//exibe os cartões do tipo de opção selecionada
+    if ("Comunidades" == componente.getAttribute("data-tipo")) {
+      document.getElementById("img-categoria").setAttribute("src", "img/img-bl/27-comunidade.png"); 
+      document.getElementById("nome-categoria").innerHTML = "Comunidades"
+      break
     }
-    else {
-      filtroBuscaComunidadeMobile(componente.getAttribute("data-tipo"));
+
+    if (ecossistema[contAux].getNome() == componente.getAttribute("data-tipo")) {
+      document.getElementById("img-categoria").setAttribute("src", ecossistema[contAux].getImagemBarra()); 
+      document.getElementById("nome-categoria").innerHTML = ecossistema[contAux].getNome()
+      break
     }
+    contAux = contAux + 1;
+  }
+
+  $(".template-cartao").remove();
+
+  if (componente.getAttribute("data-tipo") != "Comunidades") {
+    filtroBuscaMobile(componente.getAttribute("data-tipo"));//exibe os cartões do tipo de opção selecionada
+  }
+  else {
+    filtroBuscaComunidadeMobile(componente.getAttribute("data-tipo"));
+  }
 }
 //Cartões de entidades Mobile
 function filtroBuscaMobile(tipo) {
 
-    for (let i = 0; i < entidadeArray.length; i++) {
-      if (tipo === entidadeArray[i].getTipo()) {
-        aux2 = true
-        verificarUsuarioEntidadeMobile(entidadeArray[i])
-      }
+  for (let i = 0; i < entidadeArray.length; i++) {
+    if (tipo === entidadeArray[i].getTipo()) {
+      aux2 = true
+      verificarUsuarioEntidadeMobile(entidadeArray[i])
     }
   }
+}
 
 function verificarUsuarioEntidadeMobile(entidade) {
   usuariodao.buscar(entidade.getUserId()).then(function (usuario) {
@@ -440,9 +454,9 @@ function cartaoEntidadeMobile(entidade, nomeUser) {
 //Cartões de comunidade Mobile
 function filtroBuscaComunidadeMobile(tipo) {
 
-    comunidadedao.varredura().then(function (comunidade) {
-      comunidade.forEach(verificarUsuarioComunidadeMobile)
-    })
+  comunidadedao.varredura().then(function (comunidade) {
+    comunidade.forEach(verificarUsuarioComunidadeMobile)
+  })
 }
 
 function verificarUsuarioComunidadeMobile(comunidade) {
@@ -452,7 +466,7 @@ function verificarUsuarioComunidadeMobile(comunidade) {
 }
 
 function cartaoComunidadeMobile(entidade, nomeUser) {
-  
+
   let template = document.querySelector('#cartaoEmpresaMobile');
   let cartao = document.querySelector('#cartaoMobile');
   let img = template.content.querySelector("img");
@@ -476,13 +490,13 @@ function cartaoComunidadeMobile(entidade, nomeUser) {
   btn1.setAttribute("onclick", "exibirComunidade(this)");
   btn1.setAttribute("data-dismiss", "");
 
-  if(map.hasLayer(layerArray[entidade.getMarkerKey()])) {
+  if (map.hasLayer(layerArray[entidade.getMarkerKey()])) {
     btn1.innerHTML = "Desativar do mapa"
-    btn1.setAttribute("Style","background: #CF5B15;")
+    btn1.setAttribute("Style", "background: #CF5B15;")
   }
   else {
     btn1.innerHTML = "Ativar no mapa"
-    btn1.setAttribute("Style","background: #FC6A38;")
+    btn1.setAttribute("Style", "background: #FC6A38;")
   }
 
   btn2.innerHTML = "Visitar site"
@@ -858,7 +872,7 @@ $(document).ready(() => {
     })
 
   });
-  
+
   //Inicializar Checkbox
   $('#CheckboxTodos').prop('checked', true)
   $('#CheckboxAcelerador').prop('checked', true);
