@@ -766,11 +766,44 @@
   </div>
   <!-- Fim Modal Comunidade -->
 
-
-
-
   <!-- Modal Categoria Mobile -->
-  <div class="modal fade" id="modalCategoriaMobile" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+  <div class="modal fade" id="modalCategoriaMobile" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-mobile modal-dialog-scrollable" role="document">
+      <div class="modal-content modal-content-mobile">
+
+        <div class="modal-header modal-header-utilizar d-flex align-items-center justify-content-center">
+          <p id="titulo-modal">Categorias</p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body" style="padding: 0;">
+          <div class="">
+
+            <ul id="listaOpcoesMobile" class="list-group">
+              <template id="listaTipoMobile">
+                <!--Template da Lista de tipos de empreendimentos-->
+                <a id="botao-opcao-mobile" href="javascript:void(0)"
+                  class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                  onclick="chamarModalCard(this)" data-dismiss="modal" data-toggle="modal" data-target="#modalCardMobile"></a>
+              </template>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-categoria-mobile" data-dismiss="modal">Ir para o mapa</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Cards Mobile -->
+  <div class="modal fade" id="modalCardMobile" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-mobile modal-dialog-scrollable" role="document">
       <div class="modal-content modal-content-mobile">
@@ -783,41 +816,72 @@
         </div>
 
         <div class="modal-body">
-          <div class="">
+          <div class="" style="align-items: center;">
 
+            <!-- Template do Cartão das Empresas-->
+            <ul id="cartaoMobile" style="padding: 0;">
+              <template id="cartaoEmpresaMobile">
+                
+                <div id="divImagemCartao" class="template-cartao">
+                  <div id="div-card-superior" class="d-flex justify-content-center">
 
-            <!--<div id="coluna-categorias" data-spy="scroll" class="scrollspySite">-->
-              <ul id="listaOpcoesMobile" class="list-group">
-                <template id="listaTipoMobile"> <!--Template da Lista de tipos de empreendimentos-->
-                  <a id="botao-opcao-mobile" href="javascript:void(0)"
-                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-                    onclick=""></a>
-                </template>
-              </ul>
+                    <div id="div-superior-imagem">
+                      <img id="img-card-prop" src="img/image.jpg" alt="">
+                    </div>
 
-              <!--<div style="background: blueviolet; height: 50px; width: 50px;"></div>-->
+                    <div id="div-superior-conteudo">
+                      <div id="div-conteudo-titulo">
+                        <p id="txt-titulo-card">NOME</p>
+                      </div>
 
-            <!--</div>-->
+                      <div id="div-conteudo-descricao">
+                        <p id="txt-descricao-card">DESCRIÇÃO</p>
+                      </div>
+                    </div>
 
+                  </div>
 
+                  <div id="div-card-inferior">
+
+                    <div id="div-inferior-btns" class="d-flex align-items-end texto-btn-evento1">
+                      <a id="btn-card1" class="d-flex align-items-center justify-content-center texto-btn-card1"
+                        href="javascript:void(0)">
+                        -
+                      </a>
+
+                      <a id="btn-card2" class="d-flex align-items-center justify-content-center texto-btn-card2"
+                        href="index.html" target="_blank">
+                        -
+                      </a>
+                    </div>
+
+                    <div id="div-inferior-txt" class="d-flex">
+                      <p id="txt-marcadopor">Marcado por:</p>
+                      <a id="txt-marcadopor-nome">Sicrano</a>
+                    </div>
+
+                  </div>
+                </div>
+              </template>
+            </ul>
 
           </div>
         </div>
 
         <div class="modal-footer">
+          <button type="button" class="btn-categoria-mobile2" data-dismiss="modal" data-toggle="modal" data-target="#modalCategoriaMobile">
+            <i class="fas fa-angle-left" style="padding-right: 20px; padding-left: 5px;"></i> 
+            Categorias
+          </button>
           <button type="button" class="btn-categoria-mobile" data-dismiss="modal">Ir para o mapa</button>
         </div>
-        
+
       </div>
     </div>
   </div>
 
 
-
-
-
-
-  <!--TELA PRINCIPAL--->
+  <!--TELA PRINCIPAL---------------------------------------------------------------------------------->
 
   <div id="container_contudo">
 
@@ -833,9 +897,9 @@
               <h5 id="texto-menu-titulo">CATEGORIAS</h5>
 
               <!--Botão do Mobile-->
-              <div id="botao-titulo-mobile" class="input-group-append"> 
-                <a id="botaoBusca" href="javascript:void(0)" class="btn btn-orange" type="submit"
-                  onclick="" data-toggle="modal" data-target="#modalCategoriaMobile">
+              <div id="botao-titulo-mobile" class="input-group-append">
+                <a href="javascript:void(0)" class="btn btn-orange" type="submit" onclick=""
+                  data-toggle="modal" data-target="#modalCategoriaMobile">
                   <i class="fas fa-search"></i>
                 </a>
               </div>
@@ -886,9 +950,10 @@
 
             <div data-spy="scroll" class="scrollspySite d-flex justify-content-center">
 
+              <!-- Template do Cartão das Empresas-->
               <ul id="cartao" style="padding: 0;">
                 <template id="cartaoEmpresa">
-                  <!-- Template do Cartão das Empresas-->
+                  
                   <div id="divImagemCartao" class="template-cartao">
                     <div id="div-card-superior" class="d-flex justify-content-center">
 

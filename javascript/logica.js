@@ -4,6 +4,7 @@ let uploader2SelectedFile = ""
 let lat
 let lng
 let cont = 0
+let contAux
 let auxUser
 let marker
 let url
@@ -317,15 +318,6 @@ function executarEventoKey() {//Reconhece o evento que foi clicado na página de
 }
 
 //Modal Mobile-----------------------------------------------------------------------------------------
-function ModalMobileOpcoes() {
-  OpcaoComunidadeMobile()
-
-  entidadedao.varredura().then(function (entidade) {
-    //entidadeArray = entidade
-    //exibirMarcadores(ecossistema, entidadeArray)
-    ecossistema.forEach(criarListaOpcoesMobile)
-  })
-}
 
 function OpcaoComunidadeMobile() {
   comunidadedao.varredura().then(function (comunidades) {
@@ -339,8 +331,6 @@ function criarOpcaoComunidadeMobile(comunidades) { // Cria botão de comunidade
   let a = template.content.querySelector("a");
   let imgLink = document.createElement("imgLink");
   //imgLink.src = componente.getImagemBarra()
-
-  
 
   a.innerHTML =
   `<div style="width:inherit" class="d-flex justify-content-between align-items-center">
@@ -375,6 +365,142 @@ function criarListaOpcoesMobile(tipoClasse) { // Cria lista da bara lateral
   if (tipoClasse.getNome() != "Eventos") { listaOpcoes.appendChild(document.importNode(template.content, true)) }
   executarEventoKey()
 }
+
+//Criando modal de cartões mobile
+function chamarModalCard(componente) { //Abre o modal de cartões
+
+    $(".template-cartao").remove();
+
+    if (componente.getAttribute("data-tipo") != "Comunidades") {
+      filtroBuscaMobile(componente.getAttribute("data-tipo"));//exibe os cartões do tipo de opção selecionada
+    }
+    else {
+      filtroBuscaComunidadeMobile(componente.getAttribute("data-tipo"));
+    }
+}
+//Cartões de entidades Mobile
+function filtroBuscaMobile(tipo) {
+
+    for (let i = 0; i < entidadeArray.length; i++) {
+      if (tipo === entidadeArray[i].getTipo()) {
+        aux2 = true
+        verificarUsuarioEntidadeMobile(entidadeArray[i])
+      }
+    }
+  }
+
+function verificarUsuarioEntidadeMobile(entidade) {
+  usuariodao.buscar(entidade.getUserId()).then(function (usuario) {
+    cartaoEntidadeMobile(entidade, usuario.getNome())
+  })
+}
+
+function cartaoEntidadeMobile(entidade, nomeUser) {
+  let template = document.querySelector('#cartaoEmpresaMobile');
+  let cartao = document.querySelector('#cartaoMobile');
+  let img = template.content.querySelector("img");
+  let titulo = template.content.querySelector("#txt-titulo-card");
+  let descricao = template.content.querySelector("#txt-descricao-card");
+  let criador = template.content.querySelector("#txt-marcadopor-nome");
+  let btn1 = template.content.querySelector("#btn-card1");
+  let btn2 = template.content.querySelector("#btn-card2");
+  let imgCartao = document.createElement("imgCartao");
+
+  imgCartao.src = entidade.getURL()
+  img.setAttribute("src", imgCartao.src);
+
+  titulo.textContent = entidade.getNome()
+
+  descricao.textContent =
+    `${entidade.getLogradouro()}, 
+  ${entidade.getNumero()}, 
+  ${entidade.getComplemento()}, 
+  ${entidade.getBairro()}, 
+  ${entidade.getCidade()}, 
+  ${entidade.getUF()}, 
+  ${entidade.getCEP()}`
+
+  btn1.innerHTML = "Localização"
+  btn2.innerHTML = "Visitar Site"
+
+  btn2.setAttribute("href", entidade.getSite());
+  btn1.setAttribute("data-key", entidade.getMarkerKey());
+  btn1.setAttribute("onclick", "zoomMarcador(this)");
+  btn1.setAttribute("data-dismiss", "modal");
+
+  criador.textContent = nomeUser
+  criador.setAttribute("href", "javascript:void(0)");
+  criador.setAttribute("data-key", entidade.getUserId());
+  criador.setAttribute("onclick", "telaUsuario(this)");
+
+  cartao.appendChild(document.importNode(template.content, true));
+  permissao = true
+}
+
+//Cartões de comunidade Mobile
+function filtroBuscaComunidadeMobile(tipo) {
+
+    comunidadedao.varredura().then(function (comunidade) {
+      comunidade.forEach(verificarUsuarioComunidadeMobile)
+    })
+}
+
+function verificarUsuarioComunidadeMobile(comunidade) {
+  usuariodao.buscar(comunidade.getUserId()).then(function (usuario) {
+    cartaoComunidadeMobile(comunidade, usuario.getNome())
+  })
+}
+
+function cartaoComunidadeMobile(entidade, nomeUser) {
+  
+  let template = document.querySelector('#cartaoEmpresaMobile');
+  let cartao = document.querySelector('#cartaoMobile');
+  let img = template.content.querySelector("img");
+  let titulo = template.content.querySelector("#txt-titulo-card");
+  let descricao = template.content.querySelector("#txt-descricao-card");
+  let criador = template.content.querySelector("#txt-marcadopor-nome");
+  let btn1 = template.content.querySelector("#btn-card1");
+  let btn2 = template.content.querySelector("#btn-card2");
+
+  let imgCartao = document.createElement("imgCartao");
+  imgCartao.src = entidade.getURL();
+
+  img.setAttribute("src", imgCartao.src);
+
+  titulo.textContent = entidade.getNome()
+  descricao.textContent = `${entidade.getDescricao()}`
+
+  btn2.setAttribute("href", entidade.getSite());
+  btn1.setAttribute("data-key", entidade.getMarkerKey());
+  btn1.setAttribute("name", entidade.getMarkerKey());
+  btn1.setAttribute("onclick", "exibirComunidade(this)");
+  btn1.setAttribute("data-dismiss", "");
+
+  if(map.hasLayer(layerArray[entidade.getMarkerKey()])) {
+    btn1.innerHTML = "Desativar do mapa"
+    btn1.setAttribute("Style","background: #CF5B15;")
+  }
+  else {
+    btn1.innerHTML = "Ativar no mapa"
+    btn1.setAttribute("Style","background: #FC6A38;")
+  }
+
+  btn2.innerHTML = "Visitar site"
+
+  criador.textContent = nomeUser
+  criador.setAttribute("href", "javascript:void(0)");
+  criador.setAttribute("data-key", entidade.getUserId());
+  criador.setAttribute("onclick", "telaUsuario(this)");
+
+  /*
+  p[1].innerHTML = `<small class="font-weight-bold" href="">Marcado por: </small>
+  <small><a class="ml-1" href="javascript:void(0)" data-key="${entidade.getUserId()}" onclick="telaUsuario(this)">${nomeUser}</a></small>`
+  */
+
+  cartao.appendChild(document.importNode(template.content, true));
+  permissao = true
+}
+
 //Fim Modal Mobile-----------------------------------------------------------------------------------------------
 
 //Funções do Sistema
