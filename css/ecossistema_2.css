@@ -123,6 +123,7 @@
         margin: 0px 15px 0px 0px;
         padding-left: 15px;
     }
+    /*PROPRIEDADES DOS MODAIS */
     #titulo-modal {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-weight: bold;
@@ -149,6 +150,7 @@
         height: 307.2px;
         margin: 0;
     }
+    /*INICIO DO MAIN */
     .main {
         position: absolute;
         height: auto;

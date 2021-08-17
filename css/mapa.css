@@ -8,6 +8,7 @@
         height: 100%;
         width: 100%;
     }
+    /*PROPRIEDADES DA BARRA DE NAVEGAÇÃO*/
     header {
         background: linear-gradient(90deg, #1F4D37 0.68%, #00833A 99.69%);
         width: 100%;
@@ -17,19 +18,23 @@
     }
     #barra_nav {
         height: 100%;
-        min-width: 1450px;
-    }
-    .btnLogo {
-        position: relative;
-        left: 39.2px;
+        min-width: 1200px;
     }
     .logo {
         width: 116px;
         height: 41.46px;
     }
+    .btnLogo {
+        position: relative;
+        left: 39.2px;
+    }
+    .navbar {
+        width: inherit;
+    }
     .btnNav {
         position: relative;
-        left: 332.8px;
+        left: 177.6px;
+        margin-right: auto;
     }
     .dropdownHeader {
         position: relative;
