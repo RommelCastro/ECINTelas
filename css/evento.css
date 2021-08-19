@@ -632,7 +632,7 @@
         font-size: 12px;
         margin: 0px 11.2px 11px 18.4px;
         text-align: justify;
-        overflow: scroll;
+        overflow: auto;
         text-overflow: ellipsis;
     }
     #conteudo-evento-A {
