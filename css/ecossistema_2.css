@@ -31,7 +31,6 @@
     .btnLogo {
         position: relative;
         margin-left: 39.2px;
-        /*left: 39.2px; AQUI UM PONTO*/
     }
     .navbar {
         width: inherit;
@@ -40,7 +39,6 @@
         position: relative;
         margin-left: 177.6px;
         margin-right: auto;
-        /*left: 332.8px; AQUI UM PONTO*/
     }
     .dropdownHeader {
         position: relative;
@@ -402,7 +400,7 @@
 
 /*Mobile*/
 
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 1024px) {
     html {
         padding: 0;
         margin: 0;
