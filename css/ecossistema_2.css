@@ -152,11 +152,10 @@
     }
     /*INICIO DO MAIN */
     .main {
-        position: absolute;
+        position: relative;
         height: auto;
         width: 100%;
         min-height: 550px;
-        top: 70.4px;
     }
     .container {
         max-width: 1156.8px;
@@ -274,6 +273,7 @@
     .divisao4-order {
         display: flex;
         justify-content: center;
+        align-items: center;
     }
     #img8-prop {
         position: relative;
@@ -285,19 +285,19 @@
         position: relative;
         height: 89.6px;
         width: 260px;
-        margin: 32px 0px 0px 72.8px;
+        margin: 32px 0px 0px 65px;
     }
     #img10-prop {
         position: relative;
         height: 61.6px;
         width: 136.8px;
-        margin: 32px 0px 0px 72.8px;
+        margin: 32px 0px 0px 65px;
     }
     #img11-prop {
         position: relative;
         height: 105.6px;
         width: 163.2px;
-        margin: 32px 0px 0px 72.8px;
+        margin: 32px 0px 0px 65px;
     }
     #divisao5 {
         position: relative;
@@ -315,8 +315,8 @@
     }
     #img12-prop {
         position: relative;
-        height: 362.4px;
-        width: 503.2px;
+        /*height: 362.4px;*/
+        width: 100%;
         top: 80.6px;
     }
     .topicos-ecossistema {
