@@ -65,10 +65,10 @@ L.icon = function (options) {
 };
 
 ecossistema.push(new Aceleradora())
-ecossistema.push(new Advogados())
+//ecossistema.push(new Advogados())
 ecossistema.push(new Catalisadores())
 ecossistema.push(new Comunicacao())
-ecossistema.push(new Conexao())
+//ecossistema.push(new Conexao())
 //ecossistema.push(new Conteudo())
 ecossistema.push(new Coworking())
 //ecossistema.push(new Creditos())
@@ -87,7 +87,7 @@ ecossistema.push(new Nucleo())
 ecossistema.push(new Parques())
 ecossistema.push(new preAceleradoras())
 ecossistema.push(new propIntelectual())
-ecossistema.push(new Provedores())
+//ecossistema.push(new Provedores())
 ecossistema.push(new Mentoria())
 ecossistema.push(new Startups())
 
