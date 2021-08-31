@@ -37,36 +37,47 @@
 <body>
 
   <header>
-    <nav class="navbar navbar-expand-sm navbar-dark" style="height: 100%;">
+    <nav id="barra_nav" class="navbar navbar-expand-lg navbar-dark">
 
       <!--Logo -->
       <a href="index.html" class="btnLogo"><img class="logo" src="img\logos\logo-svg.svg"></a>
 
+      <!--Menu Hamburguer-->
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#menu-nav" aria-controls="#menu-nav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
       <!--Navegação-->
-      <ul class="navbar-nav btnNav">
-        <li class="nav-item">
-          <a type="button" href="ecossistema.html"
-            class="d-flex align-items-center justify-content-start nav-item-style">
-            <i class="fas fa-newspaper"></i>
-            <p class="texto-nav">ECOSSISTEMA</p>
-          </a>
-        </li>
+      <div id="menu-nav" class="collapse navbar-collapse">
 
-        <li class="nav-item">
-          <a type="button" href="javascript:void(0)"
-            class="d-flex align-items-center justify-content-start nav-item-style" data-toggle="modal" data-target="#modalSobre">
-            <i class="fas fa-chalkboard-teacher"> </i>
-            <p class="texto-nav">COMO UTILIZAR</p>
-          </a>
-        </li>
+        <ul class="navbar-nav btnNav">
+          <li class="nav-item">
+            <a type="button" href="ecossistema.html"
+              class="d-flex align-items-center justify-content-start nav-item-style">
+              <i class="fas fa-newspaper"></i>
+              <p class="texto-nav">ECOSSISTEMA</p>
+            </a>
+          </li>
 
-        <li class="nav-item">
-          <a type="button" href="eventos.html" class="d-flex align-items-center justify-content-start nav-item-style">
-            <i class="fas fa-theater-masks"> </i>
-            <p class="texto-nav">EVENTOS</p>
-          </a>
-        </li>
-      </ul>
+          <li class="nav-item">
+            <a type="button" href="javascript:void(0)"
+              class="d-flex align-items-center justify-content-start nav-item-style" data-toggle="modal"
+              data-target="#modalSobre">
+              <i class="fas fa-chalkboard-teacher"> </i>
+              <p class="texto-nav">COMO UTILIZAR</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a type="button" href="eventos.html" class="d-flex align-items-center justify-content-start nav-item-style">
+              <i class="fas fa-theater-masks"> </i>
+              <p class="texto-nav">EVENTOS</p>
+            </a>
+          </li>
+        </ul>
+
+      </div>
     </nav>
   </header>
 
@@ -87,9 +98,9 @@
           <div class="d-flex align-items-center justify-content-center modal-video">
 
             <video width="100%" height="100%" controls>
-              <source src="videos/[9].mp4" type="video/mp4" >
+              <source src="videos/[9].mp4" type="video/mp4">
             </video>
-            
+
           </div>
         </div>
       </div>
@@ -156,22 +167,23 @@
       </div>
     </div>
 
-    <footer class="footerstyle footer d-flex align-items-center justify-content-center">
-      <div class="div-footer1">
-        <ul>
-          <li>
-            <a id="email" href="mailto:mapa.inovacao@ufc.br?body=%0D%0A%0D%0AAtenciosamente,%0D%0A${NOME}">
-              Para mais informações, fale conosco através do mapa.inovacao@ufc.br</a>
-          </li>
-          <li><i class="fas fa-envelope fa-lg"></i></li>
-        </ul>
-      </div>
-      <div class="div-footer2">
-        <p style="margin-bottom: 10px;">POLÍTICAS DE PRIVACIDADE</p>
-        <p>TERMOS DE USO</p>
-      </div>
-    </footer>
   </main>
+
+  <footer class="footerstyle footer">
+    <div class="div-footer1">
+      <ul>
+        <li>
+          <a id="email" href="mailto:mapa.inovacao@ufc.br?body=%0D%0A%0D%0AAtenciosamente,%0D%0A${NOME}">
+            Para mais informações, fale conosco através do mapa.inovacao@ufc.br</a>
+        </li>
+        <li><i class="fas fa-envelope fa-lg"></i></li>
+      </ul>
+    </div>
+    <div class="div-footer2">
+      <p style="margin-bottom: 10px;">POLÍTICAS DE PRIVACIDADE</p>
+      <p>TERMOS DE USO</p>
+    </div>
+  </footer>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
