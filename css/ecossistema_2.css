@@ -22,7 +22,7 @@
     }
     #barra_nav {
         height: 100%;
-        min-width: 1024px;
+        /*min-width: 1024px;*/
     }
     .logo {
         width: 116px;
@@ -356,8 +356,11 @@
         align-items: center;
         justify-content: center;
     }
+    .prefooter {
+        display: contents;
+    }
     .div-footer1 {
-        margin-right: 40px;
+        margin-right: 15px;
     }
     .div-footer1 ul {
         margin: 0;
@@ -369,7 +372,14 @@
         font-size: 17px;
         font-weight: bold;
         color: white;
-        margin: 0px 10px 0px 0px;
+    }
+    .div-footer1_1 {
+        display: inline-block;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 17px;
+        font-weight: bold;
+        color: white;
+        margin: 0px 50px 0px 0px;
     }
     .div-footer2 {
         width: 196px;
@@ -378,6 +388,12 @@
         color: white;
         border-left-style: solid;
         border-width: thin;
+    }
+    .div-footer-beta {
+        width: fit-content;
+        font-size: x-small;
+        color: white;
+        margin: 0;
     }
     .div-footer2 p {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -729,26 +745,35 @@
         margin-top: 36px;
         background: linear-gradient(90deg, rgba(31, 77, 55, 0.5) 0.68%, rgba(0, 131, 58, 0.5) 99.69%);
     }
+    .prefooter {
+        display: flex;
+    }
     .div-footer1 ul {
         display: flex;
         margin: 0;
         padding: 0;
     }
     .div-footer1 ul li {
-        display: flex;
-        align-items: center;
+        display: block;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-size: 17px;
         font-weight: bold;
         color: white;
         /*margin: 0px 10px 0px 0px;*/
     }
-    .div-footer1 ul li i {
+    .div-footer1 ul li li i {
         display: flex;
         justify-content: center;
         font-size: 30px;
         font-weight: bold;
         color: white;
+    }
+    .div-footer1_1 {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 17px;
+        font-weight: bold;
+        color: white;
+        margin-top: 20px;
     }
     .div-footer2 {
         width: 196px;
@@ -756,6 +781,12 @@
         color: white;
         /*border-left-style: solid;
         border-width: thin;*/
+    }
+    .div-footer-beta {
+        width: fit-content;
+        font-size: x-small;
+        color: white;
+        margin: 0;
     }
     .div-footer2 p {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
