@@ -38,7 +38,6 @@ let markerIcon = L.Icon.extend({
   }
 });
 
-
 let ceara = new Ceara();
 marcarLimites()
 

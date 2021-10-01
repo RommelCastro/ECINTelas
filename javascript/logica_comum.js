@@ -1,15 +1,15 @@
 /* CODIGO DE CRIAÇÃO DO BOTAO LOGIN/USUÁRIO */
 let usuariodao = new usuarioDAO
 
-  firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
 
-      usuariodao.buscar(user.uid).then(function (usuario) {
-        nome = usuario.getNome().split(" ")
+    usuariodao.buscar(user.uid).then(function (usuario) {
+      nome = usuario.getNome().split(" ")
 
-        document.getElementById('btn-user').setAttribute("data-status", "logado")
-        document.getElementById('btn-user').innerHTML =
-          `<button class="btn-dropdown-header dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+      document.getElementById('btn-user').setAttribute("data-status", "logado")
+      document.getElementById('btn-user').innerHTML =
+        `<button class="btn-dropdown-header dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         OLÁ, ${nome[0].toUpperCase()}!
       </button>
@@ -27,18 +27,20 @@ let usuariodao = new usuarioDAO
         </a>
       </div>`
 
-        localStorage.setItem('usuarioLogadoKey', user.uid)
-      })
-    } else {
-      document.getElementById('btn-user').setAttribute("data-status", "deslogado")
-      document.getElementById('btn-user').innerHTML =
-        ` <a type="button" href="login.html" class="d-flex align-items-center justify-content-center btn-login">
+      localStorage.setItem('usuarioLogadoKey', user.uid)
+    })
+  } else {
+    document.getElementById('btn-user').setAttribute("data-status", "deslogado")
+    document.getElementById('btn-user').innerHTML =
+      ` <a type="button" href="login.html" class="d-flex align-items-center justify-content-center btn-login">
         <i class="fas fa-sign-in-alt icon-prop"></i>
         <p class="texto-btn-login">LOGIN</p>
       </a>`
-    }
+  }
 
-  });
+});
+
+
 /*CÓDIGO DA PAGINA DO USUÁRIO*/
 
 function telaUsuario(componente) {
