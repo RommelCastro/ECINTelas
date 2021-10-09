@@ -23,23 +23,25 @@
 
     <script src="https://kit.fontawesome.com/16786d0779.js" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/ecossistema_2.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
 
     <script src="model/usuario.js"></script>
 
     <script src="dao/usuariodao.js"></script>
 
+    <link rel="shortcut icon" href="img/favicon_2.png"/>
     <title>Ecossistema Cearense de Inovação</title>
 </head>
 
 <body>
 
     <header>
-
-        <nav id="barra_nav" class="navbar navbar-expand-xl navbar-dark">
+        <nav class="navbar navbar-expand-xl navbar-dark">
 
             <!--Logo -->
-            <a href="index.html" class="btnLogo"><img class="logo" src="img\logos\logo-svg.svg"></a>
+            <a href="index.html"><img class="logo" src="img\logos\logo-svg.svg"></a>
 
             <!--Menu Hamburguer-->
             <button class="navbar-toggler" data-toggle="collapse" data-target="#menu-nav" aria-controls="#menu-nav"
@@ -51,30 +53,29 @@
             <div id="menu-nav" class="collapse navbar-collapse">
 
                 <ul class="navbar-nav btnNav">
+
                     <li class="nav-item">
-                        <a type="button" href="ecossistema.html"
-                            class="d-flex align-items-center justify-content-start nav-item-style">
+                        <a type="button" href="ecossistema.html" class=" nav-item-style">
                             <i class="fas fa-newspaper"></i>
                             <p class="texto-nav">ECOSSISTEMA</p>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a type="button" href="javascript:void(0)"
-                            class="d-flex align-items-center justify-content-start nav-item-style" data-toggle="modal"
+                        <a type="button" href="javascript:void(0)" class="nav-item-style" data-toggle="modal"
                             data-target="#modalSobre">
-                            <i class="fas fa-chalkboard-teacher"> </i>
+                            <i class="fas fa-chalkboard-teacher"></i>
                             <p class="texto-nav">COMO UTILIZAR</p>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a type="button" href="eventos.html"
-                            class="d-flex align-items-center justify-content-start nav-item-style">
+                        <a type="button" href="eventos.html" class="nav-item-style">
                             <i class="fas fa-theater-masks"> </i>
                             <p class="texto-nav">EVENTOS</p>
                         </a>
                     </li>
+
                 </ul>
 
                 <form id="btn-user" class="dropdownHeader">
@@ -85,7 +86,6 @@
 
             </div>
         </nav>
-
     </header>
 
     <!-- Modal Como Utilizar -->

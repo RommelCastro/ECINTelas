@@ -38,7 +38,6 @@ let markerIcon = L.Icon.extend({
   }
 });
 
-
 let ceara = new Ceara();
 marcarLimites()
 
@@ -101,6 +100,10 @@ entidadedao.varredura().then(function (entidade) {
 })
 
 //Fim Main-------------------------------------------------------------
+
+function reload(){
+  window.location.reload()
+}
 
 function OpcaoComunidade() {
   comunidadedao.varredura().then(function (comunidades) {
@@ -527,79 +530,79 @@ function filtroMarcador() {
     selecaoFiltro.push(ecossistema[0])
   }
   if ($('#CheckboxAdvogados').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[1])
+    selecaoFiltro.push(ecossistema[100])
   }
   if ($('#CheckboxCatalisadores').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[2])
+    selecaoFiltro.push(ecossistema[1])
   }
   if ($('#CheckboxComunicacao').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[3])
+    selecaoFiltro.push(ecossistema[2])
   }
   if ($('#CheckboxConexao').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[4])
+    selecaoFiltro.push(ecossistema[100])
   }
   if ($('#CheckboxConteudo').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[5])
+    selecaoFiltro.push(ecossistema[100])
   }
   if ($('#CheckboxCoworking').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[6])
+    selecaoFiltro.push(ecossistema[3])
   }
   if ($('#CheckboxCreditos').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[7])
+    selecaoFiltro.push(ecossistema[100])
   }
   if ($('#CheckboxEditais').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[8])
+    selecaoFiltro.push(ecossistema[100])
   }
   if ($('#CheckboxEscolas').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[9])
+    selecaoFiltro.push(ecossistema[4])
   }
   if ($('#CheckboxMakers').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[10])
+    selecaoFiltro.push(ecossistema[5])
   }
   if ($('#CheckboxEventos').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[11])
+    selecaoFiltro.push(ecossistema[6])
   }
   if ($('#CheckboxFabricaApp').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[12])
+    selecaoFiltro.push(ecossistema[7])
   }
   if ($('#CheckboxGoverno').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[13])
+    selecaoFiltro.push(ecossistema[100])
   }
   if ($('#CheckboxEmpresas').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[14])
+    selecaoFiltro.push(ecossistema[8])
   }
   if ($('#CheckboxIncubadoras').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[15])
+    selecaoFiltro.push(ecossistema[9])
   }
   if ($('#CheckboxiniUniversitarias').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[16])
+    selecaoFiltro.push(ecossistema[10])
   }
   if ($('#CheckboxInvestidores').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[17])
+    selecaoFiltro.push(ecossistema[11])
   }
   if ($('#CheckboxMissoes').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[18])
+    selecaoFiltro.push(ecossistema[100])
   }
   if ($('#CheckboxNucleos').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[19])
+    selecaoFiltro.push(ecossistema[12])
   }
   if ($('#CheckboxParques').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[20])
+    selecaoFiltro.push(ecossistema[13])
   }
   if ($('#CheckboxpreAceleradoras').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[21])
+    selecaoFiltro.push(ecossistema[14])
   }
   if ($('#CheckboxpropIntelectuais').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[22])
+    selecaoFiltro.push(ecossistema[15])
   }
   if ($('#CheckboxProvedores').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[23])
+    selecaoFiltro.push(ecossistema[100])
   }
   if ($('#CheckboxMentoria').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[24])
+    selecaoFiltro.push(ecossistema[16])
   }
   if ($('#CheckboxStartup').prop('checked') == true) {
-    selecaoFiltro.push(ecossistema[25])
+    selecaoFiltro.push(ecossistema[17])
   }
   exibirMarcadores(selecaoFiltro, entidadeArray)
 }

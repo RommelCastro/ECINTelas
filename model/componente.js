@@ -1,5 +1,6 @@
 class Entidade {
-  constructor(nome, site, tipo, url, latitude,longitude, logradouro, numero, complemento, bairro, cidade, uf, cep, markerKey, userId){
+  constructor(nome, site, tipo, url, latitude,longitude, logradouro, numero, complemento, bairro, cidade, uf, cep, markerKey, userId, validacao){
+
     this.nome = nome
     this.site = site
     this.tipo = tipo
@@ -15,6 +16,8 @@ class Entidade {
     this.cep = cep
     this.markerKey = markerKey
     this.userId = userId
+    this.validacao = validacao
+
   }
   getNome(){
     return this.nome
@@ -60,5 +63,8 @@ class Entidade {
   }
   getUserId(){
     return this.userId
+  }
+  getValidacao(){
+    return this.validacao
   }
 }

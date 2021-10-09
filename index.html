@@ -44,12 +44,15 @@
 
   <link rel="stylesheet" type="text/css" href="css/mapa.css">
 
+  <link rel="stylesheet" type="text/css" href="css/modal.css">
 
   <!-- font-awsome-->
   <script src="https://kit.fontawesome.com/16786d0779.js" crossorigin="anonymous"></script>
   <!--Compatilhamento FB-->
 
+  <link rel="shortcut icon" href="img/favicon_2.png"/>
   <title>Ecossistema Cearense de Inovação</title>
+
 </head>
 
 <body>
@@ -87,6 +90,7 @@
               <i class="fas fa-chalkboard-teacher"> </i>
               <p class="texto-nav">COMO UTILIZAR</p>
             </a>
+
           </li>
 
           <li class="nav-item">
@@ -499,6 +503,10 @@
         <div class="modal-footer">
           <button type="button" class="btn-cadastro1" data-dismiss="modal" onclick="deletarMarcador()">Fechar</button>
           <button id="btn-enviar" type="button" class="btn-cadastro2" onclick="gravarFormulario()">Enviar</button>
+
+          <!--data-toggle="modal"
+          data-target="#modalAgradecimento"-->
+
         </div>
       </div>
     </div>
@@ -509,7 +517,7 @@
   <div class="modal fade" id="ModalFiltro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content modalFiltro--dimensao">
 
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">Filtros de Categorias</h5>
@@ -520,152 +528,152 @@
         <div class="modal-body">
           <!--Inicio do Conteudo-->
           <form>
-            <div>
+            <div class="">
               <div class="form-check form-check-inline col-md-6">
                 <input class="form-check-input" type="checkbox" id="CheckboxTodos" value="Todos">
                 <label class="form-check-label" style="font-weight: bold;" for="CheckboxTodos">Todos</label>
               </div>
             </div>
 
-            <div>
+            <div class="modalFiltro--linhaSelecao">
+
               <div class="form-check form-check-inline col-md-6">
                 <input class="form-check-input" type="checkbox" id="CheckboxAcelerador" value="Acelerador">
-                <label class="form-check-label" for="CheckboxAcelerador">Acelerador</label>
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxAcelerador">Acelerador</label>
               </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="CheckboxAdvogados" value="Advogados">
-                <label class="form-check-label" for="CheckboxAdvogados">Advogados</label>
-              </div>
-            </div>
-
-            <div>
               <div class="form-check form-check-inline col-md-6">
                 <input class="form-check-input" type="checkbox" id="CheckboxCatalisadores" value="Catalisadores">
-                <label class="form-check-label" for="CheckboxCatalisadores">Catalisadores Locais</label>
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxCatalisadores">Catalisadores
+                  Locais</label>
               </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="CheckboxComunicacao" value="Comunicacao">
-                <label class="form-check-label" for="CheckboxComunicacao">Comunicação e Mídia</label>
-              </div>
+
             </div>
 
-            <div>
+            <div class="modalFiltro--linhaSelecao">
+
               <div class="form-check form-check-inline col-md-6">
-                <input class="form-check-input" type="checkbox" id="CheckboxConexao" value="Conexao">
-                <label class="form-check-label" for="CheckboxConexao">Conexão com Mercado</label>
+                <input class="form-check-input" type="checkbox" id="CheckboxComunicacao" value="Comunicacao">
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxComunicacao">Comunicação e
+                  Mídia</label>
               </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="CheckboxConteudo" value="Conteudo">
-                <label class="form-check-label" for="CheckboxConteudo">Conteúdo</label>
-              </div>
-            </div>
-
-            <div>
               <div class="form-check form-check-inline col-md-6">
                 <input class="form-check-input" type="checkbox" id="CheckboxCoworking" value="Coworking">
-                <label class="form-check-label" for="CheckboxCoworking">Coworking</label>
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxCoworking">Coworking</label>
               </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="CheckboxCreditos" value="Creditos">
-                <label class="form-check-label" for="CheckboxCreditos">Créditos</label>
-              </div>
+
             </div>
 
-            <div>
+            <div class="modalFiltro--linhaSelecao">
+
               <div class="form-check form-check-inline col-md-6">
-                <input class="form-check-input" type="checkbox" id="CheckboxEditais" value="Editais">
-                <label class="form-check-label" for="CheckboxEditais">Editais</label>
-              </div>
-              <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="CheckboxEscolas" value="Escolas">
-                <label class="form-check-label" for="CheckboxEscolas">Escolas</label>
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxEscolas">Escolas</label>
               </div>
-            </div>
-
-            <div>
               <div class="form-check form-check-inline col-md-6">
                 <input class="form-check-input" type="checkbox" id="CheckboxMakers" value="Makers">
-                <label class="form-check-label" for="CheckboxMakers">Makers</label>
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxMakers">Makers</label>
               </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="CheckboxEventos" value="Eventos">
-                <label class="form-check-label" for="CheckboxEventos">Eventos</label>
-              </div>
+
             </div>
 
-            <div>
+            <div class="modalFiltro--linhaSelecao">
+
+              <div class="form-check form-check-inline col-md-6">
+                <input class="form-check-input" type="checkbox" id="CheckboxEventos" value="Eventos">
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxEventos">Eventos</label>
+              </div>
+
               <div class="form-check form-check-inline col-md-6">
                 <input class="form-check-input" type="checkbox" id="CheckboxFabricaApp" value="FabricaApp">
-                <label class="form-check-label" for="CheckboxFabricaApp">Fábrica de Aplicativos</label>
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxFabricaApp">Fábrica de
+                  Aplicativos</label>
               </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="CheckboxGoverno" value="Governo">
-                <label class="form-check-label" for="CheckboxGoverno">Governo</label>
-              </div>
+
             </div>
 
-            <div>
+            <div class="modalFiltro--linhaSelecao">
+
               <div class="form-check form-check-inline col-md-6">
                 <input class="form-check-input" type="checkbox" id="CheckboxEmpresas" value="Empresas">
-                <label class="form-check-label" for="CheckboxEmpresas">Grandes Empresas</label>
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxEmpresas">Grandes Empresas</label>
               </div>
-              <div class="form-check form-check-inline">
+              <div class="form-check form-check-inline col-md-6">
                 <input class="form-check-input" type="checkbox" id="CheckboxIncubadoras" value="Incubadoras">
-                <label class="form-check-label" for="CheckboxIncubadoras">Incubadoras</label>
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxIncubadoras">Incubadoras</label>
               </div>
+
             </div>
 
-            <div>
+            <div class="modalFiltro--linhaSelecao">
+
               <div class="form-check form-check-inline col-md-6">
                 <input class="form-check-input" type="checkbox" id="CheckboxiniUniversitarias"
                   value="iniUniversitarias">
-                <label class="form-check-label" for="CheckboxiniUniversitarias">Iniciativas Universitárias</label>
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxiniUniversitarias">Iniciativas
+                  Universitárias</label>
               </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="CheckboxInvestidores" value="Investidores">
-                <label class="form-check-label" for="CheckboxInvestidores">Investidores</label>
-              </div>
-            </div>
-
-            <div>
               <div class="form-check form-check-inline col-md-6">
-                <input class="form-check-input" type="checkbox" id="CheckboxMissoes" value="Missoes">
-                <label class="form-check-label" for="CheckboxMissoes">Missões de Negócios</label>
+                <input class="form-check-input" type="checkbox" id="CheckboxInvestidores" value="Investidores">
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxInvestidores">Investidores</label>
               </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="CheckboxNucleos" value="Nucleos">
-                <label class="form-check-label" for="CheckboxNucleos">Núcleos de Inovação</label>
-              </div>
+
             </div>
 
-            <div>
+            <div class="modalFiltro--linhaSelecao">
+
+              <div class="form-check form-check-inline col-md-6">
+                <input class="form-check-input" type="checkbox" id="CheckboxNucleos" value="Nucleos">
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxNucleos">Núcleos de Inovação</label>
+              </div>
+              <div class="form-check form-check-inline col-md-6">
+                <input class="form-check-input" type="checkbox" id="CheckboxParques" value="Parques">
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxParques">Parques Tecnológicos</label>
+              </div>
+
+            </div>
+
+            <div class="modalFiltro--linhaSelecao">
+
               <div class="form-check form-check-inline col-md-6">
                 <input class="form-check-input" type="checkbox" id="CheckboxpreAceleradoras" value="preAceleradoras">
-                <label class="form-check-label" for="CheckboxpreAceleradoras">Pré Aceleradoras</label>
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxpreAceleradoras">Pré
+                  Aceleradoras</label>
               </div>
 
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="CheckboxpropIntelectuais" value="propIntelectuais">
-                <label class="form-check-label" for="CheckboxpropIntelectuais">Propriedade Intelectual</label>
-              </div>
-            </div>
-
-            <div>
               <div class="form-check form-check-inline col-md-6">
-                <input class="form-check-input" type="checkbox" id="CheckboxProvedores" value="Provedores">
-                <label class="form-check-label" for="CheckboxProvedores">Provedores de Serviços</label>
+                <input class="form-check-input" type="checkbox" id="CheckboxpropIntelectuais" value="propIntelectuais">
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxpropIntelectuais">Propriedade
+                  Intelectual</label>
               </div>
 
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="CheckboxMentoria" value="Mentoria">
-                <label class="form-check-label" for="CheckboxMentoria">Mentoria</label>
-              </div>
             </div>
 
-            <div>
+            <div class="modalFiltro--linhaSelecao">
+
+              <div class="form-check form-check-inline col-md-6">
+                <input class="form-check-input" type="checkbox" id="CheckboxMentoria" value="Mentoria">
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxMentoria">Mentoria</label>
+              </div>
+
               <div class="form-check form-check-inline col-md-6">
                 <input class="form-check-input" type="checkbox" id="CheckboxStartup" value="Startup">
-                <label class="form-check-label" for="CheckboxStartup">Startup</label>
+                <label class="form-check-label modalFiltro--Textos" for="CheckboxStartup">Startup</label>
+              </div>
+
+            </div>
+
+            <div class="modalFiltro--linhaSelecao">
+              <div class="form-check form-check-inline col-md-6">
+
+              </div>
+              <div class="form-check form-check-inline">
+                <select class="form-control form-control modalFiltro--Select" required="required" id="validacaoUFLocal">
+                  <option value="1" selected disabled>Escolha seu tipo de startup</option>
+                  <option>TIPO 1</option>
+                  <option>TIPO 2</option>
+                  <option>TIPO 3</option>
+                  <option>TIPO 4</option>
+                </select>
               </div>
             </div>
 
@@ -681,6 +689,60 @@
     </div>
   </div>
   <!--Fim do Modal Filtro--->
+
+  <!-- Modal Mensagem de Agradecimento -->
+  <div class="modal fade" id="modalAgradecimento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+
+    <div class="modal-dialog modalAgradecimento--posicionamento" role="document">
+      <div class="modal-content modalAgradecimento--dimensao">
+
+        <div class="modal-header modalAgradecimento--header">
+
+          <p class="modalAgradecimento--titulo" id="exampleModalLabel">Recebemos a solitação de cadastro!</p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="reload()">
+
+            <span aria-hidden="true">&times;</span>
+
+          </button>
+
+        </div>
+
+        <!--Inicio do Conteudo-->
+        <div class="modal-body modalAgradecimento--body">
+
+          <div class="modalAgradecimento--divA">
+
+            <span style="font-size: 60px; color: #00B96B; height: fit-content; display: contents;">
+              <i class="fas fa-check-circle"></i>
+            </span>
+
+          </div>
+
+          <div class="modalAgradecimento--divB">
+
+            <p class="modalAgradecimento--conteudo"><b>Obrigado por cadastrar sua instituição!</b></p>
+            <p class="modalAgradecimento--conteudo">As informações estão <b>
+                <font color="green">em análise</font>
+              </b>, em breve sua instituição será
+              adicionada ao mapa!</p>
+            <p class="modalAgradecimento--conteudo">Caso ocorra algua pendência, informaremos por e-mail.</p>
+
+          </div>
+
+        </div>
+
+        <!--Fim do Conteudo-->
+        <div class="modal-footer modalAgradecimento--footer">
+
+          <button id="" class="modalAgradecimento--btnFechar" type="button" onclick="reload()">Fechar</button>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!--Fim do Modal Mensagem de Agradecimento--->
 
   <!-- Modal Comunidade -->
   <div class="modal fade" id="ModalComunidade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -788,7 +850,8 @@
                 <!--Template da Lista de tipos de empreendimentos-->
                 <a id="botao-opcao-mobile" href="javascript:void(0)"
                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-                  onclick="chamarModalCard(this)" data-dismiss="modal" data-toggle="modal" data-target="#modalCardMobile"></a>
+                  onclick="chamarModalCard(this)" data-dismiss="modal" data-toggle="modal"
+                  data-target="#modalCardMobile"></a>
               </template>
             </ul>
 
@@ -812,7 +875,8 @@
         <div class="modal-header modal-header-utilizar d-flex align-items-center justify-content-center">
 
           <div class="d-flex align-items-center">
-            <img id="img-categoria" style="height:36px; width:36px; margin-right: 20px;" src="img/img-bl/01-aceleradora.png" alt="">
+            <img id="img-categoria" style="height:36px; width:36px; margin-right: 20px;"
+              src="img/img-bl/01-aceleradora.png" alt="">
             <p id="nome-categoria" style="margin: 0;">Categorias</p>
           </div>
 
@@ -828,7 +892,7 @@
             <!-- Template do Cartão das Empresas-->
             <ul id="cartaoMobile" style="padding: 0;">
               <template id="cartaoEmpresaMobile">
-                
+
                 <div id="divImagemCartao" class="template-cartao">
                   <div id="div-card-superior" class="d-flex justify-content-center">
 
@@ -876,8 +940,9 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn-categoria-mobile2" data-dismiss="modal" data-toggle="modal" data-target="#modalCategoriaMobile">
-            <i class="fas fa-angle-left" style="padding-right: 20px; padding-left: 5px;"></i> 
+          <button type="button" class="btn-categoria-mobile2" data-dismiss="modal" data-toggle="modal"
+            data-target="#modalCategoriaMobile">
+            <i class="fas fa-angle-left" style="padding-right: 20px; padding-left: 5px;"></i>
             Categorias
           </button>
           <button type="button" class="btn-categoria-mobile" data-dismiss="modal">Ir para o mapa</button>
@@ -886,7 +951,6 @@
       </div>
     </div>
   </div>
-
 
   <!--TELA PRINCIPAL---------------------------------------------------------------------------------->
 
@@ -905,8 +969,8 @@
 
               <!--Botão do Mobile-->
               <div id="botao-titulo-mobile" class="input-group-append">
-                <a href="javascript:void(0)" class="btn btn-orange" type="submit" onclick=""
-                  data-toggle="modal" data-target="#modalCategoriaMobile">
+                <a href="javascript:void(0)" class="btn btn-orange" type="submit" onclick="" data-toggle="modal"
+                  data-target="#modalCategoriaMobile">
                   <i class="fas fa-search"></i>
                 </a>
               </div>
@@ -960,7 +1024,7 @@
               <!-- Template do Cartão das Empresas-->
               <ul id="cartao" style="padding: 0;">
                 <template id="cartaoEmpresa">
-                  
+
                   <div id="divImagemCartao" class="template-cartao">
                     <div id="div-card-superior" class="d-flex justify-content-center">
 
