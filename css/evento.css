@@ -200,6 +200,34 @@
         padding-top: 15px;
         left: 0;
     }
+    #eventoNaoEncontrado {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        
+        width: 870.4px;
+        height: 200px;
+        background: rgba(160, 160, 160, 0.08);
+        border: 1px solid #D2D2D2;
+        box-sizing: border-box;
+        border-radius: 6px;
+    }
+
+    #imgEventoNaoEncontrado{
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        height: 100%;
+        font-size: 70px;
+    }
+
+    #textoEventoNaoEncontrado{
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+    }
+
     #lista-eventos {
         margin: 0;
         padding: 0;
@@ -278,7 +306,7 @@
     }
     .texto-btn-evento1 {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-size: x-small;
+        font-size: 12px;
         color: white;
         margin: 0;
     }
@@ -294,7 +322,7 @@
     }
     .texto-btn-evento2 {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-size: x-small;
+        font-size: 12px;
         color: #FC6A38;
         margin: 0;
     }

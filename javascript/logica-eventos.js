@@ -37,12 +37,32 @@ function filtroBusca() {
   let valBarra = document.getElementById('barraBusca').value
 
   if (valBarra != '') {
+
+    $('#eventoNaoEncontrado').attr('style', 'display: none;')
+
     eventodao.buscarPorNome(opcaoBusca, valBarra).then(function (evento) {
+
+      if (evento.length == 0) { //Mostar o aviso que não há eventos
+        $('#eventoNaoEncontrado').attr('style', 'display: grid;')
+        document.getElementById("textoEventoNaoEncontrado").innerHTML = "Não há eventos agendados com este nome."
+      }
+
       evento.forEach(criarCartoesEventos)
+
     })
   } else {
+
+    $('#eventoNaoEncontrado').attr('style', 'display: none;')
+
     eventodao.varredura().then(function (evento) {
+
+      if (evento.length == 0) {//Mostar o aviso que não há eventos
+        $('#eventoNaoEncontrado').attr('style', 'display: grid;')
+        document.getElementById("textoEventoNaoEncontrado").innerHTML = "Não há eventos agendados."
+      }
+
       evento.forEach(criarCartoesEventos)
+
     })
   }
 }
@@ -56,7 +76,7 @@ function criarCartoesEventos(evento) {
   let datahorario = template.content.querySelector("#data-horario-evento");
   let endereco = template.content.querySelector("#endereco-evento");
   let btn = template.content.querySelectorAll("a");
-  
+
   let imgLink = document.createElement("imgLink");
   imgLink.src = evento.getURL()
 
@@ -64,7 +84,11 @@ function criarCartoesEventos(evento) {
   titulo.textContent = evento.getNome()
   descricao.textContent = evento.getDescricao()
   datahorario.textContent = `${evento.getDia()} - ${evento.getHora()}`
-  endereco.textContent = `${evento.getLogradouro()}, ${evento.getNumero()}, ${evento.getComplemento()}, ${evento.getBairro()},  ${evento.getCidade()}, ${evento.getUF()}, ${evento.getCEP()}`
+
+  let textoComplemento = ''
+  if(evento.getComplemento() !== ''){textoComplemento = `${evento.getComplemento()},`}
+  
+  endereco.textContent = `${evento.getLogradouro()}, ${evento.getNumero()}, ${textoComplemento} ${evento.getBairro()},  ${evento.getCidade()}, ${evento.getUF()}, ${evento.getCEP()}`
   btn[0].setAttribute("data-key", evento.getMarkerKey());
   btn[1].setAttribute("href", "https://" + evento.getSite());
 

@@ -46,11 +46,13 @@
 
   <link rel="stylesheet" type="text/css" href="css/modal.css">
 
+  <link rel="stylesheet" type="text/css" href="css/cookies.css">
+
   <!-- font-awsome-->
   <script src="https://kit.fontawesome.com/16786d0779.js" crossorigin="anonymous"></script>
   <!--Compatilhamento FB-->
 
-  <link rel="shortcut icon" href="img/favicon_2.png"/>
+  <link rel="shortcut icon" href="img/favicon_2.png" />
   <title>Ecossistema Cearense de Inovação</title>
 
 </head>
@@ -59,7 +61,7 @@
 
   <header>
 
-    <nav id="barra_nav" class="navbar navbar-expand-lg navbar-dark">
+    <nav id="barra_nav" class="navbar navbar-expand-xl navbar-dark">
 
       <!--Logo -->
       <a href="index.html" class="btnLogo"><img class="logo" src="img\logos\logo-svg.svg"></a>
@@ -96,13 +98,13 @@
           <li class="nav-item">
             <a type="button" href="javascript:void(0)"
               class="d-flex align-items-center justify-content-start nav-item-style" data-toggle="modal"
-              data-target="#ModalFiltro">
+              data-target="#ModalFiltro" onclick="inicializarFiltragem()">
               <i class="fas fa-filter"></i>
               <p class="texto-nav">FILTRAR</p>
             </a>
           </li>
 
-          <li class="nav-item">
+          <li id="opcaoCadastro" class="nav-item">
             <a type="button" href="javascript:void(0)"
               class="d-flex align-items-center justify-content-start nav-item-style" class="btn btn-navegador"
               onclick="selecionarLocal()">
@@ -200,21 +202,21 @@
                 <!-- Inicio do Conteúdo do Cadastro de locais-->
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="validacaoNomeLocal">Nome</label>
+                    <label for="validacaoNomeLocal">Nome*</label>
                     <input class="form-control form-control" type="text" required="required" maxlength="33"
                       id="validacaoNomeLocal" placeholder="Nome">
                   </div>
 
                   <div class="form-group col-md-4">
-                    <label for="validacaoSiteLocal">Site</label>
+                    <label for="validacaoSiteLocal">Site*</label>
                     <input class="form-control form-control" type="text" required="required" id="validacaoSiteLocal"
                       placeholder="Site">
                   </div>
 
                   <div class="form-group col-md-4">
-                    <label for="validacaoTipoLocal">Tipo de Local</label>
+                    <label for="validacaoTipoLocal">Tipo de Local*</label>
                     <select class="form-control form-control" id="validacaoTipoLocal" required="required"
-                      placeholder="validacaoTipoLocal">
+                      placeholder="validacaoTipoLocal" onclick="dropdownStartup()">
                       <option value="1" selected disabled>Selecionar...</option>
                       <option>Aceleradora</option>
                       <!--<option>Advogados</option>-->
@@ -229,7 +231,7 @@
                       <option>Espaços Makers</option>
                       <option>Eventos</option>
                       <option>Fábrica de Aplicativos</option>
-                      <option>Governo</option>-->
+                      <!--<option>Governo</option>-->
                       <option>Grandes Empresas</option>
                       <option>Incubadoras</option>
                       <option>Iniciativas Universitárias</option>
@@ -246,10 +248,34 @@
                   </div>
                 </div>
 
-                <div class="form-group custom-file">
-                  <!-- linha2-->
-                  <input type="file" class="custom-file-input custom-file-input-lg" id="uploader1">
-                  <label id="uploaderLabel1" class="custom-file-label" for="uploader1">Selecione a Logo</label>
+                <div class="form-row">
+
+                  <div class="form-group custom-file col-md-8">
+                    <!-- linha2-->
+                    <input type="file" class="custom-file-input custom-file-input-lg" id="uploader1">
+                    <label id="uploaderLabel1" class="custom-file-label" for="uploader1">Selecione a Logo*</label>
+                  </div>
+
+                  <div id="dropdownStartup" class="form-group col-md-4" style="display: none;">
+
+                    <label for="validacaoTipoLocal">Classificação do Local*</label>
+                    <select class="form-control form-control" id="validacaoClassificacao" required="required"
+                      placeholder="validacaoTipoLocal">
+                      <option value="1" selected disabled>Escolha seu tipo de startup</option>
+                      <option>Fintech</option>
+                      <option>Proptech</option>
+                      <option>Adtech – Martech</option>
+                      <option>Healthtech</option>
+                      <option>HRtech</option>
+                      <option>Legaltech</option>
+                      <option>Edtech</option>
+                      <option>Retailtech</option>
+                      <option>Insurtech</option>
+                      <option>Agtech</option>
+                    </select>
+
+                  </div>
+
                 </div>
 
                 <div class="form-row" style="margin-top: 7px">
@@ -271,19 +297,19 @@
                   <!-- linha4-->
 
                   <div class="form-group col-md-2">
-                    <label for="validacaoCEPLocal">CEP</label>
+                    <label for="validacaoCEPLocal">CEP*</label>
                     <input class="form-control form-control" type="text" required="required" maxlength="9"
                       id="validacaoCEPLocal" placeholder="CEP">
                   </div>
 
                   <div class="form-group col-md-6">
-                    <label for="validacaoLogradouroLocal">Logradouro</label>
+                    <label for="validacaoLogradouroLocal">Logradouro*</label>
                     <input class="form-control form-control" type="text" required="required" maxlength="30"
                       id="validacaoLogradouroLocal" placeholder="Logradouro">
                   </div>
 
                   <div class="form-group col-md-4">
-                    <label for="validacaoNumeroLocal">Número</label>
+                    <label for="validacaoNumeroLocal">Número*</label>
                     <input class="form-control form-control" type="text" required="required" maxlength="5"
                       id="validacaoNumeroLocal" placeholder="Número">
                   </div>
@@ -298,19 +324,19 @@
                   </div>
 
                   <div class="form-group col-md-4">
-                    <label for="validacaoBairroLocal">Bairro</label>
+                    <label for="validacaoBairroLocal">Bairro*</label>
                     <input class="form-control form-control" type="text" required="required" maxlength="30"
                       id="validacaoBairroLocal" placeholder="Bairro">
                   </div>
 
                   <div class="form-group col-md-3">
-                    <label for="validacaoCidadeLocal">Cidade</label>
+                    <label for="validacaoCidadeLocal">Cidade*</label>
                     <input class="form-control form-control" type="text" required="required" maxlength="30"
                       id="validacaoCidadeLocal" placeholder="Cidade">
                   </div>
 
                   <div class="form-group col-md-1">
-                    <label for="validacaoUFLocal">UF</label>
+                    <label for="validacaoUFLocal">UF*</label>
                     <select class="form-control form-control" required="required" id="validacaoUFLocal">
                       <option value="1" selected disabled>UF</option>
                       <option>AC</option>
@@ -355,19 +381,19 @@
                 <div class="form-row">
                   <!-- linha1-->
                   <div class="form-group col-3">
-                    <label for="validacaoNomeEvento">Nome</label>
+                    <label for="validacaoNomeEvento">Nome*</label>
                     <input class="form-control form-control" type="text" required="required" maxlength="33"
                       id="validacaoNomeEvento" placeholder="Nome">
                   </div>
 
                   <div class="form-group col-3">
-                    <label for="validacaoSiteEvento">Site</label>
+                    <label for="validacaoSiteEvento">Site*</label>
                     <input class="form-control form-control" type="text" required="required" id="validacaoSiteEvento"
                       placeholder="Site">
                   </div>
 
                   <div class="form-group col-3">
-                    <label for="validacaoTipoEvento">Tipo de Evento</label>
+                    <label for="validacaoTipoEvento">Tipo de Evento*</label>
                     <select class="form-control" id="validacaoTipoEvento" required="required">
                       <option value="1" selected disabled>Selecionar...</option>
                       <option>Empreendedorismo</option>
@@ -388,11 +414,12 @@
                 <div class="form-row">
                   <!-- linha3-->
                   <div class="form-group col-6">
-                    <label for="areatextoEvento">Descrição</label>
+                    <label for="areatextoEvento">Descrição*</label>
                     <textarea class="form-control" id="areatextoEvento" maxlength="250" rows="3"></textarea>
                   </div>
 
                   <div class="form-group col-6" style="margin-top: 3%">
+
                     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                       <input id="dtpicker" type="text" class="form-control datetimepicker-input" required="required"
                         data-target="#datetimepicker1" />
@@ -413,26 +440,28 @@
                           placeholder="Longitude" disabled="disabled">
                       </div>
                     </div>
+
                   </div>
+
                 </div>
 
                 <div class="form-row">
                   <!-- linha4-->
 
                   <div class="form-group col-md-2">
-                    <label for="validacaoCEPEvento">CEP</label>
+                    <label for="validacaoCEPEvento">CEP*</label>
                     <input class="form-control form-control" type="text" required="required" maxlength="9"
                       id="validacaoCEPEvento" placeholder="CEP">
                   </div>
 
                   <div class="form-group col-md-6">
-                    <label for="validacaoLogradouroEvento">Logradouro</label>
+                    <label for="validacaoLogradouroEvento">Logradouro*</label>
                     <input class="form-control form-control" type="text" required="required" maxlength="30"
                       id="validacaoLogradouroEvento" placeholder="Logradouro">
                   </div>
 
                   <div class="form-group col-md-4">
-                    <label for="validacaoNumeroEvento">Número</label>
+                    <label for="validacaoNumeroEvento">Número*</label>
                     <input class="form-control form-control" type="text" required="required" maxlength="5"
                       id="validacaoNumeroEvento" placeholder="Número">
                   </div>
@@ -448,19 +477,19 @@
                   </div>
 
                   <div class="form-group col-md-4">
-                    <label for="validacaoBairroEvento">Bairro</label>
+                    <label for="validacaoBairroEvento">Bairro*</label>
                     <input class="form-control form-control" type="text" required="required" maxlength="30"
                       id="validacaoBairroEvento" placeholder="Bairro">
                   </div>
 
                   <div class="form-group col-md-3">
-                    <label for="validacaoCidadeEvento">Cidade</label>
+                    <label for="validacaoCidadeEvento">Cidade*</label>
                     <input class="form-control form-control" type="text" required="required" maxlength="30"
                       id="validacaoCidadeEvento" placeholder="Cidade">
                   </div>
 
                   <div class="form-group col-md-1">
-                    <label for="validacaoUFEvento">UF</label>
+                    <label for="validacaoUFEvento">UF*</label>
                     <select class="form-control form-control" required="required" id="validacaoUFEvento">
                       <option value="1" selected disabled>UF</option>
                       <option>AC</option>
@@ -667,12 +696,18 @@
 
               </div>
               <div class="form-check form-check-inline">
-                <select class="form-control form-control modalFiltro--Select" required="required" id="validacaoUFLocal">
+                <select class="form-control form-control modalFiltro--Select" required="required" id="filtroStartup">
                   <option value="1" selected disabled>Escolha seu tipo de startup</option>
-                  <option>TIPO 1</option>
-                  <option>TIPO 2</option>
-                  <option>TIPO 3</option>
-                  <option>TIPO 4</option>
+                  <option>Fintech</option>
+                  <option>Proptech</option>
+                  <option>Adtech – Martech</option>
+                  <option>Healthtech</option>
+                  <option>HRtech</option>
+                  <option>Legaltech</option>
+                  <option>Edtech</option>
+                  <option>Retailtech</option>
+                  <option>Insurtech</option>
+                  <option>Agtech</option>
                 </select>
               </div>
             </div>
@@ -721,7 +756,8 @@
 
           <div class="modalAgradecimento--divB">
 
-            <p class="modalAgradecimento--conteudo"><b>Obrigado por cadastrar sua instituição!</b></p>
+            <p id="instituicaoEvento" class="modalAgradecimento--conteudo"><b>Obrigado por cadastrar sua
+                instituição!</b></p>
             <p class="modalAgradecimento--conteudo">As informações estão <b>
                 <font color="green">em análise</font>
               </b>, em breve sua instituição será
@@ -1076,7 +1112,6 @@
 
       </div>
 
-
       <!--MAPA-->
       <div id="div-mapa">
         <div id="location-map">
@@ -1094,6 +1129,20 @@
             </div>
           </div>
 
+        </div>
+      </div>
+
+      <!--Tela de Cookies-->
+      <div class="box-cookies hide">
+        <div class="dimensaoConteudo">
+          <i class="fas fa-cookie-bite img-cookies"></i>
+          <div>
+            <p class="title-cookies">Cookies</p>
+            <p class="msg-cookies">Este site utiliza cookies para a sua melhor experiência. Consulte nossa Política de
+              Privacidade para saber mais sobre como usamos e cuidamos dos seus dados. Ao continuar navegando, você
+              concorda automaticamente com os termos apresentados.</p>
+          </div>
+          <button class="btn-cookies">OK</button>
         </div>
       </div>
 
@@ -1141,18 +1190,27 @@
   <script>
     // Your web app's Firebase configuration
     var firebaseConfig = {
-      apiKey: "AIzaSyD7mV-NjSQ8dNBQhX6OnHEli-cTL78JTfw",
+      apiKey: "AIzaSyClfrEv6swF7n-tC27WUNV0Dhg_3BZ3lRQ",
+      authDomain: "mapa-ecin-13585.firebaseapp.com",
+      databaseURL: "https://mapa-ecin-13585-default-rtdb.firebaseio.com",
+      projectId: "mapa-ecin-13585",
+      storageBucket: "mapa-ecin-13585.appspot.com",
+      messagingSenderId: "675410893480",
+      appId: "1:675410893480:web:4e35bb2157f009ef90809d"
+
+      /*apiKey: "AIzaSyD7mV-NjSQ8dNBQhX6OnHEli-cTL78JTfw",
       authDomain: "tccv5-3c3e2.firebaseapp.com",
       databaseURL: "https://tccv5-3c3e2.firebaseio.com",
       projectId: "tccv5-3c3e2",
       storageBucket: "tccv5-3c3e2.appspot.com",
       messagingSenderId: "1057642468733",
       appId: "1:1057642468733:web:3da625da68085f8a39e814",
-      measurementId: "G-XRDHGX61T2"
+      measurementId: "G-XRDHGX61T2"*/
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
   </script>
+
 
   <script src="model/componente.js"></script>
   <script src="model/Ceara.js"></script>
@@ -1168,6 +1226,7 @@
   <script src="javascript/logica_comum.js"></script>
   <script src="javascript/logica.js"></script>
   <script src="javascript/comunidades.js"></script>
+  <script src="javascript/cookies.js"></script>
 
 </body>
 

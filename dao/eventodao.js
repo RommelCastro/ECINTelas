@@ -33,9 +33,12 @@ class eventoDAO {
 						UF: objEvento.getUF(),
 						CEP: objEvento.getCEP(),
 						Usuario: objEvento.getUserId(),
+						Validacao: false
 					})
 
 					$('#ModalCadastro').modal('hide');
+
+					document.getElementById("instituicaoEvento").innerHTML = "Obrigado por cadastrar seu Evento!"
 
 					$('#modalAgradecimento').modal('show');
 
@@ -43,6 +46,7 @@ class eventoDAO {
 			})
 		}
 		else {
+
 			alert("Preencha todos os campos obrigatórios")
 		}
 	}
@@ -82,6 +86,7 @@ class eventoDAO {
 					child.val().CEP,
 					child.key,
 					child.val().Usuario,
+
 				)
 
 				if (tipoBusca === "Nome") {
@@ -127,10 +132,11 @@ class eventoDAO {
 					child.val().CEP,
 					child.key,
 					child.val().Usuario,
+					child.val().Validacao,
 				)
-				if (evento.getTipo() === "Eventos") {
-					eventosArray.push(evento)
-				}
+
+				if (evento.getTipo() === "Eventos" && evento.getValidacao() === true) { eventosArray.push(evento) }
+
 			})
 			return eventosArray
 		})

@@ -3,7 +3,7 @@ let usuariodao = new usuarioDAO
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-
+    
     usuariodao.buscar(user.uid).then(function (usuario) {
       nome = usuario.getNome().split(" ")
 
@@ -37,7 +37,6 @@ firebase.auth().onAuthStateChanged(function (user) {
         <p class="texto-btn-login">LOGIN</p>
       </a>`
   }
-
 });
 
 

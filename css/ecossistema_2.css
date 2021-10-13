@@ -299,6 +299,7 @@
         width: inherit;
     }
     #img-logo {
+        display: none;
         position: absolute;
         height: 71px;
         width: 177px;

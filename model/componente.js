@@ -1,6 +1,5 @@
 class Entidade {
-  constructor(nome, site, tipo, url, latitude,longitude, logradouro, numero, complemento, bairro, cidade, uf, cep, markerKey, userId, validacao){
-
+  constructor(nome, site, tipo, url, latitude, longitude, logradouro, numero, complemento, bairro, cidade, uf, cep, markerKey, userId, validacao, classificacao) {
     this.nome = nome
     this.site = site
     this.tipo = tipo
@@ -17,54 +16,57 @@ class Entidade {
     this.markerKey = markerKey
     this.userId = userId
     this.validacao = validacao
-
+    this.classificacao = classificacao
   }
-  getNome(){
+  getNome() {
     return this.nome
   }
-  getSite(){
+  getSite() {
     return this.site
   }
-  getTipo(){
+  getTipo() {
     return this.tipo
   }
-  getURL(){
+  getURL() {
     return this.url
   }
-  getLat(){
+  getLat() {
     return this.latitude
   }
-  getLng(){
+  getLng() {
     return this.longitude
   }
-  getLogradouro(){
+  getLogradouro() {
     return this.logradouro
   }
-  getNumero(){
+  getNumero() {
     return this.numero
-  }  
-  getComplemento(){
+  }
+  getComplemento() {
     return this.complemento
   }
-  getBairro(){
+  getBairro() {
     return this.bairro
   }
-  getCidade(){
+  getCidade() {
     return this.cidade
   }
-  getUF(){
+  getUF() {
     return this.uf
   }
-  getCEP(){
+  getCEP() {
     return this.cep
   }
-  getMarkerKey(){
+  getMarkerKey() {
     return this.markerKey
   }
-  getUserId(){
+  getUserId() {
     return this.userId
   }
-  getValidacao(){
+  getValidacao() {
     return this.validacao
+  }
+  getClassificacao() {
+    return this.classificacao
   }
 }

@@ -101,7 +101,7 @@ entidadedao.varredura().then(function (entidade) {
 
 //Fim Main-------------------------------------------------------------
 
-function reload(){
+function reload() {
   window.location.reload()
 }
 
@@ -374,13 +374,13 @@ function chamarModalCard(componente) { //Abre o modal de cartões
   while (contAux <= ecossistema.length) {
 
     if ("Comunidades" == componente.getAttribute("data-tipo")) {
-      document.getElementById("img-categoria").setAttribute("src", "img/img-bl/27-comunidade.png"); 
+      document.getElementById("img-categoria").setAttribute("src", "img/img-bl/27-comunidade.png");
       document.getElementById("nome-categoria").innerHTML = "Comunidades"
       break
     }
 
     if (ecossistema[contAux].getNome() == componente.getAttribute("data-tipo")) {
-      document.getElementById("img-categoria").setAttribute("src", ecossistema[contAux].getImagemBarra()); 
+      document.getElementById("img-categoria").setAttribute("src", ecossistema[contAux].getImagemBarra());
       document.getElementById("nome-categoria").innerHTML = ecossistema[contAux].getNome()
       break
     }
@@ -521,6 +521,10 @@ function cartaoComunidadeMobile(entidade, nomeUser) {
 
 //Fim Modal Mobile-----------------------------------------------------------------------------------------------
 
+function inicializarFiltragem() {
+  document.getElementById("filtroStartup").value = 1;
+}
+
 //Funções do Sistema
 function filtroMarcador() {
   let selecaoFiltro = []
@@ -613,18 +617,23 @@ function exibirMarcadores(tipoClasse, entidade) { //Função responsável para M
 
       if (entidade[n].getTipo() === tipoClasse[m].getNome()) {
 
-        tipoClasse[m].setBadge(tipoClasse[m].getBadge() + 1)
+        if ((entidade[n].getTipo() === 'Startup' && entidade[n].getClassificacao() === document.getElementById("filtroStartup").value)
+          || document.getElementById("filtroStartup").value == 1
+          || entidade[n].getClassificacao() == null) { /*Lógica de filtagem das Startups(Considerando a classificação)*/
 
-        let Icone = new markerIcon({ iconUrl: tipoClasse[m].getImagemMarcador() });
+          tipoClasse[m].setBadge(tipoClasse[m].getBadge() + 1)
 
-        let imgPop = document.createElement("imgPop");
-        imgPop.src = entidade[n].getURL()
+          let Icone = new markerIcon({ iconUrl: tipoClasse[m].getImagemMarcador() });
 
-        marcador[entidade[n].getMarkerKey()] = L.marker([entidade[n].getLat(), entidade[n].getLng()], { icon: Icone })
-          .bindPopup("<div><img src='" + imgPop.src + "' style='width: 70px;height: 70px;display:block;position: relative; left: 50%;transform: translate(-50%);'></img> <h6 style='font-weight: bold; margin-top:5px; margin-bottom:0;text-align: center;'>" + entidade[n].getNome() + "</h6><p style='margin:0;text-align: center;'>" + entidade[n].getTipo() + "</p><a class='btn btn-secondary btn-sm btn-block' href=" + entidade[n].getSite() + " target='_blank' style='margin-top:5px;color:white;'>Conheça Mais</a></div>")
-        markersLayer.addLayer(marcador[entidade[n].getMarkerKey()]);
+          let imgPop = document.createElement("imgPop");
+          imgPop.src = entidade[n].getURL()
 
-        markersLayer.addTo(map);
+          marcador[entidade[n].getMarkerKey()] = L.marker([entidade[n].getLat(), entidade[n].getLng()], { icon: Icone })
+            .bindPopup("<div><img src='" + imgPop.src + "' style='width: 70px;height: 70px;display:block;position: relative; left: 50%;transform: translate(-50%);'></img> <h6 style='font-weight: bold; margin-top:5px; margin-bottom:0;text-align: center;'>" + entidade[n].getNome() + "</h6><p style='margin:0;text-align: center;'>" + entidade[n].getTipo() + "</p><a class='btn btn-secondary btn-sm btn-block' href=" + entidade[n].getSite() + " target='_blank' style='margin-top:5px;color:white;'>Conheça Mais</a></div>")
+          markersLayer.addLayer(marcador[entidade[n].getMarkerKey()]);
+
+          markersLayer.addTo(map);
+        }
       }
     }
   }
@@ -645,8 +654,30 @@ function gravarFormulario() {
   }
 }
 
+function dropdownStartup() {
+
+  document.getElementById("validacaoClassificacao").value = 1; //Inicializando o dropdown de classificação
+  if (document.getElementById("validacaoTipoLocal").value === 'Startup') {
+
+    $('#dropdownStartup').attr('style', 'display: all;')
+    $('#uploaderLabel1').attr('style', 'top: 32px')
+
+  } else {
+
+    $('#dropdownStartup').attr('style', 'display: none;')
+    $('#uploaderLabel1').attr('style', 'top: 0px')
+
+  }
+}
+
 //Gravando Cadastro dos locais
 function gravarCadastroLocal() {
+
+  //Fazendo com que seja passado null para classificação caso não seja uma Startup (Conveniencia...)
+  if (document.getElementById('validacaoTipoLocal').value !== "Startup") {
+    document.getElementById('validacaoClassificacao').value = null
+  }
+
   //Capturando os valores do formulário e passando para um objeto entidade
   let entidade = new Entidade(
     document.getElementById('validacaoNomeLocal').value,
@@ -664,12 +695,17 @@ function gravarCadastroLocal() {
     document.getElementById('validacaoCEPLocal').value,
     null,
     firebase.auth().currentUser.uid,
+    false,
+    document.getElementById('validacaoClassificacao').value
   )
+
   entidadedao.salvar(entidade, uploader1SelectedFile)
+
 }
 
 //Gravando cadastro de Eventos
 function gravarCadastroEvento() {
+  
   //Capturando os valores do formulário
   let evento = new Evento(
     document.getElementById('validacaoNomeEvento').value,
@@ -691,6 +727,7 @@ function gravarCadastroEvento() {
     document.getElementById('validacaoCEPEvento').value,
     null,
     firebase.auth().currentUser.uid,
+    
   )
   eventodao.salvar(evento, uploader2SelectedFile)
 }
@@ -716,6 +753,10 @@ function receberDiaHora(dia, hora) {
 }
 
 function selecionarLocal() {
+  /*Inicializando o Modal*/
+  document.getElementById("validacaoTipoLocal").value = 1; //Inicializando o dropdown do tipo de entidade
+  dropdownStartup()
+
   lat = null
   lng = null
 

@@ -6,15 +6,19 @@ class entidadeDAO {
 			alert("Adicione a logo")
 		}
 
+		alert(uploader.name)
+
 		if (objEntidade.getNome() != "" && objEntidade.getSite() != "" && objEntidade.getTipo() != "" && objEntidade.getLat() != "" && objEntidade.getLng() != "" && objEntidade.getLogradouro() != "" && objEntidade.getNumero() != "" && objEntidade.getCidade() != "" && objEntidade.getUF() != "" && objEntidade.getCEP() != "") {
+	
 			let storageRef = storage.ref('/arquivos/' + uploader.name); // Define o caminho onde será guardada a imagem no storage
 			let uploadTask = storageRef.put(uploader); // guarda a imagem no storage
 
-			const rootRef = database.ref('/marcadores'); // define onse sera armazenada a imagem no database
+			const rootRef = database.ref('/marcadores'); // define onde sera armazenada a imagem no database
 			const autoId = rootRef.push().key //cria uma key
 
 			uploadTask.on('state_changed', function (snapshot) { //entra sempre que o status mudar
 				uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {//Captura o URL da imagem upada no storage
+					
 					rootRef.child(autoId).set({//guarda as nformações no database/
 						URL: downloadURL,
 						Nome: objEntidade.getNome(),
@@ -31,9 +35,12 @@ class entidadeDAO {
 						CEP: objEntidade.getCEP(),
 						Usuario: objEntidade.getUserId(),
 						Validacao: false,
+						Classificacao: objEntidade.getClassificacao()
 					})
 
 					$('#ModalCadastro').modal('hide');
+
+					document.getElementById("instituicaoEvento").innerHTML = "Obrigado por cadastrar sua instituição!"
 
 					$('#modalAgradecimento').modal('show');
 
@@ -41,7 +48,9 @@ class entidadeDAO {
 			})
 		}
 		else {
+
 			alert("Preencha todos os campos obrigatórios")
+			
 		}
 	}
 
@@ -73,8 +82,12 @@ class entidadeDAO {
 				child.val().CEP,
 				child.key,
 				child.val().Usuario,
+				child.val().Validacao,
+				child.val().Classificacao,
 			)
-			return entidade
+			
+			if(entidade.getValidacao() === true){return entidade}
+			
 		})
 
 	}
@@ -104,6 +117,7 @@ class entidadeDAO {
 					child.key,
 					child.val().Usuario,
 					child.val().Validacao,
+					child.val().Classificacao,
 				)
 
 				

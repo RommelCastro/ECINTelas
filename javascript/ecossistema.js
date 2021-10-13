@@ -1,15 +1,14 @@
 const database = firebase.database();
 const storage = firebase.storage();
 //Objeto DAO
-let eventodao = new eventoDAO;
+
 
 /////////MAIN//////////////////
 
-buscarEventos();
 
 ///////////////////////////////
 
-function buscarEventos(){
+/*function buscarEventos(){
   eventodao.varredura().then(function(evento){
     for (var i = 0; i < 2; i++) {
       criarEventos(evento[i])
@@ -28,4 +27,4 @@ function criarEventos(evento){
   data.textContent = evento.getDia()
 
   listaEventos.appendChild(document.importNode(template.content,true));  
-}
+}*/
