@@ -5,6 +5,7 @@
 .box-cookies {
     position: fixed;
     height: 87px;
+    min-width: 1250px;
     background: rgba(44, 44, 44, .9);
     width: 100%;
     z-index: 1000;
