@@ -75,6 +75,10 @@
     .modalFiltro--dimensao {
         width: 500px;
     }
+
+    .startup-check .form-check .form-check-inline{
+        margin-right: 0;
+    }
 }
 
 @media only screen and (max-width: 800px) {
@@ -101,5 +105,6 @@
     font-size: 13px;
     margin-top: 6px;
 }
+
 
 /*Modal Cadastro*/
