@@ -64,12 +64,28 @@
 /*Modal filto*/
 
 @media only screen and (min-width: 800px) {
+    .modalFiltro--linhaSelecao {
+        display: flex;
+    }
+
+    .modalFiltro--coluna {
+        width: 50%;
+    }
+
     .modalFiltro--dimensao {
         width: 500px;
     }
 }
 
 @media only screen and (max-width: 800px) {
+    .modalFiltro--linhaSelecao {
+        display: block;
+    }
+
+    .modalFiltro--coluna {
+        width: 100%;
+    }
+
     .modalFiltro--dimensao {
         width: 300px;
     }
