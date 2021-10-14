@@ -535,7 +535,8 @@ function startupCheck() {
   else {
 
     $('#startupType').attr('style', 'display: none;');
-
+    
+    document.getElementById("filtroStartup").value = 1
   }
 }
 
@@ -753,8 +754,6 @@ function telaCadastroComunidade() {
   localStorage.setItem('comumKey', "cadastro-comunidade");
   window.open('como-utilizar.html', '_blank')
 }
-
-
 
 function deletarMarcador() {
   map.removeLayer(marker)
@@ -1021,7 +1020,6 @@ $(document).ready(() => {
       $('#CheckboxStartup').prop('checked', false);
       /*Inicializando o filtro do tipo de Startup*/
       $('#startupType').attr('style', 'display: none;');
-      document.getElementById("filtroStartup").value = 1
     }
   });
 })
