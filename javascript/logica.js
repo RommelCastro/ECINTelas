@@ -1019,8 +1019,9 @@ $(document).ready(() => {
       $('#CheckboxProvedores').prop('checked', false);
       $('#CheckboxMentoria').prop('checked', false);
       $('#CheckboxStartup').prop('checked', false);
+      /*Inicializando o filtro do tipo de Startup*/
       $('#startupType').attr('style', 'display: none;');
-      $("#validacaoClassificacao").value = 1;
+      document.getElementById("filtroStartup").value = 1
     }
   });
 })
