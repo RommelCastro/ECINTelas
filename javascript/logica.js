@@ -527,8 +527,15 @@ function inicializarFiltragem() {
 
 //Funções do Sistema
 function startupCheck() {
-  if($('#CheckboxStartup').prop('checked')){
-    alert("entrou")
+  if ($('#CheckboxStartup').prop('checked')) {
+
+    $('#startupType').attr('style', 'display: all;');
+
+  }
+  else {
+
+    $('#startupType').attr('style', 'display: none;');
+
   }
 }
 
