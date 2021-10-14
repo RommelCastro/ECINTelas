@@ -526,6 +526,12 @@ function inicializarFiltragem() {
 }
 
 //Funções do Sistema
+function startupCheck() {
+  if($('#CheckboxStartup').prop('checked')){
+    alert("entrou")
+  }
+}
+
 function filtroMarcador() {
   let selecaoFiltro = []
   markersLayer.clearLayers();
@@ -705,7 +711,7 @@ function gravarCadastroLocal() {
 
 //Gravando cadastro de Eventos
 function gravarCadastroEvento() {
-  
+
   //Capturando os valores do formulário
   let evento = new Evento(
     document.getElementById('validacaoNomeEvento').value,
@@ -727,7 +733,7 @@ function gravarCadastroEvento() {
     document.getElementById('validacaoCEPEvento').value,
     null,
     firebase.auth().currentUser.uid,
-    
+
   )
   eventodao.salvar(evento, uploader2SelectedFile)
 }
