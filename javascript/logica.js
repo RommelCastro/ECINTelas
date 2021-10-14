@@ -1020,6 +1020,7 @@ $(document).ready(() => {
       $('#CheckboxMentoria').prop('checked', false);
       $('#CheckboxStartup').prop('checked', false);
       $('#startupType').attr('style', 'display: none;');
+      $("#validacaoClassificacao").value = 1;
     }
   });
 })
