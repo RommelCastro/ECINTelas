@@ -989,6 +989,7 @@ $(document).ready(() => {
       $('#CheckboxProvedores').prop('checked', true);
       $('#CheckboxMentoria').prop('checked', true);
       $('#CheckboxStartup').prop('checked', true);
+      $('#startupType').attr('style', 'display: all;');
     }
     if ($(this).prop('checked') == false) {
       $('#CheckboxTodos').prop('checked', false)
@@ -1018,6 +1019,7 @@ $(document).ready(() => {
       $('#CheckboxProvedores').prop('checked', false);
       $('#CheckboxMentoria').prop('checked', false);
       $('#CheckboxStartup').prop('checked', false);
+      $('#startupType').attr('style', 'display: none;');
     }
   });
 })
