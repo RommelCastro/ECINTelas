@@ -40,6 +40,8 @@ class eventoDAO {
 
 					document.getElementById("instituicaoEvento").innerHTML = "Obrigado por cadastrar seu Evento!"
 
+					document.getElementById("instituicaoEventoTx2").innerHTML = `As informações estão <b><font color="green">em análise</font></b>, em breve seu evento será adicionado ao mapa!`
+
 					$('#modalAgradecimento').modal('show');
 
 				});

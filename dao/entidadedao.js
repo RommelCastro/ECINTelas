@@ -6,8 +6,6 @@ class entidadeDAO {
 			alert("Adicione a logo")
 		}
 
-		alert(uploader.name)
-
 		if (objEntidade.getNome() != "" && objEntidade.getSite() != "" && objEntidade.getTipo() != "" && objEntidade.getLat() != "" && objEntidade.getLng() != "" && objEntidade.getLogradouro() != "" && objEntidade.getNumero() != "" && objEntidade.getCidade() != "" && objEntidade.getUF() != "" && objEntidade.getCEP() != "") {
 	
 			let storageRef = storage.ref('/arquivos/' + uploader.name); // Define o caminho onde será guardada a imagem no storage
