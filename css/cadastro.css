@@ -9,52 +9,8 @@
         height: max-content;
     }
     /*PROPRIEDADES DA BARRA DE NAVEGAÇÃO*/
-    header {
-        background: linear-gradient(90deg, #1F4D37 0.68%, #00833A 99.69%);
-        width: 100%;
-        height: 70.4px;
-        left: 0px;
-        top: 0px;
-        display: flex;
-        align-content: space-between;
-    }
-    #barra_nav {
-        height: 100%;
-        min-width: 1024px;
-    }
-    .logo {
-        width: 116px;
-        height: 41.46px;
-    }
-    .btnLogo {
-        position: absolute;
-        left: 39.2px;
-    }
-    .navbar {
-        width: inherit;
-    }
-    .btnNav {
-        position: relative;
-        margin-left: 177.6px;
-        margin-right: auto;
-    }
-    .nav-item-style {
-        color: white;
-        border-left-style: solid;
-        border-width: 1px;
-        border-color: #FC6A38;
-        padding-left: 15px;
-    }
-    .nav-item-style:hover {
-        color: #CF5B15;
-        text-decoration: none;
-    }
-    .texto-nav {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-size: 15px;
-        margin: 0px 15px 0px 0px;
-        padding-left: 15px;
-    }
+
+
     /*MODAL*/
     #titulo-modal {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -172,24 +128,24 @@
         color: white;
         margin: 0px 50px 0px 0px;
     }
-    .div-footer2 {
-        width: 196px;
-        padding-left: 40px;
-        font-size: x-small;
-        color: white;
-        border-left-style: solid;
-        border-width: thin;
-    }
     .div-footer-beta {
         width: fit-content;
         font-size: x-small;
         color: white;
         margin: 0;
     }
-    .div-footer2 p {
+    .div-footer2 {
+        width: 220px;
+        padding-left: 40px;
+        color: white;
+        border-left-style: solid;
+        border-width: thin;
+    }
+    .div-footer2 a {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-weight: bold;
-        margin: 0px 0px 0px 10px;
+        font-size: x-small;
+        color: white;
     }
     /*TEXTOS*/
     .btn-entrar {
@@ -255,68 +211,7 @@
         height: inherit;
     }
     /*BARRA DE NAVEGAÇÃO*/
-    header {
-        background: linear-gradient(90deg, #1F4D37 0.68%, #00833A 99.69%);
-        width: 100%;
-        min-height: 60px;
-        left: 0px;
-        top: 0px;
-        display: flex;
-    }
-    .logo {
-        width: 107px;
-        height: 39px;
-    }
-    .btnLogo {
-        position: relative;
-        margin-left: 20px;
-    }
-    .navbar {
-        width: inherit;
-    }
-    .btn-dropdown-header {
-        border: 1px solid #FC6A38;
-        width: 142.4px;
-        height: 35.2px;
-        background-color: rgba(255, 255, 255, 0.00);
-        color: white;
-        font-size: x-small;
-    }
-    .dropdown-item-list {
-        display: block;
-        width: 100%;
-        padding: .25rem 1.5rem;
-        clear: both;
-        font-weight: 400;
-        color: #212529;
-        text-align: inherit;
-        white-space: nowrap;
-        background-color: transparent;
-        border: 0;
-    }
-    .dropdown-item-list:hover {
-        background: #f8f9fa;
-    }
-    .dropdown-item:active {
-        color: #00833A;
-    }
-    .nav-item-style {
-        color: white;
-        border-left-style: solid;
-        border-width: 1px;
-        border-color: #FC6A38;
-        padding: 15px 0px 0px 15px;
-    }
-    .nav-item-style:hover {
-        color: #CF5B15;
-        text-decoration: none;
-    }
-    .texto-nav {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-size: 15px;
-        margin: 0px 15px 0px 0px;
-        padding-left: 15px;
-    }
+    
     /*MODAL*/
     #titulo-modal {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;

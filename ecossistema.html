@@ -102,11 +102,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <div class="d-flex align-items-center justify-content-center modal-video">
-
-                        <video width="100%" height="100%" controls>
-                            <source src="videos/[9].mp4" type="video/mp4">
-                        </video>
+                    <div id="localVideo" class="d-flex align-items-center justify-content-center modal-video">
 
                     </div>
                 </div>
@@ -207,10 +203,12 @@
                                 Este projeto foi inicialmente desenvolvido pelo <a href="http://crateus.ufc.br/allysson"
                                     target="_blank" rel="noopener noreferrer">Prof. Allysson Allex Araújo</a>
                                 (Universidade Federal do Ceará - Campus de Crateús) e
-                                <a href="" target="_blank" rel="noopener noreferrer">Rommel de Castro</a>, com
+                                <a href="" target="_blank" rel="noopener noreferrer">Rommel de Castro</a> (especialista
+                                em Engenharia de Software - UECE), com
                                 colaboração de <a href="http://linkedin.com/in/pamellasoaresds" target="_blank"
                                     rel="noopener noreferrer">Pamella Soares</a>
-                                como UX/UI designer. Porém, nossa compreensão é que tal
+                                (mestra em Ciência da Computação - UECE) como UX/UI designer. Porém, nossa compreensão é
+                                que tal
                                 ideia seja evoluída e mantida como um projeto
                                 <b>colaborativo e open source</b>, inicialmente sob a <a
                                     href="https://opensource.org/licenses/MIT" target="_blank"
@@ -223,7 +221,7 @@
                         <div id="divisao3-left-bot">
 
                             <div id="divisao3-left-bot-top">
-                                <p class="textos-ecossistema"> Saiba mais sobre o projeto <b>Mapa do Ecossistema de
+                                <p class="textos-ecossistema"><br>Saiba mais sobre o projeto <b>Mapa do Ecossistema de
                                         Inovação
                                         Cearense:</b></p>
                             </div>
@@ -266,8 +264,8 @@
                                 src="img/sec4-gesid-cinza-min.png" onmouseout="this.src='img/sec4-gesid-cinza-min.png';"
                                 onmouseover="this.src='img/sec4-gesid-min.png';"></a>
 
-                        <a href="mailto:mapa.inovacao@ufc.br?body=%0D%0A%0D%0AAtenciosamente,%0D%0A${NOME}" target="_blank"><img id="img11-prop"
-                                src="img/sec4-faca-parte-cinza-min.png"
+                        <a href="mailto:mapa.inovacao@ufc.br?body=%0D%0A%0D%0AAtenciosamente,%0D%0A${NOME}"
+                            target="_blank"><img id="img11-prop" src="img/sec4-faca-parte-cinza-min.png"
                                 onmouseout="this.src='img/sec4-faca-parte-cinza-min.png';"
                                 onmouseover="this.src='img/sec4-faca-parte-min.png';"></a>
 
@@ -320,7 +318,7 @@
                         <li>
                             <a id="email"
                                 href="mailto:mapa.inovacao@ufc.br?body=%0D%0A%0D%0AAtenciosamente,%0D%0A${NOME}">
-                                Para mais informações, fale conosco através do mapa.inovacao@ufc.br</a>
+                                Para mais informações, fale conosco através do mapainovacao@ufc.br</a>
                             <p class="div-footer-beta">Versão 0.1 (Beta)</p>
                         </li>
                     </ul>
@@ -332,8 +330,10 @@
             </div>
 
             <div class="div-footer2">
-                <p style="margin-bottom: 10px;">POLÍTICAS DE PRIVACIDADE</p>
-                <p>TERMOS DE USO</p>
+                <a href="documentos/Mapa do Ecossistema de Inovação Cearense - Política de Privacidade e Segurança de Dados.pdf" target="_blank" style="margin-bottom: 10px;"
+                class="">POLÍTICAS DE PRIVACIDADE</a>
+                <a href="documentos/Mapa do Ecossistema de Inovação Cearense - Termo de Uso.pdf" target="_blank" class="">
+                    TERMOS DE USO</a>
             </div>
         </footer>
 
@@ -379,6 +379,8 @@
     <script src="javascript/logica_comum.js"></script>
 
     <script src="javascript/login.js"></script>
+
+    <script src="javascript/modal.js"></script>
 
 
 
