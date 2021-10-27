@@ -1,8 +1,7 @@
 class usuarioDAO {
 
-	cadastrar(nome, email, password, passwordrepetido) {
+	cadastrar(email, password) {
 
-		if (password === passwordrepetido) {
 			firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
 				// Handle Errors here.
 				var errorCode = error.code;
@@ -10,8 +9,7 @@ class usuarioDAO {
 
 				window.alert("Error: " + errorMessage);
 			});
-
-		} else { alert("As senhas estão diferentes") }
+		
 	}
 
 	salvar(nome, email) {

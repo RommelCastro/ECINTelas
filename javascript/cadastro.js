@@ -40,8 +40,19 @@ function cadastro() {
 	let email = document.getElementById('cadastroEmail').value
 	let password = document.getElementById('cadastroPassword').value
 	let passwordrepetido = document.getElementById('cadastroRepeatPassword').value
+	let checkTermos = document.getElementById('termos').checked
 
-	usuariodao.cadastrar(nome, email, password, passwordrepetido)
+	if (password === passwordrepetido) {
+
+		if (checkTermos) {
+
+			usuariodao.cadastrar(email, password)
+
+		} else { alert("É necessário ler os termos e aceita-los para realizar o cadastro") }
+
+	} else { alert("As senhas estão diferentes") }
+
+	
 }
 
 function enviar_verificação() {
