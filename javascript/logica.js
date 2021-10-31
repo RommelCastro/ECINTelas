@@ -669,14 +669,13 @@ function exibirMarcadores(tipoClasse, entidade) { //Função responsável para M
 function criarURLCompartilhamento (componente){
   //alert(componente.getAttribute("data-key"))
 
-  let URL = location.href + "share?" + componente.getAttribute("data-key")
+  let URL = location.href + "?share?" + componente.getAttribute("data-key")
 
   navigator.clipboard.writeText(URL)
   
   alert("O link desta entidade foi copiado para sua área de transferência. Compartilhe com seus amigos.")
 
   //window.location = "index.html?" + componente.getAttribute("data-key")
-
 }
 
 function zoomMarcador(componente) {
