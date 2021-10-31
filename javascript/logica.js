@@ -59,6 +59,8 @@ function marcarLimites() {
 
 //Main
 
+
+
 L.icon = function (options) {
   return new L.Icon(options);
 };
@@ -318,6 +320,17 @@ function executarEventoKey() {//Reconhece o evento que foi clicado na página de
   }
 }
 
+function executarShareEvent () { //é Ativado quando a página inicia
+  const key = window.location.search.slice(7);
+
+  //window.history.pushState("object or string", "Title", "/new-url");
+
+  if (key !== "") {
+    map.flyTo(marcador[key].getLatLng(), 19);
+    marcador[key].openPopup();
+  }
+};
+
 //Modal Mobile-----------------------------------------------------------------------------------------
 
 function OpcaoComunidadeMobile() {
@@ -364,7 +377,10 @@ function criarListaOpcoesMobile(tipoClasse) { // Cria lista da bara lateral
   a.setAttribute("data-tipo", tipoClasse.getNome());
 
   if (tipoClasse.getNome() != "Eventos") { listaOpcoes.appendChild(document.importNode(template.content, true)) }
+
   executarEventoKey()
+
+  executarShareEvent()
 }
 
 //Criando modal de cartões mobile
@@ -653,7 +669,7 @@ function exibirMarcadores(tipoClasse, entidade) { //Função responsável para M
               <p class="popupTipo" style="margin: 0px"> ${entidade[n].getTipo()} </p>
               <div id=popupBtnContainer>
                 <a class="popupBtnConheca" style="color: black;" href=" ${entidade[n].getSite()}" target='_blank'>Conheça Mais</a>
-                <a class="popupBtnCompartilhar" data-key ="${entidade[n].getMarkerKey()}" onclick="criarURLCompartilhamento(this)"> <i class="fas fa-share-alt"> </i></a>
+                <a class="popupBtnCompartilhar" data-key ="${entidade[n].getMarkerKey()}" onclick="criarURLCompartilhamento(this)" title="Compartilhar"> <i class="fas fa-share-alt"> </i></a>
               </div>
             </div>`)
 
@@ -666,13 +682,13 @@ function exibirMarcadores(tipoClasse, entidade) { //Função responsável para M
   }
 }
 
-function criarURLCompartilhamento (componente){
+function criarURLCompartilhamento(componente) {
   //alert(componente.getAttribute("data-key"))
 
   let URL = location.href.split("?", 1) + "?share?" + componente.getAttribute("data-key")
 
   navigator.clipboard.writeText(URL)
-  
+
   alert("O link desta entidade foi copiado para sua área de transferência. Compartilhe com seus amigos.")
 
   //window.location = "index.html?" + componente.getAttribute("data-key")
