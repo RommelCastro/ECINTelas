@@ -535,7 +535,7 @@ function startupCheck() {
   else {
 
     $('#startupType').attr('style', 'display: none;');
-    
+
     document.getElementById("filtroStartup").value = 1
   }
 }
@@ -642,8 +642,19 @@ function exibirMarcadores(tipoClasse, entidade) { //Função responsável para M
           let imgPop = document.createElement("imgPop");
           imgPop.src = entidade[n].getURL()
 
+          /*marcador[entidade[n].getMarkerKey()] = L.marker([entidade[n].getLat(), entidade[n].getLng()], { icon: Icone })
+            .bindPopup("<div><img src='" + imgPop.src + "' style='width: 70px;height: 70px;display:block;position: relative; left: 50%;transform: translate(-50%);'></img> <h6 style='font-weight: bold; margin-top:5px; margin-bottom:0;text-align: center;'>" + entidade[n].getNome() + "</h6><p style='margin:0;text-align: center;'>" + entidade[n].getTipo() + "</p><a class='btn btn-secondary btn-sm btn-block' href=" + entidade[n].getSite() + " target='_blank' style='margin-top:5px;color:white;'>Conheça Mais</a></div>")*/
+
           marcador[entidade[n].getMarkerKey()] = L.marker([entidade[n].getLat(), entidade[n].getLng()], { icon: Icone })
-            .bindPopup("<div><img src='" + imgPop.src + "' style='width: 70px;height: 70px;display:block;position: relative; left: 50%;transform: translate(-50%);'></img> <h6 style='font-weight: bold; margin-top:5px; margin-bottom:0;text-align: center;'>" + entidade[n].getNome() + "</h6><p style='margin:0;text-align: center;'>" + entidade[n].getTipo() + "</p><a class='btn btn-secondary btn-sm btn-block' href=" + entidade[n].getSite() + " target='_blank' style='margin-top:5px;color:white;'>Conheça Mais</a></div>")
+            .bindPopup(`
+            <div>
+              <img class="popupImg" src="${imgPop.src}"></img> 
+              <h6 class="popupNome"> ${entidade[n].getNome()} </h6>
+              <p class="popupTipo"> ${entidade[n].getTipo()} </p>
+              <a class='btn btn-secondary btn-sm btn-block' href=" ${entidade[n].getSite()}" target='_blank' style='margin-top:5px;color:white;'>Conheça Mais</a>
+            </div>`)
+
+
           markersLayer.addLayer(marcador[entidade[n].getMarkerKey()]);
 
           markersLayer.addTo(map);

@@ -466,7 +466,7 @@
     .navbar {
         width: inherit;
     }
-    #opcaoCadastro{
+    #opcaoCadastro {
         display: none;
     }
     .dropdownHeader {
@@ -928,4 +928,27 @@
     .modal-footer {
         background: white;
     }
+}
+
+/*ELEMENTOS DO MAPA*/
+
+.popupImg {
+    width: 70px;
+    height: 70px;
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%)
+}
+
+.popupNome {
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.popupTipo {
+    margin: 0;
+    text-align: center;
 }
