@@ -689,7 +689,7 @@ function criarURLCompartilhamento(componente) {
 
   navigator.clipboard.writeText(URL)
 
-  alert("O link desta entidade foi copiado para sua área de transferência. Compartilhe com seus amigos.")
+  alert("Link da entidade copiado!")
 
   //window.location = "index.html?" + componente.getAttribute("data-key")
 }
