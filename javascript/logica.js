@@ -669,7 +669,7 @@ function exibirMarcadores(tipoClasse, entidade) { //Função responsável para M
 function criarURLCompartilhamento (componente){
   //alert(componente.getAttribute("data-key"))
 
-  let URL = location.href + "?share?" + componente.getAttribute("data-key")
+  let URL = location.href.split("?", 1) + "?share?" + componente.getAttribute("data-key")
 
   navigator.clipboard.writeText(URL)
   
