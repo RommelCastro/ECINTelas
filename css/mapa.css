@@ -932,23 +932,76 @@
 
 /*ELEMENTOS DO MAPA*/
 
+#popupContainer {
+    width: 170px;
+    height: auto;
+
+    padding: 5px;
+}
+
 .popupImg {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     display: block;
     position: relative;
     left: 50%;
-    transform: translate(-50%)
+    transform: translate(-50%);
+
+    margin: 0px 0px 5px 0px;
 }
 
 .popupNome {
+    font-size: 17px;
     font-weight: bold;
-    margin-top: 5px;
-    margin-bottom: 0px;
     text-align: center;
 }
 
 .popupTipo {
     margin: 0px 0px;
     text-align: center;
+}
+
+#popupBtnContainer{
+    display: flex;
+    justify-content: center;
+
+    margin: 5px 0px 0px 0px;
+}
+
+.popupBtnConheca {
+    display: block;
+    width: max-content;
+    height: auto;
+
+    border: solid 1px none;
+    border-radius: 3px;
+
+    padding: 5px;
+    margin: 5px 2px 0px 0px;
+
+    font-size: 12px;
+    background: #3D996D;
+    font-weight: bold;
+    color: black;
+}
+
+.popupBtnConheca:hover{
+    color: black;
+}
+
+.popupBtnCompartilhar {
+    margin: 5px 0px 0px 2px;
+    padding: 5px;
+
+    background: cornflowerblue;
+
+    border: solid 1px cornflowerblue;
+    border-radius: 3px;
+
+    cursor: pointer;
+}
+
+.popupBtnCompartilhar i {
+    font-size: 15px;
+    color: black;
 }

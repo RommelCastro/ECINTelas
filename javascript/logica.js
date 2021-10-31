@@ -647,13 +647,15 @@ function exibirMarcadores(tipoClasse, entidade) { //Função responsável para M
 
           marcador[entidade[n].getMarkerKey()] = L.marker([entidade[n].getLat(), entidade[n].getLng()], { icon: Icone })
             .bindPopup(`
-            <div>
+            <div id="popupContainer">
               <img class="popupImg" src="${imgPop.src}"></img> 
-              <h6 class="popupNome"> ${entidade[n].getNome()} </h6>
-              <p class="popupTipo"> ${entidade[n].getTipo()} </p>
-              <a class='btn btn-secondary btn-sm btn-block' href=" ${entidade[n].getSite()}" target='_blank' style='margin-top:5px;color:white;'>Conheça Mais</a>
+              <p class="popupNome" style="margin: 0px"> ${entidade[n].getNome()} </p>
+              <p class="popupTipo" style="margin: 0px"> ${entidade[n].getTipo()} </p>
+              <div id=popupBtnContainer>
+                <a class="popupBtnConheca" style="color: black;" href=" ${entidade[n].getSite()}" target='_blank'>Conheça Mais</a>
+                <a class="popupBtnCompartilhar" data-key ="${entidade[n].getMarkerKey()}" onclick="criarURLCompartilhamento(this)"> <i class="fas fa-share-alt"> </i></a>
+              </div>
             </div>`)
-
 
           markersLayer.addLayer(marcador[entidade[n].getMarkerKey()]);
 
@@ -662,6 +664,19 @@ function exibirMarcadores(tipoClasse, entidade) { //Função responsável para M
       }
     }
   }
+}
+
+function criarURLCompartilhamento (componente){
+  //alert(componente.getAttribute("data-key"))
+
+  let URL = location.href + "share?" + componente.getAttribute("data-key")
+
+  navigator.clipboard.writeText(URL)
+  
+  alert("O link desta entidade foi copiado para sua área de transferência. Compartilhe com seus amigos.")
+
+  //window.location = "index.html?" + componente.getAttribute("data-key")
+
 }
 
 function zoomMarcador(componente) {
