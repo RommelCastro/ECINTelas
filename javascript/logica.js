@@ -668,8 +668,8 @@ function exibirMarcadores(tipoClasse, entidade) { //Função responsável para M
               <p class="popupNome" style="margin: 0px"> ${entidade[n].getNome()} </p>
               <p class="popupTipo" style="margin: 0px"> ${entidade[n].getTipo()} </p>
               <div id=popupBtnContainer>
-                <a class="popupBtnConheca" style="color: black;" href=" ${entidade[n].getSite()}" target='_blank'>Conheça Mais</a>
-                <a class="popupBtnCompartilhar" data-key ="${entidade[n].getMarkerKey()}" onclick="criarURLCompartilhamento(this)" title="Compartilhar"> <i class="fas fa-share-alt"> </i></a>
+                <a class="btnProp popupBtnConheca" style="color: #FC6A38;" href=" ${entidade[n].getSite()}" target='_blank'>Visitar Site</a>
+                <a class="btnProp popupBtnCompartilhar" style="color: white" data-key ="${entidade[n].getMarkerKey()}" onclick="criarURLCompartilhamento(this)" title="Compartilhar">Link da Localização</i></a>
               </div>
             </div>`)
 
