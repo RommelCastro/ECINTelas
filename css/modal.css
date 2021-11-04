@@ -61,22 +61,96 @@
     padding: 8px;
 }
 
+/*Modal Compartilhamento*/
+
+.modalCompartilhamento--posicionamento {
+    top: 200px;
+}
+
+.modalCompartilhamento--dimensao {
+    width: 400px;
+}
+
+.modalCompartilhamento--header {
+    padding: 5px 15px 5px 5px;
+}
+
+.modalCompartilhamento--titulo {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.modalCompartilhamento--body {
+    display: block;
+    padding-bottom: 20px;
+}
+
+.modalCompartilhamento--divA {
+    width: inherit;
+    padding: 0px 10px 0px 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.modalCompartilhamento--iconeCheck {
+    font-size: 60px;
+    color: #00B96B;
+    height: fit-content;
+    display: contents;
+}
+
+.modalCompartilhamento--divB {
+    display: grid;
+    justify-content: center;
+}
+
+.modalCompartilhamento--conteudo {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    line-height: 20px;
+    justify-self: center;
+    margin: 10px 0px;
+}
+
+.modalCompartilhamento--input {
+    width: 250px;
+    height: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+}
+
+.modalCompartilhamento--btnCopiar {
+    width: 70px;
+    height: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    color: #FFFF;
+    margin-right: 3px;
+    border: 1px solid #3D996D;
+    ;
+    background: #3D996D;
+    ;
+}
+
+.modalCompartilhamento--footer {
+    height: 35px;
+}
+
 /*Modal filto*/
 
 @media only screen and (min-width: 800px) {
     .modalFiltro--linhaSelecao {
         display: flex;
     }
-
     .modalFiltro--coluna {
         width: 50%;
     }
-
     .modalFiltro--dimensao {
         width: 500px;
     }
-
-    .startup-check{
+    .startup-check {
         margin-right: 0px;
     }
 }
@@ -85,15 +159,13 @@
     .modalFiltro--linhaSelecao {
         display: block;
     }
-
     .modalFiltro--coluna {
         width: 100%;
     }
-
     .modalFiltro--dimensao {
         width: 300px;
     }
-    .startup-check{
+    .startup-check {
         display: none;
     }
 }
@@ -108,6 +180,3 @@
     font-size: 13px;
     margin-top: 6px;
 }
-
-
-/*Modal Cadastro*/

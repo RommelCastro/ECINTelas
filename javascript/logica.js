@@ -320,7 +320,7 @@ function executarEventoKey() {//Reconhece o evento que foi clicado na página de
   }
 }
 
-function executarShareEvent () { //é Ativado quando a página inicia
+function executarShareEvent() { //é Ativado quando a página inicia
   const key = window.location.search.slice(7);
 
   //window.history.pushState("object or string", "Title", "/new-url");
@@ -687,12 +687,29 @@ function criarURLCompartilhamento(componente) {
 
   let URL = location.href.split("?", 1) + "?share?" + componente.getAttribute("data-key")
 
-  navigator.clipboard.writeText(URL)
+  let inputURL = document.getElementById("inputCompartilhamento")
+  inputURL.value = URL
 
-  alert("Link da entidade copiado!")
+  $('#modalCompartilhamento').modal('show');
+
+  document.getElementById("btnInputCompartilhamento").addEventListener("click", function () {
+    Copiar()
+  })
+
+  function Copiar() {
+    let inputURL = document.getElementById("inputCompartilhamento")
+    inputURL.select();
+    document.execCommand('copy')
+  }
+
+  //navigator.clipboard.writeText(URL)
+
+  //alert("Link da entidade copiado!")
 
   //window.location = "index.html?" + componente.getAttribute("data-key")
 }
+
+
 
 function zoomMarcador(componente) {
   let key = componente.getAttribute("data-key");
