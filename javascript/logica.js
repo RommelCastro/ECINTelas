@@ -16,6 +16,7 @@ let ecossistema = []
 let entidadeArray
 let usuarioArray
 let arrayteste = []
+let busca_list = []
 let markersLayer = new L.LayerGroup();
 let escolhaLayer = new L.LayerGroup();
 const database = firebase.database();
@@ -320,7 +321,7 @@ function executarEventoKey() {//Reconhece o evento que foi clicado na página de
   }
 }
 
-function executarShareEvent () { //é Ativado quando a página inicia
+function executarShareEvent() { //é Ativado quando a página inicia
   const key = window.location.search.slice(7);
 
   //window.history.pushState("object or string", "Title", "/new-url");
@@ -645,6 +646,7 @@ function exibirMarcadores(tipoClasse, entidade) { //Função responsável para M
   for (var m = 0; m < tipoClasse.length; m++) {
     for (var n = 0; n < entidade.length; n++) {
 
+
       if (entidade[n].getTipo() === tipoClasse[m].getNome()) {
 
         if ((entidade[n].getTipo() === 'Startup' && entidade[n].getClassificacao() === document.getElementById("filtroStartup").value)
@@ -687,11 +689,20 @@ function criarURLCompartilhamento(componente) {
 
   let URL = location.href.split("?", 1) + "?share?" + componente.getAttribute("data-key")
 
-  navigator.clipboard.writeText(URL)
+  let inputURL = document.getElementById("inputCompartilhamento")
+  inputURL.value = URL
 
-  alert("Link da entidade copiado!")
+  $('#modalCompartilhamento').modal('show');
 
-  //window.location = "index.html?" + componente.getAttribute("data-key")
+  document.getElementById("btnInputCompartilhamento").addEventListener("click", function () {
+    Copiar()
+  })
+
+  function Copiar() {
+    let inputURL = document.getElementById("inputCompartilhamento")
+    inputURL.select();
+    document.execCommand('copy')
+  }
 }
 
 function zoomMarcador(componente) {
@@ -805,6 +816,19 @@ function receberDiaHora(dia, hora) {
   horaEvento = hora;
 }
 
+function marcadorCadastro(latlng){
+  if (marker) {
+    map.removeLayer(marker)
+  }
+  marker = L.marker(latlng).addTo(map)
+        //marker = L.marker(e.latlng)
+        .bindPopup(`<div class="row d-flex justify-content-center">
+    <h6 class="col-12 font-weight-bold">Confirmar</h6>
+    <button class="btn btn-submit btn-sm col-6 font-weight-bold" onclick="chamarModalCadastro()">Aqui!</button>
+    </div>`)
+        .openPopup();
+}
+
 function selecionarLocal() {
   /*Inicializando o Modal*/
   document.getElementById("validacaoTipoLocal").value = 1; //Inicializando o dropdown do tipo de entidade
@@ -815,31 +839,40 @@ function selecionarLocal() {
 
   escolhaLayer.clearLayers();
   let status = $("#btn-user").attr("data-status");
+  status = "logado"
   if (status === "logado") {
+
     $('#marcar_info').attr('style', 'display: all;');
 
     map.on('click', function (e) {
-      if (marker) {
+      /*if (marker) {
         map.removeLayer(marker)
         //escolhaLayer.clearLayers();
-      }
-      marker = L.marker(e.latlng).addTo(map)
+      }*/
+
+      marcadorCadastro(e.latlng)
+
+      /*marker = L.marker(e.latlng).addTo(map)
         //marker = L.marker(e.latlng)
         .bindPopup(`<div class="row d-flex justify-content-center">
     <h6 class="col-12 font-weight-bold">Confirmar</h6>
     <button class="btn btn-submit btn-sm col-6 font-weight-bold" onclick="chamarModalCadastro()">Aqui!</button>
     </div>`)
-        .openPopup();
+        .openPopup();*/
       //escolhaLayer.addLayer(marker).addTo(map);
 
       //marker = L.marker([latitude, longitude]).addTo(mymap);
 
       lat = e.latlng.lat
       lng = e.latlng.lng
+
+      LocalAdress(lat, lng)
+      
       document.getElementById('validacaoLatLocal').value = lat
       document.getElementById('validacaoLngLocal').value = lng
       document.getElementById('validacaoLatEvento').value = lat
       document.getElementById('validacaoLngEvento').value = lng
+      
     })
 
   } else {
@@ -852,37 +885,7 @@ function chamarModalCadastro() {
     alert("Selecione um local no mapa")
   } else {
     map.off('click')
-
-    document.getElementById('validacaoNomeLocal').value = ''
-    document.getElementById('validacaoSiteLocal').value = ''
-    document.getElementById('validacaoTipoLocal').value = 1
-    document.getElementById('validacaoLogradouroLocal').value = ''
-    document.getElementById('validacaoNumeroLocal').value = ''
-    document.getElementById('validacaoComplementoLocal').value = ''
-    document.getElementById('validacaoBairroLocal').value = ''
-    document.getElementById('validacaoCidadeLocal').value = ''
-    document.getElementById('validacaoUFLocal').value = 1
-    document.getElementById('validacaoCEPLocal').value = ''
-    document.getElementById('uploaderLabel1').innerHTML = 'Logo'
-    document.getElementById('uploader1').value = ''
-    uploader1SelectedFile = ''
-
-    document.getElementById('validacaoNomeEvento').value = ''
-    document.getElementById('validacaoSiteEvento').value = ''
-    document.getElementById('validacaoTipoEvento').value = 1
-    document.getElementById('areatextoEvento').value = ''
-    document.getElementById('validacaoLogradouroEvento').value = ''
-    document.getElementById('validacaoNumeroEvento').value = ''
-    document.getElementById('validacaoComplementoEvento').value = ''
-    document.getElementById('validacaoBairroEvento').value = ''
-    document.getElementById('validacaoCidadeEvento').value = ''
-    document.getElementById('validacaoUFEvento').value = 1
-    document.getElementById('validacaoCEPEvento').value = ''
-    document.getElementById('uploaderLabel2').innerHTML = 'Logo'
-    document.getElementById('uploader2').value = ''
-    document.getElementById('dtpicker').value = ''
-    uploader2SelectedFile = ''
-
+ 
     $('#ModalCadastro').modal('show');
 
     $('#marcar_info').attr('style', 'display: none;');
@@ -890,7 +893,7 @@ function chamarModalCadastro() {
 }
 
 $(document).ready(() => {
-
+/*
   $("#validacaoCEPLocal").focusout(function () {
     let cep = $("#validacaoCEPLocal").val()
 
@@ -936,6 +939,7 @@ $(document).ready(() => {
 
   $("#validacaoCEPLocal").mask("00000-000");
   $("#validacaoCEPEvento").mask("00000-000");
+  */
 
   $('#btn_sair').click(() => {
     $('#janela_oculta').attr('style', 'display: none;');
@@ -1064,3 +1068,235 @@ $(document).ready(() => {
     }
   });
 })
+
+/*Logica: Nominatin*/
+
+const ul_result_list = document.getElementById("lista-resultado");
+const searchInput = document.getElementById('location-search');
+const adressList = document.getElementById("location-search-div");
+let closeAdressListAux = true
+
+cleanSearchInput()
+
+searchInput.addEventListener('keyup', () => {
+  searchAdress()
+});
+
+searchInput.addEventListener('focus', () => {
+  searchAdress()
+})
+
+function searchAdress(){
+
+  busca_list=[]
+
+  let query = searchInput.value;
+  if(query != ""){
+    query = query + ",Ceará,Ceará"
+  }
+  
+  fetch(`https://nominatim.openstreetmap.org/search?format=json&polygon=1&addressdetails=1&q=${query}`)
+      .then(result => result.json())
+      .then(parsedResult => {
+          closeAdressList()
+          setResultList(parsedResult);
+      });
+}
+
+function LocalAdress(lat, lng){
+  let teste
+  fetch('http://nominatim.openstreetmap.org/reverse?format=json&lon=' + lng + '&lat=' + lat)
+  .then(result => result.json())
+  .then(parsedResult => {
+    adressData(parsedResult)
+  });
+}
+
+function adressData(local){
+  let Logradouro
+  let Numero
+  let Bairro
+  let Cidade
+  let CEP
+  
+  if(local.address.road === undefined){Logradouro = local.address.retail} else{Logradouro = local.address.road}
+  if(local.address.house_number === undefined){Numero = ''} else{Numero = local.address.house_number}
+  if(local.address.suburb === undefined){Bairro = ''} else{Bairro = local.address.suburb}
+  if(local.address.city === undefined){Cidade = local.address.town} else{Cidade = local.address.city}
+  if(local.address.postcode === undefined){CEP = ''} else{CEP = local.address.postcode}
+  
+  document.getElementById('validacaoNomeLocal').value = ''
+  document.getElementById('validacaoSiteLocal').value = ''
+  document.getElementById('validacaoTipoLocal').value = 1
+  document.getElementById('validacaoLogradouroLocal').value = Logradouro
+  document.getElementById('validacaoNumeroLocal').value = Numero
+  document.getElementById('validacaoComplementoLocal').value = ''
+  document.getElementById('validacaoBairroLocal').value = Bairro
+  document.getElementById('validacaoCidadeLocal').value = Cidade
+  document.getElementById('validacaoUFLocal').value = 1
+  document.getElementById('validacaoCEPLocal').value = CEP
+  document.getElementById('uploaderLabel1').innerHTML = 'Logo (Tamanho sugerido: 80 x 80 px)'
+  document.getElementById('uploader1').value = ''
+  uploader1SelectedFile = ''
+
+  document.getElementById('validacaoNomeEvento').value = ''
+  document.getElementById('validacaoSiteEvento').value = ''
+  document.getElementById('validacaoTipoEvento').value = 1
+  document.getElementById('areatextoEvento').value = ''
+  document.getElementById('validacaoLogradouroEvento').value = Logradouro
+  document.getElementById('validacaoNumeroEvento').value = Numero
+  document.getElementById('validacaoComplementoEvento').value = ''
+  document.getElementById('validacaoBairroEvento').value = Bairro
+  document.getElementById('validacaoCidadeEvento').value = Cidade
+  document.getElementById('validacaoUFEvento').value = 1
+  document.getElementById('validacaoCEPEvento').value = CEP
+  document.getElementById('uploaderLabel2').innerHTML = 'Logo (Tamanho sugerido: 80 x 80 px)'
+  document.getElementById('uploader2').value = ''
+  document.getElementById('dtpicker').value = ''
+  uploader2SelectedFile = ''
+
+  //console.log (local.address)
+}
+
+
+function setResultList(parsedResult) {
+  
+  //console.log(parsedResult[0].address.state)
+  
+  let result_list_aux = 5
+  let list_size = 0
+  let result_list = []
+
+  for (const result of parsedResult) {
+
+    //console.log(result.address)
+    let adress_status = true
+
+    if(list_size < 5){
+
+      if(result_list[0] == null){
+        result_list[0] = result
+        busca_list[0] = result
+        setAddressList(result_list[list_size], list_size)
+        list_size++
+
+        document.getElementById('lista-resultado').classList.remove('display_inativo');
+      }
+
+      else {
+
+        for(let i = 0; i < list_size; i++){
+          
+          if((result.address.road == result_list[i].address.road) && (result.address.suburb == result_list[i].address.suburb)){
+            adress_status = false
+          }
+
+        }
+
+        if(adress_status == true){
+          result_list[list_size] = result
+          busca_list[list_size] = result
+          setAddressList(result_list[list_size], list_size)
+          list_size++
+
+          //console.log(list_size)
+          //console.log(result_list[list_size -1].display_name)
+        }
+
+        }
+      }
+    } 
+
+    //console.log(result_list)
+}
+
+function setAddressList(findRoad, order){
+  
+  let enderecos
+  const li = document.createElement('li');
+
+  li.classList.add('element-list');
+  li.setAttribute("data-key", order)
+  li.setAttribute("onclick", "goToPlace(this)")
+
+  enderecos = dadosEndereco(findRoad)
+
+  li.innerHTML = 
+  `<a id="a-element-list"> 
+  ${enderecos.Rua} - ${enderecos.Bairro} - ${enderecos.Cidade}
+  </a>`
+
+  ul_result_list.appendChild(li);
+}
+
+function dadosEndereco(findRoad){
+  let Rua
+  let Bairro
+  let Cidade
+  let enderecos = {}
+
+  if(findRoad.address.road === undefined){
+    Rua = findRoad.address.retail
+  } else{
+    Rua = findRoad.address.road
+  }
+  enderecos.Rua = Rua
+
+  if(findRoad.address.suburb === undefined){
+    Bairro = "N/A"
+  } else{
+    Bairro = findRoad.address.suburb
+  }
+  enderecos.Bairro = Bairro
+
+  if(findRoad.address.city === undefined){
+    Cidade = findRoad.address.town
+  } else{
+    Cidade = findRoad.address.city
+  }
+  enderecos.Cidade = Cidade
+
+  return(enderecos)
+}
+
+function closeAdressList(){
+  document.getElementById('lista-resultado').classList.add('display_inativo');
+  
+  ul_result_list.innerHTML = "";
+}
+
+function cleanSearchInput(){
+  searchInput.value = ""
+}
+
+function goToPlace(componente){
+  let lista= componente.getAttribute("data-key");
+  const position = new L.LatLng(busca_list[lista].lat, busca_list[lista].lon);
+  map.flyTo(position, 19);
+
+  closeAdressListAux = true
+  closeAdressList()
+}
+
+map.addEventListener('mousedown', () => {
+  if(closeAdressListAux){closeAdressList()}
+})
+
+adressList.addEventListener('mouseleave', () => {
+  closeAdressListAux = true
+})
+
+adressList.addEventListener('mouseenter', () => {
+  closeAdressListAux = false
+  map.off("click")
+})
+
+adressList.addEventListener('click', () => {
+  $('#marcar_info').attr('style', 'display: none;');
+    map.off('click');
+    map.removeLayer(marker);
+})
+
+
+
+
